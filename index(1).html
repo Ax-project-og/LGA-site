@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>LG Advisory | Laurent Gayet, conseil patrimonial et fiscal</title>
+  <meta name="description" content="LG Advisory, cabinet de conseil patrimonial fondé par Laurent Gayet, docteur en droit, ancien inspecteur des impôts et ancien Deputy CEO d'AXA Wealth Europe. Fiscalité, transmission, assurance-vie et mobilité internationale.">
+  <meta property="og:title" content="LG Advisory | Conseil financier indépendant">
+  <meta property="og:description" content="La rigueur d'un fiscaliste, le regard d'un gestionnaire de patrimoine.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lg-advisory.eu/">
+  <link rel="canonical" href="https://lg-advisory.eu/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231F3A32'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23C9A66B' text-anchor='middle'%3ELG%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- Tokens ---------- */
+    :root {
+      --paper: #F3F5F1;
+      --surface: #E6EBE4;
+      --ink: #1F3A32;
+      --ink-soft: #52655C;
+      --brass: #A8844B;
+      --brass-strong: #8C6C38;
+      --rule: #CCD5CE;
+      --deep: #1F3A32;
+      --on-deep: #EEF1EC;
+      --on-deep-soft: #B7C4BC;
+
+      --serif: "Libre Caslon Display", "Baskerville", "Georgia", serif;
+      --sans: "Figtree", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+      --wrap: 72rem;
+      --gutter: clamp(1.25rem, 5vw, 3rem);
+      --section: clamp(4.5rem, 10vw, 8rem);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #13221D;
+        --surface: #1B2F28;
+        --ink: #E6EBE5;
+        --ink-soft: #A3B3AA;
+        --brass: #C9A66B;
+        --brass-strong: #D9B97F;
+        --rule: #2C4139;
+        --deep: #0E1A16;
+        --on-deep: #E6EBE5;
+        --on-deep-soft: #9FB0A6;
+      }
+    }
+
+    /* ---------- Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(5rem + env(safe-area-inset-top, 0px));
+    }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    :focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+    .wrap {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 1rem;
+      background: var(--ink);
+      color: var(--paper);
+      padding: .5rem 1rem;
+      z-index: 100;
+    }
+    .skip:focus { left: 1rem; }
+
+    h1, h2, h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    h2 {
+      font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+      line-height: 1.15;
+    }
+    h3 {
+      font-size: 1.45rem;
+      line-height: 1.25;
+    }
+    p { margin: 0; }
+
+    /* ---------- Buttons & links ---------- */
+    .btn {
+      display: inline-block;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      padding: .85rem 1.5rem;
+      border-radius: 3px;
+      transition: background-color .2s, color .2s, border-color .2s;
+    }
+    .btn-primary {
+      background: var(--ink);
+      color: var(--paper);
+      border: 1px solid var(--ink);
+    }
+    .btn-primary:hover { background: var(--brass-strong); border-color: var(--brass-strong); }
+    .btn-quiet {
+      color: var(--ink);
+      border: 1px solid var(--rule);
+    }
+    .btn-quiet:hover { border-color: var(--ink); }
+    .text-link {
+      color: var(--ink);
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid var(--brass);
+      padding-bottom: 2px;
+    }
+    .text-link:hover { color: var(--brass-strong); }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in srgb, var(--paper) 92%, transparent);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid transparent;
+      padding-top: env(safe-area-inset-top, 0px);
+      transition: border-color .2s;
+    }
+    .site-header.scrolled { border-bottom-color: var(--rule); }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.5rem;
+    }
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: .6rem;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .brand-mark {
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+    .brand-name {
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+    }
+    .nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav a {
+      text-decoration: none;
+      font-size: .975rem;
+      color: var(--ink-soft);
+      transition: color .2s;
+    }
+    .nav a:hover { color: var(--ink); }
+    .nav .nav-cta {
+      color: var(--ink);
+      font-weight: 500;
+      border: 1px solid var(--ink);
+      padding: .5rem 1rem;
+      border-radius: 3px;
+    }
+    .nav .nav-cta:hover { background: var(--ink); color: var(--paper); }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      color: var(--ink);
+      font: 500 .95rem var(--sans);
+      padding: .5rem .9rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 860px) {
+      .menu-toggle { display: block; }
+      .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--paper);
+        border-bottom: 1px solid var(--rule);
+        display: none;
+      }
+      .nav.open { display: block; }
+      .nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: .5rem var(--gutter) 1.5rem;
+      }
+      .nav li a {
+        display: block;
+        padding: .9rem 0;
+        border-bottom: 1px solid var(--rule);
+        font-size: 1.05rem;
+      }
+      .nav li:last-child a {
+        margin-top: 1.25rem;
+        text-align: center;
+        border: 1px solid var(--ink);
+      }
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(8rem, 15vw, 12rem);
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: clamp(2.5rem, 6vw, 5rem);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: clamp(2.3rem, 4.8vw, 3.7rem);
+      line-height: 1.08;
+      margin-bottom: 1.75rem;
+      max-width: 17ch;
+    }
+    .hero-lead {
+      font-size: 1.15rem;
+      color: var(--ink-soft);
+      max-width: 34rem;
+      margin-bottom: 2.25rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .9rem;
+    }
+
+    .portrait {
+      margin: 0;
+      justify-self: end;
+      width: 100%;
+      max-width: 22rem;
+    }
+    .portrait-frame {
+      aspect-ratio: 4 / 5;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .portrait-initials {
+      font-family: var(--serif);
+      font-size: clamp(5rem, 12vw, 8rem);
+      color: var(--brass);
+      letter-spacing: -3px;
+      line-height: 1;
+    }
+    .portrait figcaption {
+      margin-top: .9rem;
+      font-size: .925rem;
+      color: var(--ink-soft);
+    }
+    .portrait figcaption strong {
+      display: block;
+      color: var(--ink);
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .hero-curve {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: clamp(5rem, 11vw, 9rem);
+      pointer-events: none;
+    }
+    .hero-curve .line {
+      fill: none;
+      stroke: var(--brass);
+      stroke-width: 2;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      opacity: .55;
+      animation: draw 2.8s cubic-bezier(.65,0,.35,1) .4s forwards;
+    }
+    .hero-curve .base {
+      stroke: var(--rule);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .portrait {
+        justify-self: start;
+        max-width: 16rem;
+      }
+    }
+
+    /* ---------- Sections ---------- */
+    .section { padding: var(--section) 0; }
+    .section + .section { border-top: 1px solid var(--rule); }
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 4rem;
+      align-items: end;
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+    .section-head p {
+      color: var(--ink-soft);
+      max-width: 32rem;
+    }
+    @media (max-width: 760px) {
+      .section-head { grid-template-columns: 1fr; }
+    }
+
+    /* Expertise */
+    .expertise-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: clamp(2rem, 5vw, 4rem);
+    }
+    .expertise-list li {
+      border-top: 1px solid var(--ink);
+      padding: 1.5rem 0 2.75rem;
+    }
+    .expertise-list h3 { margin-bottom: .75rem; }
+    .expertise-list p {
+      color: var(--ink-soft);
+      max-width: 30rem;
+    }
+    @media (max-width: 760px) {
+      .expertise-list { grid-template-columns: 1fr; }
+    }
+
+    /* Démarche */
+    .steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(2rem, 4vw, 3rem);
+      counter-reset: step;
+    }
+    .steps li { counter-increment: step; }
+    .steps li::before {
+      content: counter(step);
+      display: block;
+      font-family: var(--serif);
+      font-size: 3.25rem;
+      line-height: 1;
+      color: var(--brass);
+      margin-bottom: 1.25rem;
+    }
+    .steps h3 { margin-bottom: .6rem; }
+    .steps p { color: var(--ink-soft); }
+    @media (max-width: 760px) {
+      .steps { grid-template-columns: 1fr; }
+    }
+
+    /* Parcours */
+    .parcours-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: clamp(2.5rem, 6vw, 5rem);
+      align-items: start;
+    }
+    .parcours-text h2 { margin-bottom: 1.5rem; }
+    .parcours-text > p {
+      margin-bottom: 1.25rem;
+      max-width: 36rem;
+    }
+    .parcours-quote {
+      margin: 2.5rem 0 0;
+      font-family: var(--serif);
+      font-size: clamp(1.45rem, 2.6vw, 1.85rem);
+      line-height: 1.3;
+      border-left: 2px solid var(--brass);
+      padding-left: 1.5rem;
+      max-width: 30rem;
+    }
+    .parcours-quote footer {
+      margin-top: 1rem;
+      font-family: var(--sans);
+      font-size: .925rem;
+      color: var(--ink-soft);
+    }
+    .timeline {
+      list-style: none;
+      margin: .5rem 0 0;
+      padding: 0;
+      border-left: 1px solid var(--rule);
+    }
+    .timeline li {
+      position: relative;
+      padding: 0 0 1.6rem 1.75rem;
+    }
+    .timeline li:last-child { padding-bottom: 0; }
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: -4px;
+      top: .45rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 1px solid var(--ink-soft);
+    }
+    .timeline li.current::before {
+      background: var(--brass);
+      border-color: var(--brass);
+    }
+    .timeline .years {
+      display: block;
+      font-size: .875rem;
+      color: var(--ink-soft);
+    }
+    .timeline .role {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      line-height: 1.3;
+      margin: .15rem 0 .1rem;
+    }
+    .timeline .org {
+      font-size: .95rem;
+      color: var(--ink-soft);
+    }
+    @media (max-width: 860px) {
+      .parcours-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Publications */
+    .articles {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--rule);
+    }
+    .articles li { border-bottom: 1px solid var(--rule); }
+    .articles a {
+      display: grid;
+      grid-template-columns: 9rem 1fr auto;
+      gap: 1rem 2.5rem;
+      align-items: baseline;
+      padding: 1.6rem 0;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .articles time {
+      font-size: .925rem;
+      color: var(--ink-soft);
+    }
+    .articles h3 {
+      font-size: 1.35rem;
+      transition: color .2s;
+    }
+    .articles a:hover h3 { color: var(--brass-strong); }
+    .articles .source {
+      font-size: .925rem;
+      color: var(--ink-soft);
+      text-align: right;
+    }
+    .articles-more { margin-top: 2.25rem; }
+    @media (max-width: 760px) {
+      .articles a {
+        grid-template-columns: 1fr;
+        gap: .35rem;
+      }
+      .articles .source { text-align: left; }
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--deep);
+      color: var(--on-deep);
+      padding: var(--section) 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: clamp(2.5rem, 6vw, 5rem);
+      align-items: end;
+    }
+    .contact h2 {
+      font-size: clamp(2.2rem, 4.6vw, 3.4rem);
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .contact p { color: var(--on-deep-soft); max-width: 32rem; }
+    .contact-details {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .contact-details dt {
+      font-size: .925rem;
+      color: var(--on-deep-soft);
+      margin-bottom: .2rem;
+    }
+    .contact-details dd {
+      margin: 0;
+      font-size: 1.15rem;
+    }
+    .contact-details a {
+      color: var(--on-deep);
+      text-decoration: none;
+      border-bottom: 1px solid var(--brass);
+      padding-bottom: 2px;
+    }
+    .contact-details a:hover { color: #C9A66B; }
+    .contact .btn-primary {
+      background: #C9A66B;
+      border-color: #C9A66B;
+      color: #13221D;
+      margin-top: 2rem;
+    }
+    .contact .btn-primary:hover { background: var(--on-deep); border-color: var(--on-deep); }
+    @media (max-width: 760px) {
+      .contact-grid { grid-template-columns: 1fr; align-items: start; }
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 3rem 0 2.5rem;
+      font-size: .925rem;
+      color: var(--ink-soft);
+    }
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .footer-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem 1.75rem;
+    }
+    .footer-nav a { text-decoration: none; }
+    .footer-nav a:hover { color: var(--ink); }
+    .footer-legal {
+      padding-top: 1.75rem;
+      display: grid;
+      gap: .75rem;
+      max-width: 52rem;
+      font-size: .85rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero-curve .line { animation: none; stroke-dashoffset: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header" id="haut">
+    <div class="wrap header-inner">
+      <a class="brand" href="#haut" aria-label="LG Advisory, retour en haut de page">
+        <span class="brand-mark">LG</span>
+        <span class="brand-name">Advisory</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#demarche">Démarche</a></li>
+          <li><a href="#parcours">Parcours</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a class="nav-cta" href="#contact">Prendre rendez-vous</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>La rigueur d'un fiscaliste, le regard d'un gestionnaire de patrimoine.</h1>
+          <p class="hero-lead">
+            Inspecteur des impôts, avocat fiscaliste, puis dirigeant chez Crédit Suisse et AXA
+            jusqu'au poste de Deputy CEO d'AXA Wealth Europe : Laurent Gayet met près de
+            quarante ans d'expérience au service de vos décisions patrimoniales.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Prendre rendez-vous</a>
+            <a class="btn btn-quiet" href="#parcours">Découvrir son parcours</a>
+          </div>
+        </div>
+
+        <figure class="portrait">
+          <div class="portrait-frame">
+            <!-- Remplacer ce bloc par la photo : <img src="laurent-gayet.jpg" alt="Portrait de Laurent Gayet"> -->
+            <span class="portrait-initials" aria-hidden="true">LG</span>
+          </div>
+          <figcaption>
+            <strong>Laurent Gayet</strong>
+            Docteur en droit, fondateur de LG Advisory
+          </figcaption>
+        </figure>
+      </div>
+
+      <svg class="hero-curve" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+        <path class="line" pathLength="1"
+              d="M 0 190 C 120 188, 200 182, 290 168 S 430 150, 500 128 S 620 100, 700 82 S 860 40, 1000 12" />
+      </svg>
+    </section>
+
+    <!-- ================= EXPERTISE ================= -->
+    <section class="section" id="expertise">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Domaines d'expertise</h2>
+          <p>
+            Un patrimoine se structure au croisement du droit, de la fiscalité et de la finance.
+            LG Advisory intervient sur ces trois plans à la fois, pour des familles, des dirigeants
+            et des professionnels du patrimoine.
+          </p>
+        </div>
+
+        <ul class="expertise-list">
+          <li>
+            <h3>Fiscalité et droit du patrimoine</h3>
+            <p>Analyser l'impact fiscal de vos choix avant de les faire, avec le regard de quelqu'un qui a été inspecteur des impôts puis avocat fiscaliste.</p>
+          </li>
+          <li>
+            <h3>Transmission et succession</h3>
+            <p>Anticiper la transmission entre générations, organiser donations et démembrements, et préserver l'équilibre familial autant que le patrimoine.</p>
+          </li>
+          <li>
+            <h3>Assurance-vie française et luxembourgeoise</h3>
+            <p>Choisir et structurer les contrats les plus adaptés, en s'appuyant sur une connaissance de l'intérieur des offres d'assurance-vie haut de gamme, en France comme au Luxembourg.</p>
+          </li>
+          <li>
+            <h3>Mobilité internationale</h3>
+            <p>Accompagner les familles dont la vie ou le patrimoine dépasse les frontières : expatriation, retour en France, biens ou héritiers à l'étranger.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= DÉMARCHE ================= -->
+    <section class="section" id="demarche">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Une démarche en trois temps</h2>
+          <p>
+            La technique est indispensable, mais le conseil reste une affaire humaine :
+            du temps, de l'écoute et des explications claires à chaque étape.
+          </p>
+        </div>
+
+        <ol class="steps">
+          <li>
+            <h3>Diagnostic</h3>
+            <p>Un premier échange pour comprendre votre situation familiale, professionnelle et fiscale, puis une analyse complète de votre patrimoine.</p>
+          </li>
+          <li>
+            <h3>Stratégie</h3>
+            <p>Des recommandations écrites et argumentées, avec leurs effets fiscaux chiffrés, leurs limites et les alternatives possibles.</p>
+          </li>
+          <li>
+            <h3>Coordination et suivi</h3>
+            <p>Un travail en lien avec votre notaire, votre avocat et votre banquier, et des points réguliers pour ajuster la stratégie quand la loi ou votre vie évoluent.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= PARCOURS ================= -->
+    <section class="section" id="parcours">
+      <div class="wrap parcours-grid">
+        <div class="parcours-text">
+          <h2>Parcours</h2>
+          <p>
+            Docteur en droit, Laurent Gayet a commencé sa carrière au ministère des Finances
+            comme inspecteur des impôts. Il a ensuite exercé comme fiscaliste en banque,
+            directeur fiscal, puis avocat chez Landwell (PwC), avant de prendre la direction
+            de l'ingénierie patrimoniale du Crédit Suisse en France.
+          </p>
+          <p>
+            Chez AXA, il a créé et dirigé la direction juridique et fiscale du droit du patrimoine,
+            puis la gestion privée et l'expertise patrimoniale des réseaux AXA France. À Luxembourg,
+            il a ensuite dirigé le wealth management d'AXA Wealth Europe, dont il est devenu Deputy CEO.
+          </p>
+          <p>
+            Il a fondé LG Advisory pour offrir cette expérience directement à ses clients,
+            dans un cadre indépendant.
+          </p>
+
+          <blockquote class="parcours-quote">
+            <p>« Le gestionnaire de patrimoine est un généraliste des spécialités. »</p>
+            <footer>Laurent Gayet, Décideurs Magazine</footer>
+          </blockquote>
+        </div>
+
+        <!-- Vérifier les dates, en particulier la fin de la période AXA Wealth Europe -->
+        <ol class="timeline" aria-label="Étapes de carrière">
+          <li class="current">
+            <span class="years">2026</span>
+            <span class="role">Fondateur</span>
+            <span class="org">LG Advisory</span>
+          </li>
+          <li>
+            <span class="years">2015 – 2025</span>
+            <span class="role">Directeur Wealth Management, puis Deputy CEO</span>
+            <span class="org">AXA Wealth Europe, Luxembourg</span>
+          </li>
+          <li>
+            <span class="years">2010 – 2015</span>
+            <span class="role">Directeur AXA Gestion Privée, puis directeur clientèle privée et expertise patrimoniale</span>
+            <span class="org">AXA France</span>
+          </li>
+          <li>
+            <span class="years">2004 – 2010</span>
+            <span class="role">Directeur juridique et fiscal, droit du patrimoine</span>
+            <span class="org">AXA France</span>
+          </li>
+          <li>
+            <span class="years">2002 – 2004</span>
+            <span class="role">Directeur de l'ingénierie patrimoniale</span>
+            <span class="org">Crédit Suisse (France)</span>
+          </li>
+          <li>
+            <span class="years">2000 – 2002</span>
+            <span class="role">Avocat fiscaliste</span>
+            <span class="org">Landwell (PwC)</span>
+          </li>
+          <li>
+            <span class="years">1993 – 1999</span>
+            <span class="role">Directeur fiscal</span>
+            <span class="org">Crédit immobilier de France</span>
+          </li>
+          <li>
+            <span class="years">1990 – 1992</span>
+            <span class="role">Fiscaliste</span>
+            <span class="org">Crédit Commercial de France</span>
+          </li>
+          <li>
+            <span class="years">1985 – 1990</span>
+            <span class="role">Inspecteur des impôts</span>
+            <span class="org">Ministère des Finances</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= PUBLICATIONS ================= -->
+    <section class="section" id="publications">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Publications et interventions</h2>
+          <p>
+            Près de vingt tribunes, entretiens et interventions dans la presse patrimoniale,
+            sur la fiscalité, l'assurance-vie, la transmission et les évolutions du métier.
+          </p>
+        </div>
+
+        <!-- Les trois publications les plus récentes (voir publications.html) -->
+        <ul class="articles">
+          <li>
+            <a href="https://www.h24finance.com/news/axa-wealth-europe-le-contrat-d-assurance-vie-luxembourgeois-toujours-en-haut-de-l-affiche.html" target="_blank" rel="noopener">
+              <time datetime="2025">2025</time>
+              <h3>Le contrat d&#x27;assurance-vie luxembourgeois, toujours en haut de l&#x27;affiche</h3>
+              <span class="source">H24Finance</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.hubfinance.com/actualites/interview-avec-laurent-gayet-axa-wealth" target="_blank" rel="noopener">
+              <time datetime="2025">2025</time>
+              <h3>L&#x27;avenir du wealth planning, entre transmission et quête de sens</h3>
+              <span class="source">HubFinance</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.decideurs-magazine.com/patrimoine-am/55408-laurent-gayet-axa-wealth-europe-les-gerants-de-fonds-monetaires-et-les-fonds-euro-boostes-des-assureurs-retrouvent-leur-attrait-dans-le-contexte-inflationniste-mais-est-ce-durable-2.html" target="_blank" rel="noopener">
+              <time datetime="2023">2023</time>
+              <h3>Fonds monétaires et fonds euros boostés : un regain d&#x27;attrait durable ?</h3>
+              <span class="source">Décideurs Magazine</span>
+            </a>
+          </li>
+        </ul>
+
+        <p class="articles-more">
+          <a class="text-link" href="publications.html">Voir toutes les publications</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <h2>Parlons de votre patrimoine.</h2>
+          <p>
+            Un premier échange permet de faire le point sur votre situation et de voir
+            comment LG Advisory peut vous accompagner. Il est sans engagement.
+          </p>
+          <a class="btn btn-primary" href="mailto:contact@lg-advisory.eu?subject=Demande%20de%20rendez-vous">Demander un rendez-vous</a>
+        </div>
+
+        <dl class="contact-details">
+          <div>
+            <dt>E-mail</dt>
+            <dd><a href="mailto:contact@lg-advisory.eu">contact@lg-advisory.eu</a></dd>
+          </div>
+          <!-- Décommenter et compléter si besoin
+          <div>
+            <dt>Téléphone</dt>
+            <dd><a href="tel:+33100000000">01 00 00 00 00</a></dd>
+          </div>
+          -->
+          <div>
+            <dt>Rendez-vous</dt>
+            <dd>En présentiel ou en visioconférence</dd>
+          </div>
+          <div>
+            <dt>Langues</dt>
+            <dd>Français, anglais</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <span>© <span id="year">2026</span> LG Advisory</span>
+        <nav class="footer-nav" aria-label="Pied de page">
+          <ul>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#parcours">Parcours</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-legal">
+        <!-- À compléter selon le statut réglementaire du cabinet, par exemple :
+        <p>LG Advisory, [forme juridique] au capital de [montant] €, SIREN [numéro].
+        Conseiller en investissements financiers (CIF) membre de [association agréée par l'AMF].
+        Immatriculé à l'ORIAS sous le n° [numéro] (www.orias.fr).</p>
+        -->
+        <p>
+          Les informations présentées sur ce site ont un caractère général et ne constituent
+          pas un conseil personnalisé. Tout investissement comporte des risques, notamment
+          de perte en capital.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Année du copyright
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Menu mobile
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.getElementById("nav");
+    toggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open);
+      toggle.textContent = open ? "Fermer" : "Menu";
+    });
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.textContent = "Menu";
+      });
+    });
+
+    // Bordure de l'en-tête au défilement
+    const header = document.querySelector(".site-header");
+    const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  </script>
+</body>
+</html>
