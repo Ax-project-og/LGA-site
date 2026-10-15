@@ -13,11 +13,33 @@
   <meta property="og:image" content="https://lg-advisory.eu/portrait.jpg">
   <link rel="canonical" href="https://lg-advisory.eu/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231F3A32'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23C9A66B' text-anchor='middle'%3ELG%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@1&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/libre-caslon-display.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
+    /* ---------- Polices (hébergées sur le site : aucun appel à Google) ---------- */
+    @font-face {
+      font-family: "Libre Caslon Display";
+      src: url("fonts/libre-caslon-display.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Libre Caslon Text";
+      src: url("fonts/libre-caslon-text-italic.woff2") format("woff2");
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Figtree";
+      src: url("fonts/figtree.woff2") format("woff2");
+      font-weight: 300 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
     /* ---------- Tokens ---------- */
     /* Identité fixe : sections vert profond et sections ivoire alternées, accents laiton.
        Pas de bascule automatique en mode sombre : l'alternance fait partie du design. */
@@ -1469,6 +1491,7 @@
             <li><a href="mailto:contact@lg-advisory.eu">contact@lg-advisory.eu</a></li>
             <li><a href="#contact">Prendre rendez-vous</a></li>
             <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="confidentialite.html">Confidentialité</a></li>
           </ul>
         </div>
       </div>

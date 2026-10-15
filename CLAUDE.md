@@ -18,6 +18,11 @@ Ce fichier guide Claude Code sur ce dépôt. C'est une ébauche : à enrichir au
 - `publications.html` : liste complète des publications par année, avec filtres par type (tribune / entretien / intervention).
   Même design que l'index : en-tête vert, barre de filtres qui chevauche, cartes par année, bandeau presse.
 - `portrait.jpg` : photo de Laurent Gayet (carrée, 1149 px), utilisée dans le hero et la signature du Parcours.
+- `mentions-legales.html` et `confidentialite.html` : pages légales (sommaire latéral, sections numérotées).
+  Les informations manquantes sont balisées `<mark class="todo">[À compléter : …]</mark>` (surlignées en jaune).
+- `fonts/` : polices auto-hébergées (woff2, sous-ensemble latin) déclarées en `@font-face` en tête du CSS
+  de chaque page. **Ne pas réintroduire Google Fonts** ni aucun service tiers (CDN, statistiques, cookies)
+  sans mettre à jour `confidentialite.html`, qui affirme que le site ne dépose aucun cookie ni ne contacte de tiers.
 - Pas de build, pas de dépendances, pas de tests. Aperçu local : ouvrir le fichier dans un navigateur.
 
 ## Design (index.html, référence pour les autres pages)
@@ -45,6 +50,8 @@ Ce fichier guide Claude Code sur ce dépôt. C'est une ébauche : à enrichir au
 - Liens de nav : ancres `#section` dans `index.html`, `index.html#section` depuis les autres pages ;
   `aria-current="page"` sur la page active.
 - Utiliser les variables CSS, pas de couleurs en dur.
+- Nouvelle page : partir d'une page existante (en-tête, rosace, footer, script commun) et ajouter le lien
+  dans la nav et/ou le footer de toutes les pages.
 - Accessibilité à préserver : lien d'évitement, `:focus-visible`, `aria-expanded` sur le menu,
   `aria-pressed` sur les filtres, `prefers-reduced-motion`, `lang="fr"`, `alt` sur les images de contenu.
 - Liens externes : `target="_blank" rel="noopener"`.
@@ -66,11 +73,12 @@ Ce fichier guide Claude Code sur ce dépôt. C'est une ébauche : à enrichir au
 - Rédaction en français soigné, typographie française (espaces avant `: ; ? !`, guillemets « »).
 
 ## À faire / éléments en attente
-- `mentions-legales.html` : lien présent dans le footer mais page inexistante.
-- Mentions réglementaires (forme juridique, SIREN, statut CIF / ORIAS…) : commentées dans le footer, à compléter.
+- Compléter tous les `[À compléter]` des pages légales (`grep -n "class=\"todo\"" *.html`) : forme juridique,
+  SIREN, siège, ORIAS, statut CIF et association AMF, RC pro, médiateur, hébergeur, photographe, date de mise en ligne.
+  **Aucune mise en ligne tant qu'il en reste.** Reporter aussi les mentions réglementaires dans le footer (bloc commenté).
 - Téléphone (bloc commenté dans Contact).
 - Dates à vérifier : fin de période AXA Wealth Europe (timeline) et publications marquées « année à vérifier ».
-- Sitemap, `robots.txt`, politique de confidentialité (RGPD) avant mise en ligne.
+- Sitemap, `robots.txt`, image de partage `og:image` au format 1200×630.
 
 ## Pistes d'évolution (non décidées)
 - Factoriser le CSS commun dans un fichier partagé (`styles.css`) dès qu'une 3e page arrive.

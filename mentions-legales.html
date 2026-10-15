@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mentions légales | LG Advisory</title>
+  <meta name="description" content="Mentions légales du site lg-advisory.eu : éditeur, hébergement, statut réglementaire et conditions d'utilisation.">
+  <meta name="theme-color" content="#1F3A32">
+  <link rel="canonical" href="https://lg-advisory.eu/mentions-legales.html">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231F3A32'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23C9A66B' text-anchor='middle'%3ELG%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/libre-caslon-display.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    /* ---------- Polices (hébergées sur le site : aucun appel à Google) ---------- */
+    @font-face {
+      font-family: "Libre Caslon Display";
+      src: url("fonts/libre-caslon-display.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Libre Caslon Text";
+      src: url("fonts/libre-caslon-text-italic.woff2") format("woff2");
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Figtree";
+      src: url("fonts/figtree.woff2") format("woff2");
+      font-weight: 300 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ---------- Tokens ---------- */
+    /* Identité fixe : sections vert profond et sections ivoire alternées, accents laiton.
+       Pas de bascule automatique en mode sombre : l'alternance fait partie du design. */
+    :root {
+      --deep: #1F3A32;
+      --deeper: #152A23;
+      --deepest: #0F1F1A;
+      --ivory: #F7F5EF;
+      --sand: #EDE8DD;
+      --card: #FFFFFF;
+      --ink: #1F3A32;
+      --ink-soft: #5B6B63;
+      --brass: #B08D57;
+      --brass-strong: #8C6C38;
+      --brass-light: #D4B886;
+      --rule: #DFD8CA;
+      --on-deep: #F1EEE6;
+      --on-deep-soft: #B5C2BA;
+      --rule-deep: rgba(212, 184, 134, .22);
+
+      --serif: "Libre Caslon Display", "Baskerville", "Georgia", serif;
+      --serif-italic: "Libre Caslon Text", "Baskerville", "Georgia", serif;
+      --sans: "Figtree", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+      --wrap: 74rem;
+      --gutter: clamp(1.25rem, 5vw, 3rem);
+      --section: clamp(4.5rem, 10vw, 8rem);
+      --shadow: 0 1px 2px rgba(15, 31, 26, .04), 0 18px 45px -18px rgba(15, 31, 26, .22);
+      --ease: cubic-bezier(.22, .61, .36, 1);
+      color-scheme: light;
+    }
+
+    /* ---------- Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(5rem + env(safe-area-inset-top, 0px));
+    }
+    body {
+      margin: 0;
+      background: var(--ivory);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    :focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+    .wrap {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 1rem;
+      background: var(--brass-light);
+      color: var(--deepest);
+      padding: .5rem 1rem;
+      z-index: 100;
+    }
+    .skip:focus { left: 1rem; }
+
+    h1, h2, h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    h1 em, h2 em, blockquote em {
+      font-family: var(--serif-italic);
+      font-style: italic;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: clamp(2rem, 3.8vw, 2.85rem);
+      line-height: 1.12;
+    }
+    h3 {
+      font-size: 1.45rem;
+      line-height: 1.25;
+    }
+    p { margin: 0; }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--brass-strong);
+      margin-bottom: 1.25rem;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 2.5rem;
+      height: 1px;
+      background: currentColor;
+    }
+    .on-deep .eyebrow { color: var(--brass-light); }
+
+    /* ---------- Buttons & links ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      padding: .95rem 1.6rem;
+      border-radius: 2px;
+      border: 1px solid transparent;
+      transition: background-color .25s, color .25s, border-color .25s, transform .25s var(--ease);
+    }
+    .btn svg { width: 1rem; height: 1rem; transition: transform .25s var(--ease); }
+    .btn:hover svg { transform: translateX(3px); }
+    .btn-brass {
+      background: var(--brass-light);
+      border-color: var(--brass-light);
+      color: var(--deepest);
+    }
+    .btn-brass:hover { background: var(--on-deep); border-color: var(--on-deep); }
+    .btn-ghost {
+      color: var(--on-deep);
+      border-color: rgba(241, 238, 230, .35);
+    }
+    .btn-ghost:hover { border-color: var(--brass-light); color: var(--brass-light); }
+    .btn-dark {
+      background: var(--deep);
+      border-color: var(--deep);
+      color: var(--on-deep);
+    }
+    .btn-dark:hover { background: var(--brass-strong); border-color: var(--brass-strong); }
+
+    /* ---------- Motif guilloché (décor) ---------- */
+    .guilloche {
+      position: absolute;
+      pointer-events: none;
+      color: var(--brass-light);
+      opacity: .14;
+    }
+    .guilloche ellipse { fill: none; stroke: currentColor; stroke-width: .6; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--deep);
+      color: var(--on-deep);
+      padding-top: env(safe-area-inset-top, 0px);
+      transition: box-shadow .3s, background-color .3s;
+    }
+    .site-header.scrolled {
+      background: color-mix(in srgb, var(--deeper) 94%, transparent);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 1px 0 var(--rule-deep), 0 10px 30px -15px rgba(0, 0, 0, .5);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.75rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      text-decoration: none;
+      color: var(--on-deep);
+    }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 2.6rem;
+      height: 2.6rem;
+      border: 1px solid var(--brass-light);
+      color: var(--brass-light);
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      line-height: 1;
+      letter-spacing: -.5px;
+      padding-top: .15rem;
+    }
+    .brand-text { display: grid; line-height: 1.15; }
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      letter-spacing: .01em;
+    }
+    .brand-tag {
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--on-deep-soft);
+    }
+    .nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 2.1rem;
+    }
+    .nav a {
+      position: relative;
+      text-decoration: none;
+      font-size: .95rem;
+      color: var(--on-deep-soft);
+      transition: color .2s;
+    }
+    .nav a:not(.nav-cta)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -.35rem;
+      height: 1px;
+      background: var(--brass-light);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s var(--ease);
+    }
+    .nav a:hover { color: var(--on-deep); }
+    .nav a:hover::after { transform: scaleX(1); }
+    .nav .nav-cta {
+      color: var(--deepest);
+      background: var(--brass-light);
+      font-weight: 500;
+      padding: .6rem 1.15rem;
+      border-radius: 2px;
+      transition: background-color .2s;
+    }
+    .nav .nav-cta:hover { background: var(--on-deep); color: var(--deepest); }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--rule-deep);
+      border-radius: 2px;
+      color: var(--on-deep);
+      font: 500 .95rem var(--sans);
+      padding: .5rem .9rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .menu-toggle { display: block; }
+      .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--deeper);
+        border-top: 1px solid var(--rule-deep);
+        box-shadow: 0 20px 30px -15px rgba(0, 0, 0, .5);
+        display: none;
+      }
+      .nav.open { display: block; }
+      .nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: .5rem var(--gutter) 1.5rem;
+      }
+      .nav li a {
+        display: block;
+        padding: .95rem 0;
+        border-bottom: 1px solid var(--rule-deep);
+        font-size: 1.05rem;
+      }
+      .nav a:not(.nav-cta)::after { display: none; }
+      .nav li:last-child a {
+        margin-top: 1.25rem;
+        text-align: center;
+        border-bottom: 0;
+      }
+    }
+    @media (max-width: 420px) {
+      .brand-tag { display: none; }
+    }
+
+    /* ---------- Sections ---------- */
+    .section { padding: var(--section) 0; }
+    .section-sand { background: var(--sand); }
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 5rem;
+      align-items: end;
+      margin-bottom: clamp(2.75rem, 5vw, 4.25rem);
+    }
+    .section-head p {
+      color: var(--ink-soft);
+      max-width: 32rem;
+      font-size: 1.075rem;
+    }
+    @media (max-width: 800px) {
+      .section-head { grid-template-columns: 1fr; }
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--deepest);
+      color: var(--on-deep-soft);
+      font-size: .925rem;
+      padding: clamp(3.5rem, 6vw, 4.5rem) 0 2.25rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 2.5rem;
+      padding-bottom: 2.75rem;
+      border-bottom: 1px solid var(--rule-deep);
+    }
+    .footer-brand p { margin-top: 1.25rem; max-width: 22rem; }
+    .site-footer h2 {
+      font-family: var(--sans);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--brass-light);
+      margin-bottom: 1.1rem;
+    }
+    .site-footer ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: .55rem;
+    }
+    .site-footer a { text-decoration: none; transition: color .2s; }
+    .site-footer a:hover { color: var(--on-deep); }
+    .footer-legal {
+      padding-top: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem 3rem;
+      font-size: .825rem;
+      color: #8A9A91;
+    }
+    .footer-legal p:last-child { max-width: 46rem; }
+    @media (max-width: 800px) {
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    /* ---------- Apparition au défilement ---------- */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease);
+      transition-delay: var(--d, 0s);
+    }
+    .js .reveal.is-in { opacity: 1; transform: none; }
+
+    /* ---------- Pages de contenu (mentions légales, confidentialité) ---------- */
+    .page-head {
+      position: relative;
+      background: var(--deep);
+      color: var(--on-deep);
+      padding: clamp(3rem, 7vw, 5rem) 0 clamp(3.5rem, 7vw, 5rem);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .page-head .guilloche {
+      width: 56rem;
+      right: -20rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: -1;
+    }
+    .crumb {
+      display: flex;
+      gap: .6rem;
+      font-size: .9rem;
+      color: var(--on-deep-soft);
+      margin-bottom: 2.25rem;
+    }
+    .crumb a { text-decoration: none; transition: color .2s; }
+    .crumb a:hover { color: var(--brass-light); }
+    .crumb span[aria-hidden] { color: var(--brass-light); }
+    .page-head h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      line-height: 1.08;
+      margin-bottom: 1.25rem;
+    }
+    .page-head h1 em { color: var(--brass-light); }
+    .page-lead {
+      font-size: 1.1rem;
+      color: var(--on-deep-soft);
+      max-width: 40rem;
+    }
+
+    .legal { padding: clamp(3.5rem, 7vw, 5.5rem) 0 var(--section); }
+    .legal-grid {
+      display: grid;
+      grid-template-columns: 15rem 1fr;
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+    .toc {
+      position: sticky;
+      top: calc(6.5rem + env(safe-area-inset-top, 0px));
+      border-left: 1px solid var(--rule);
+      padding-left: 1.25rem;
+    }
+    .toc p {
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--brass-strong);
+      margin-bottom: .9rem;
+    }
+    .toc ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: .55rem;
+      font-size: .925rem;
+    }
+    .toc a { color: var(--ink-soft); text-decoration: none; transition: color .2s; }
+    .toc a:hover { color: var(--ink); }
+    .prose { max-width: 46rem; }
+    .prose section + section {
+      margin-top: 2.75rem;
+      padding-top: 2.75rem;
+      border-top: 1px solid var(--rule);
+    }
+    .prose h2 {
+      font-size: clamp(1.6rem, 2.6vw, 2rem);
+      margin-bottom: 1.1rem;
+    }
+    .prose h2 span {
+      font-size: .55em;
+      color: var(--brass);
+      margin-right: .6rem;
+      vertical-align: .25em;
+    }
+    .prose h3 {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 .4rem;
+    }
+    .prose p, .prose ul { color: var(--ink-soft); margin: 0 0 1rem; }
+    .prose ul { padding-left: 1.2rem; }
+    .prose li + li { margin-top: .35rem; }
+    .prose li::marker { color: var(--brass); }
+    .prose a { color: var(--ink); text-decoration-color: var(--brass); text-underline-offset: 3px; }
+    .prose a:hover { color: var(--brass-strong); }
+    .prose strong { color: var(--ink); font-weight: 600; }
+    .card-info {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--brass);
+      padding: 1.4rem 1.6rem;
+      margin: 0 0 1rem;
+    }
+    .card-info dl { margin: 0; display: grid; gap: .55rem; }
+    .card-info div { display: grid; grid-template-columns: 12rem 1fr; gap: 1rem; }
+    .card-info dt { font-size: .9rem; color: var(--ink-soft); }
+    .card-info dd { margin: 0; color: var(--ink); }
+    mark.todo {
+      background: #FBEFD5;
+      color: #7A5418;
+      padding: .05rem .35rem;
+      border-radius: 2px;
+      font-size: .925em;
+    }
+    .updated { font-size: .9rem; color: var(--ink-soft); margin-top: 3rem; }
+    @media (max-width: 860px) {
+      .legal-grid { grid-template-columns: 1fr; }
+      .toc { position: static; }
+      .card-info div { grid-template-columns: 1fr; gap: .1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      *, *::before, *::after { transition-duration: 0s !important; }
+    }
+  </style>
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <!-- Rosace guillochée réutilisée comme décor (style billet de banque) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <g id="rosace" fill="none" stroke="currentColor" stroke-width=".6">
+        <ellipse id="ell" cx="0" cy="0" rx="300" ry="96" />
+        <use href="#ell" transform="rotate(6)" /><use href="#ell" transform="rotate(12)" /><use href="#ell" transform="rotate(18)" />
+        <use href="#ell" transform="rotate(24)" /><use href="#ell" transform="rotate(30)" /><use href="#ell" transform="rotate(36)" />
+        <use href="#ell" transform="rotate(42)" /><use href="#ell" transform="rotate(48)" /><use href="#ell" transform="rotate(54)" />
+        <use href="#ell" transform="rotate(60)" /><use href="#ell" transform="rotate(66)" /><use href="#ell" transform="rotate(72)" />
+        <use href="#ell" transform="rotate(78)" /><use href="#ell" transform="rotate(84)" /><use href="#ell" transform="rotate(90)" />
+        <use href="#ell" transform="rotate(96)" /><use href="#ell" transform="rotate(102)" /><use href="#ell" transform="rotate(108)" />
+        <use href="#ell" transform="rotate(114)" /><use href="#ell" transform="rotate(120)" /><use href="#ell" transform="rotate(126)" />
+        <use href="#ell" transform="rotate(132)" /><use href="#ell" transform="rotate(138)" /><use href="#ell" transform="rotate(144)" />
+        <use href="#ell" transform="rotate(150)" /><use href="#ell" transform="rotate(156)" /><use href="#ell" transform="rotate(162)" />
+        <use href="#ell" transform="rotate(168)" /><use href="#ell" transform="rotate(174)" />
+        <ellipse cx="0" cy="0" rx="300" ry="300" /><ellipse cx="0" cy="0" rx="312" ry="312" />
+        <ellipse cx="0" cy="0" rx="96" ry="96" />
+      </g>
+    </defs>
+  </svg>
+
+  <header class="site-header" id="haut">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="LG Advisory, accueil">
+        <span class="brand-mark" aria-hidden="true">LG</span>
+        <span class="brand-text">
+          <span class="brand-name">LG Advisory</span>
+          <span class="brand-tag">Conseil patrimonial</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="index.html#expertise">Expertise</a></li>
+          <li><a href="index.html#demarche">Démarche</a></li>
+          <li><a href="index.html#parcours">Parcours</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a class="nav-cta" href="index.html#contact">Prendre rendez-vous</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-head on-deep">
+      <svg class="guilloche" viewBox="-320 -320 640 640" aria-hidden="true"><use href="#rosace" /></svg>
+      <div class="wrap">
+        <nav class="crumb" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a> <span aria-hidden="true">/</span> <span>Mentions légales</span></nav>
+        <p class="eyebrow">Informations</p>
+        <h1>Mentions <em>légales</em></h1>
+        <p class="page-lead">Informations relatives à l'éditeur du site, à son hébergement et au statut réglementaire de LG Advisory.</p>
+      </div>
+    </section>
+
+    <!-- Les éléments surlignés [À compléter] doivent être renseignés avant la mise en ligne (informations à fournir par Laurent Gayet). -->
+    <div class="legal">
+      <div class="wrap legal-grid">
+        <nav class="toc" aria-label="Sommaire">
+          <p>Sommaire</p>
+          <ol>
+              <li><a href="#editeur">Éditeur du site</a></li>
+              <li><a href="#hebergement">Hébergement</a></li>
+              <li><a href="#reglementation">Statut réglementaire</a></li>
+              <li><a href="#information">Caractère des informations</a></li>
+              <li><a href="#propriete">Propriété intellectuelle</a></li>
+              <li><a href="#liens">Liens externes</a></li>
+              <li><a href="#donnees">Données personnelles</a></li>
+              <li><a href="#droit">Droit applicable</a></li>
+          </ol>
+        </nav>
+
+        <div class="prose">
+            <section id="editeur">
+              <h2><span>01</span>Éditeur du site</h2>
+              <p>Le site <strong>lg-advisory.eu</strong> est édité par&nbsp;:</p>
+              <div class="card-info"><dl>
+              <div><dt>Dénomination</dt><dd>LG Advisory</dd></div>
+              <div><dt>Forme juridique</dt><dd><mark class="todo">[À compléter&nbsp;: SAS, SASU, EURL, entreprise individuelle…]</mark></dd></div>
+              <div><dt>Capital social</dt><dd><mark class="todo">[À compléter&nbsp;: montant en euros, le cas échéant]</mark></dd></div>
+              <div><dt>Siège social</dt><dd><mark class="todo">[À compléter&nbsp;: adresse postale complète]</mark></dd></div>
+              <div><dt>SIREN / RCS</dt><dd><mark class="todo">[À compléter&nbsp;: numéro SIREN et ville du RCS]</mark></dd></div>
+              <div><dt>N° de TVA intracommunautaire</dt><dd><mark class="todo">[À compléter&nbsp;: numéro, le cas échéant]</mark></dd></div>
+              <div><dt>E-mail</dt><dd><a href="mailto:contact@lg-advisory.eu">contact@lg-advisory.eu</a></dd></div>
+              <div><dt>Téléphone</dt><dd><mark class="todo">[À compléter&nbsp;: numéro de téléphone]</mark></dd></div>
+              </dl></div>
+              <p><strong>Directeur de la publication&nbsp;:</strong> Laurent Gayet, en qualité de <mark class="todo">[À compléter&nbsp;: fonction : président, gérant…]</mark>.</p>
+            </section>
+
+            <section id="hebergement">
+              <h2><span>02</span>Hébergement</h2>
+              <p>Le site est hébergé par&nbsp;:</p>
+              <div class="card-info"><dl>
+              <div><dt>Hébergeur</dt><dd><mark class="todo">[À compléter&nbsp;: raison sociale de l'hébergeur]</mark></dd></div>
+              <div><dt>Adresse</dt><dd><mark class="todo">[À compléter&nbsp;: adresse du siège de l'hébergeur]</mark></dd></div>
+              <div><dt>Contact</dt><dd><mark class="todo">[À compléter&nbsp;: téléphone ou site web de l'hébergeur]</mark></dd></div>
+              </dl></div>
+            </section>
+
+            <section id="reglementation">
+              <h2><span>03</span>Statut réglementaire</h2>
+              <p>LG Advisory exerce une activité de conseil patrimonial et fiscal. Selon les prestations proposées, cette activité relève des statuts réglementaires suivants&nbsp;:</p>
+              <div class="card-info"><dl>
+              <div><dt>Immatriculation ORIAS</dt><dd><mark class="todo">[À compléter&nbsp;: numéro d'immatriculation, vérifiable sur www.orias.fr]</mark></dd></div>
+              <div><dt>Conseiller en investissements financiers (CIF)</dt><dd><mark class="todo">[À compléter&nbsp;: membre de l'association [nom], agréée par l'Autorité des marchés financiers]</mark></dd></div>
+              <div><dt>Intermédiaire en assurance</dt><dd><mark class="todo">[À compléter&nbsp;: catégorie (courtier, mandataire…), si applicable]</mark></dd></div>
+              <div><dt>Assurance responsabilité civile professionnelle</dt><dd><mark class="todo">[À compléter&nbsp;: assureur et numéro de police]</mark></dd></div>
+              <div><dt>Médiateur</dt><dd><mark class="todo">[À compléter&nbsp;: médiateur compétent en cas de litige : Médiateur de l'AMF pour l'activité de CIF, médiateur de l'assurance le cas échéant]</mark></dd></div>
+              </dl></div>
+              <p>Autorités de contrôle&nbsp;: Autorité des marchés financiers (AMF), 17 place de la Bourse, 75082 Paris Cedex 02, <a href="https://www.amf-france.org" target="_blank" rel="noopener">www.amf-france.org</a>&nbsp;; Autorité de contrôle prudentiel et de résolution (ACPR), 4 place de Budapest, CS 92459, 75436 Paris Cedex 09, <a href="https://acpr.banque-france.fr" target="_blank" rel="noopener">acpr.banque-france.fr</a>.</p>
+            </section>
+
+            <section id="information">
+              <h2><span>04</span>Caractère des informations</h2>
+              <p>Les informations présentées sur ce site ont un caractère général et sont fournies à titre purement informatif. Elles ne constituent ni un conseil personnalisé, ni une recommandation d'investissement, ni une offre de produit ou de service.</p>
+              <p>Toute décision patrimoniale, fiscale ou d'investissement doit être précédée d'une analyse de la situation personnelle de l'intéressé. Tout investissement comporte des risques, notamment de perte en capital, et les performances passées ne préjugent pas des performances futures.</p>
+              <p>LG Advisory s'efforce d'assurer l'exactitude des informations publiées, sans pouvoir garantir qu'elles soient complètes ou à jour, notamment au regard de l'évolution de la législation fiscale.</p>
+            </section>
+
+            <section id="propriete">
+              <h2><span>05</span>Propriété intellectuelle</h2>
+              <p>L'ensemble des contenus de ce site (textes, mise en page, éléments graphiques, logo) est la propriété de LG Advisory, sauf mention contraire. Toute reproduction ou représentation, totale ou partielle, sans autorisation préalable écrite est interdite.</p>
+              <h3>Crédits</h3>
+              <ul>
+              <li>Photographie de Laurent Gayet&nbsp;: <mark class="todo">[À compléter&nbsp;: nom du photographe]</mark></li>
+              <li>Polices de caractères Libre Caslon et Figtree, distribuées sous licence SIL Open Font License.</li>
+              </ul>
+            </section>
+
+            <section id="liens">
+              <h2><span>06</span>Liens externes</h2>
+              <p>Le site contient des liens vers des sites tiers, notamment des articles de presse. LG Advisory n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu ou à leurs pratiques en matière de données personnelles.</p>
+            </section>
+
+            <section id="donnees">
+              <h2><span>07</span>Données personnelles</h2>
+              <p>Le traitement des données personnelles et l'absence de cookies sont décrits dans la <a href="confidentialite.html">politique de confidentialité</a>.</p>
+            </section>
+
+            <section id="droit">
+              <h2><span>08</span>Droit applicable</h2>
+              <p>Les présentes mentions légales sont régies par le droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux français sont seuls compétents.</p>
+            </section>
+
+          <p class="updated">Dernière mise à jour&nbsp;: <mark class="todo">[À compléter&nbsp;: date de mise en ligne]</mark></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="LG Advisory, accueil">
+            <span class="brand-mark" aria-hidden="true">LG</span>
+            <span class="brand-text">
+              <span class="brand-name">LG Advisory</span>
+              <span class="brand-tag">Conseil patrimonial</span>
+            </span>
+          </a>
+          <p>Conseil patrimonial et fiscal indépendant, fondé par Laurent Gayet.</p>
+        </div>
+        <nav aria-label="Pied de page">
+          <h2>Navigation</h2>
+          <ul>
+            <li><a href="index.html#expertise">Expertise</a></li>
+            <li><a href="index.html#demarche">Démarche</a></li>
+            <li><a href="index.html#parcours">Parcours</a></li>
+            <li><a href="publications.html">Publications</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="mailto:contact@lg-advisory.eu">contact@lg-advisory.eu</a></li>
+            <li><a href="index.html#contact">Prendre rendez-vous</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="confidentialite.html">Confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <p>© <span id="year">2026</span> LG Advisory. Tous droits réservés.</p>
+        <!-- À compléter selon le statut réglementaire du cabinet, par exemple :
+        <p>LG Advisory, [forme juridique] au capital de [montant] €, SIREN [numéro].
+        Conseiller en investissements financiers (CIF) membre de [association agréée par l'AMF].
+        Immatriculé à l'ORIAS sous le n° [numéro] (www.orias.fr).</p>
+        -->
+        <p>
+          Les informations présentées sur ce site ont un caractère général et ne constituent
+          pas un conseil personnalisé. Tout investissement comporte des risques, notamment
+          de perte en capital.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Année du copyright
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Menu mobile
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.getElementById("nav");
+    toggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open);
+      toggle.textContent = open ? "Fermer" : "Menu";
+    });
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.textContent = "Menu";
+      });
+    });
+
+    // Ombre de l'en-tête au défilement
+    const header = document.querySelector(".site-header");
+    const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    // Apparition progressive des blocs
+    const reveals = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-in");
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: .1 });
+      reveals.forEach(el => io.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add("is-in"));
+    }
+  </script>
+</body>
+</html>
