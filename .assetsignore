@@ -1,0 +1,11 @@
+# Fichiers à ne pas publier comme pages du site
+.git
+.gitignore
+.assetsignore
+.dev.vars
+.wrangler
+node_modules
+worker
+wrangler.jsonc
+CLAUDE.md
+DEPLOIEMENT.md

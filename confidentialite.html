@@ -578,7 +578,7 @@
           <li><a href="index.html#demarche">Démarche</a></li>
           <li><a href="index.html#parcours">Parcours</a></li>
           <li><a href="publications.html">Publications</a></li>
-          <li><a class="nav-cta" href="index.html#contact">Prendre rendez-vous</a></li>
+          <li><a class="nav-cta" href="rendez-vous.html">Prendre rendez-vous</a></li>
         </ul>
       </nav>
     </div>
@@ -595,7 +595,7 @@
       </div>
     </section>
 
-    <!-- À relire avec Laurent Gayet. Cette politique décrit le site tel qu'il est : aucun cookie, aucune mesure d'audience, aucun formulaire. À mettre à jour si l'un de ces points change (formulaire de contact, prise de rendez-vous en ligne, statistiques…). -->
+    <!-- À relire avec Laurent Gayet. Cette politique décrit le site tel qu'il est : aucun cookie, aucune mesure d'audience, un seul formulaire (demande de rendez-vous, relayée par e-mail, protégée par Cloudflare Turnstile). À mettre à jour si l'un de ces points change (statistiques, nouveau service tiers…). -->
     <div class="legal">
       <div class="wrap legal-grid">
         <nav class="toc" aria-label="Sommaire">
@@ -622,14 +622,15 @@
             <section id="navigation">
               <h2><span>02</span>Navigation sur le site</h2>
               <p><strong>Ce site ne dépose aucun cookie</strong> et n'utilise aucun outil de mesure d'audience, de publicité ou de suivi. Aucun bandeau de consentement n'est donc nécessaire.</p>
-              <p>Comme tout site web, l'hébergeur enregistre automatiquement des données techniques de connexion (adresse IP, date et heure, page consultée, type de navigateur) dans des journaux serveur. Ces données sont utilisées uniquement pour assurer la sécurité et le bon fonctionnement du site, sur le fondement de l'intérêt légitime de LG Advisory, et sont conservées pour une durée limitée <mark class="todo">[À compléter&nbsp;: durée de conservation des journaux, selon l'hébergeur retenu]</mark>.</p>
+              <p>Le site est hébergé par Cloudflare. Comme tout site web, l'hébergeur traite automatiquement des données techniques de connexion (adresse IP, date et heure, page consultée, type de navigateur). Ces données sont utilisées uniquement pour acheminer les pages et assurer la sécurité et le bon fonctionnement du site, sur le fondement de l'intérêt légitime de LG Advisory, et sont conservées pour une durée limitée <mark class="todo">[À compléter&nbsp;: durée de conservation des journaux, selon la configuration Cloudflare retenue]</mark>.</p>
             </section>
 
             <section id="contact">
               <h2><span>03</span>Prise de contact</h2>
-              <p>Lorsque vous écrivez à LG Advisory par e-mail, les données que vous transmettez (nom, adresse e-mail, coordonnées et contenu du message) sont utilisées pour répondre à votre demande et, le cas échéant, préparer un rendez-vous.</p>
+              <p>Lorsque vous écrivez à LG Advisory par e-mail ou remplissez le <a href="rendez-vous.html">formulaire de demande de rendez-vous</a>, les données que vous transmettez (nom, prénom, adresse e-mail, téléphone le cas échéant, profil, objet de la demande, format et disponibilités souhaités, contenu du message) sont utilisées pour répondre à votre demande et, le cas échéant, préparer un rendez-vous.</p>
+              <p>Les demandes envoyées par le formulaire ne sont pas enregistrées sur le site&nbsp;: elles sont transmises par e-mail à LG Advisory, par l'intermédiaire du service d'envoi d'e-mails Brevo. Pour protéger le formulaire contre les envois automatisés, la page de rendez-vous utilise <strong>Cloudflare Turnstile</strong>, un service de vérification anti-robots qui analyse des informations techniques sur votre navigateur et votre connexion (dont l'adresse IP). Il ne sert ni à la publicité ni au suivi de votre navigation, et c'est le seul service tiers chargé par le site.</p>
               <ul>
-              <li><strong>Base légale&nbsp;:</strong> mesures précontractuelles prises à votre demande, ou intérêt légitime à répondre aux sollicitations reçues.</li>
+              <li><strong>Base légale&nbsp;:</strong> mesures précontractuelles prises à votre demande, ou intérêt légitime à répondre aux sollicitations reçues et à protéger le formulaire contre les abus.</li>
               <li><strong>Durée de conservation&nbsp;:</strong> trois ans à compter du dernier contact si aucune relation d'affaires n'est engagée.</li>
               </ul>
             </section>
@@ -646,13 +647,13 @@
 
             <section id="destinataires">
               <h2><span>05</span>Destinataires des données</h2>
-              <p>Vos données sont destinées exclusivement à LG Advisory. Elles peuvent être communiquées, dans la limite de ce qui est nécessaire, à ses prestataires techniques (hébergement, messagerie) et, avec votre accord, aux professionnels avec lesquels la mission est coordonnée (notaire, avocat, banquier). Elles peuvent enfin être transmises aux autorités lorsque la loi l'impose.</p>
+              <p>Vos données sont destinées exclusivement à LG Advisory. Elles peuvent être communiquées, dans la limite de ce qui est nécessaire, à ses prestataires techniques (hébergement du site par Cloudflare, envoi des demandes de rendez-vous par Brevo, messagerie) et, avec votre accord, aux professionnels avec lesquels la mission est coordonnée (notaire, avocat, banquier). Elles peuvent enfin être transmises aux autorités lorsque la loi l'impose.</p>
               <p>Vos données ne sont jamais vendues ni utilisées à des fins de prospection par des tiers.</p>
             </section>
 
             <section id="transferts">
               <h2><span>06</span>Hébergement et transferts</h2>
-              <p>Les données sont hébergées au sein de l'Union européenne <mark class="todo">[À compléter&nbsp;: à confirmer selon l'hébergeur et la messagerie retenus]</mark>. Aucun transfert hors de l'Union européenne n'est effectué sans garanties appropriées.</p>
+              <p>Le site et le formulaire sont servis par Cloudflare, Inc., société établie aux États-Unis, dont le réseau peut traiter les données de connexion et les demandes de rendez-vous en dehors de l'Union européenne <mark class="todo">[À compléter&nbsp;: garanties applicables à ces transferts (Data Privacy Framework, clauses contractuelles types…), à vérifier dans l'accord de traitement des données de Cloudflare]</mark>. Les demandes sont ensuite envoyées par Brevo (Sendinblue SAS, France) <mark class="todo">[À compléter&nbsp;: lieu d'hébergement des données Brevo, à vérifier dans son accord de traitement]</mark>, puis conservées dans la messagerie de LG Advisory, hébergée par OVHcloud <mark class="todo">[À compléter&nbsp;: localisation du service de messagerie OVHcloud souscrit]</mark>. Aucun transfert hors de l'Union européenne n'est effectué sans garanties appropriées.</p>
             </section>
 
             <section id="droits">
@@ -705,7 +706,7 @@
           <h2>Contact</h2>
           <ul>
             <li><a href="mailto:contact@lg-advisory.eu">contact@lg-advisory.eu</a></li>
-            <li><a href="index.html#contact">Prendre rendez-vous</a></li>
+            <li><a href="rendez-vous.html">Prendre rendez-vous</a></li>
             <li><a href="mentions-legales.html">Mentions légales</a></li>
             <li><a href="confidentialite.html">Confidentialité</a></li>
           </ul>

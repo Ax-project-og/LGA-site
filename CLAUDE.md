@@ -8,7 +8,8 @@ Ce fichier guide Claude Code sur ce dépôt. C'est une ébauche : à enrichir au
   ancien Deputy CEO d'AXA Wealth Europe).
 - Expertises : fiscalité et droit du patrimoine, transmission, assurance-vie FR/LU, mobilité internationale.
 - Public : familles, dirigeants, professionnels du patrimoine. Ton sobre, précis, haut de gamme, sans jargon marketing.
-- Domaine prévu : https://lg-advisory.eu/ — hébergement et déploiement : **à définir**.
+- Domaine prévu : https://lg-advisory.eu/ — hébergement décidé : **dépôt GitHub privé + Cloudflare Workers**
+  (fichiers statiques + petit Worker pour le formulaire). Procédure : `DEPLOIEMENT.md`.
 - Choix assumé : site codé à la main (pas de WordPress), maintenu avec Claude Code, et qui doit
   pouvoir évoluer (nouvelles pages, contenus réguliers, fonctionnalités) sans devenir lourd.
 
@@ -18,12 +19,20 @@ Ce fichier guide Claude Code sur ce dépôt. C'est une ébauche : à enrichir au
 - `publications.html` : liste complète des publications par année, avec filtres par type (tribune / entretien / intervention).
   Même design que l'index : en-tête vert, barre de filtres qui chevauche, cartes par année, bandeau presse.
 - `portrait.jpg` : photo de Laurent Gayet (carrée, 1149 px), utilisée dans le hero et la signature du Parcours.
+- `rendez-vous.html` : page « Prendre rendez-vous » (en-tête vert, formulaire de demande dans une carte blanche,
+  colonne « Comment se déroule le premier échange » + carte coordonnées). Tous les liens « Prendre rendez-vous »
+  y mènent. Le formulaire poste vers `/api/rendez-vous` (envoi `fetch`, repli sans JS par redirection `?envoye=1` / `?erreur=1`).
+- `worker/index.js` + `wrangler.jsonc` : Worker Cloudflare qui sert les fichiers (binding `ASSETS`) et traite le formulaire
+  (pot-de-miel, vérification Turnstile avec le secret `TURNSTILE_SECRET`, e-mail à contact@ via l'API Brevo, secret `BREVO_API_KEY`).
+  Rien n'est stocké. `.assetsignore` liste les fichiers à ne pas publier (y ajouter tout nouveau fichier interne).
 - `mentions-legales.html` et `confidentialite.html` : pages légales (sommaire latéral, sections numérotées).
   Les informations manquantes sont balisées `<mark class="todo">[À compléter : …]</mark>` (surlignées en jaune).
 - `fonts/` : polices auto-hébergées (woff2, sous-ensemble latin) déclarées en `@font-face` en tête du CSS
   de chaque page. **Ne pas réintroduire Google Fonts** ni aucun service tiers (CDN, statistiques, cookies)
-  sans mettre à jour `confidentialite.html`, qui affirme que le site ne dépose aucun cookie ni ne contacte de tiers.
-- Pas de build, pas de dépendances, pas de tests. Aperçu local : ouvrir le fichier dans un navigateur.
+  sans mettre à jour `confidentialite.html`, qui affirme que le site ne dépose aucun cookie et que le seul tiers
+  est Cloudflare (hébergeur, et Turnstile chargé uniquement sur `rendez-vous.html`), Brevo relayant les e-mails du formulaire côté serveur.
+- Pas de build, pas de dépendances, pas de tests. Aperçu local : ouvrir le fichier dans un navigateur ;
+  pour tester le formulaire : `.dev.vars` + `npx wrangler dev` (voir `DEPLOIEMENT.md`).
 
 ## Design (index.html, référence pour les autres pages)
 - Identité **fixe**, sans bascule automatique en mode sombre : sections vert profond (`--deep` #1F3A32 :
@@ -79,12 +88,14 @@ Ce fichier guide Claude Code sur ce dépôt. C'est une ébauche : à enrichir au
 - Téléphone (bloc commenté dans Contact).
 - Dates à vérifier : fin de période AXA Wealth Europe (timeline) et publications marquées « année à vérifier ».
 - Sitemap, `robots.txt`, image de partage `og:image` au format 1200×630.
+- Avant la mise en ligne du formulaire (voir `DEPLOIEMENT.md`) : remplacer la clé Turnstile de test
+  (`data-sitekey` de `rendez-vous.html`), définir les secrets `TURNSTILE_SECRET` et `BREVO_API_KEY`,
+  et configurer Brevo (domaine authentifié dans la zone DNS OVH, clé API). La messagerie contact@ reste chez OVH.
 
 ## Pistes d'évolution (non décidées)
 - Factoriser le CSS commun dans un fichier partagé (`styles.css`) dès qu'une 3e page arrive.
 - Si le site grandit (actualités, articles, versions EN) : passer à un générateur statique léger
   (Eleventy ou Astro) avec gabarits partagés et publications en données (JSON/Markdown).
-- Formulaire de contact / prise de rendez-vous (service tiers ou fonction serverless), à arbitrer selon l'hébergement.
 - Version anglaise (clientèle internationale, Luxembourg).
 
 Toute décision prise sur ces sujets doit être reportée ici.
