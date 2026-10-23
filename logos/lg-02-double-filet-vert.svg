@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512" style="color:#1F3A32">
+<style>@font-face{font-family:"Libre Caslon Display";src:url("../fonts/libre-caslon-display.woff2") format("woff2")}@font-face{font-family:"Libre Caslon Text";font-style:italic;src:url("../fonts/libre-caslon-text-italic.woff2") format("woff2")}</style>
+<rect x="1.5" y="1.5" width="97" height="97" fill="none" stroke="currentColor" stroke-width="2.4"/>
+<rect x="8" y="8" width="84" height="84" fill="none" stroke="currentColor" stroke-width="1"/>
+<text x="50" y="64" font-family="Libre Caslon Display, Georgia, serif" font-size="40" text-anchor="middle" letter-spacing="-1" fill="currentColor">LG</text>
+</svg>

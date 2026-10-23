@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512" style="color:#D4B886">
+<style>@font-face{font-family:"Libre Caslon Display";src:url("../fonts/libre-caslon-display.woff2") format("woff2")}@font-face{font-family:"Libre Caslon Text";font-style:italic;src:url("../fonts/libre-caslon-text-italic.woff2") format("woff2")}</style>
+<path d="M6 12H94M6 88H94" stroke="currentColor" stroke-width="1.6"/>
+<path d="M50 30V70" stroke="currentColor" stroke-width="1"/>
+<text x="29" y="66" font-family="Libre Caslon Display, Georgia, serif" font-size="44" text-anchor="middle" fill="currentColor">L</text>
+<text x="71" y="66" font-family="Libre Caslon Display, Georgia, serif" font-size="44" text-anchor="middle" fill="currentColor">G</text>
+</svg>

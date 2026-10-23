@@ -44,7 +44,7 @@ L'adresse `workers.dev` est publique : tant que les pages légales ne sont pas c
 1. Menu de gauche : **Turnstile** → **Add widget**.
 2. Nom : `LG Advisory – rendez-vous` ; **Hostnames** : l'adresse workers.dev (ex. `lg-advisory.lga.workers.dev`),
    puis plus tard `lg-advisory.eu` ; mode **Managed** → **Create**.
-3. Copier la **Site key** : elle remplace la clé de test `1x00000000000000000000AA` dans `rendez-vous.html`
+3. Copier la **Site key** : elle remplace la clé de test `1x00000000000000000000AA` dans `contact.html`
    (attribut `data-sitekey`), puis commit + push.
 4. Copier la **Secret key** : Worker `lg-advisory` → **Settings** → **Variables and Secrets** → **Add** →
    type **Secret**, nom `TURNSTILE_SECRET`, valeur = la clé secrète → **Deploy**.
@@ -66,7 +66,7 @@ offre gratuite : 300 e-mails/jour), sans toucher aux enregistrements MX d'OVH.
 7. Si Brevo signale que l'envoi transactionnel doit être activé pour un nouveau compte, suivre sa procédure.
 
 ### A6. Tester
-Ouvrir `https://lg-advisory.<sous-domaine>.workers.dev/rendez-vous`, envoyer une demande et vérifier la réception
+Ouvrir `https://lg-advisory.<sous-domaine>.workers.dev/contact`, envoyer une demande et vérifier la réception
 sur contact@lg-advisory.eu (et que « Répondre » écrit bien au demandeur). En cas d'échec : Worker → **Logs**
 (ou `npx wrangler tail`), le message d'erreur de Brevo ou de Turnstile y apparaît.
 
@@ -92,5 +92,5 @@ TURNSTILE_SECRET=1x0000000000000000000000000000000AA
 ENVOI_EMAIL_SIMULE=1
 ```
 
-puis `npx wrangler dev` et ouvrir http://localhost:8787/rendez-vous. Avec `ENVOI_EMAIL_SIMULE=1`, l'e-mail
+puis `npx wrangler dev` et ouvrir http://localhost:8787/contact. Avec `ENVOI_EMAIL_SIMULE=1`, l'e-mail
 n'est pas envoyé : son contenu s'affiche dans la console.

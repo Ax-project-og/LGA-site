@@ -19,18 +19,23 @@ Ce fichier guide Claude Code sur ce dépôt. C'est une ébauche : à enrichir au
 - `publications.html` : liste complète des publications par année, avec filtres par type (tribune / entretien / intervention).
   Même design que l'index : en-tête vert, barre de filtres qui chevauche, cartes par année, bandeau presse.
 - `portrait.jpg` : photo de Laurent Gayet (carrée, 1149 px), utilisée dans le hero et la signature du Parcours.
-- `rendez-vous.html` : page « Prendre rendez-vous » (en-tête vert, formulaire de demande dans une carte blanche,
-  colonne « Comment se déroule le premier échange » + carte coordonnées). Tous les liens « Prendre rendez-vous »
+- `contact.html` (ex-`rendez-vous.html`) : page « Contact » (bouton du menu ; les boutons de l'accueil gardent « Prendre rendez-vous ») (en-tête vert, formulaire de demande dans une carte blanche,
+  colonne « Comment se déroule le premier échange » + carte coordonnées). Page plus large que les autres :
+  en-tête, contenu et footer utilisent `.wrap-wide` (`--wrap-wide` 86rem au lieu de 74rem). Tous les liens vers le formulaire
   y mènent. Le formulaire poste vers `/api/rendez-vous` (envoi `fetch`, repli sans JS par redirection `?envoye=1` / `?erreur=1`).
 - `worker/index.js` + `wrangler.jsonc` : Worker Cloudflare qui sert les fichiers (binding `ASSETS`) et traite le formulaire
   (pot-de-miel, vérification Turnstile avec le secret `TURNSTILE_SECRET`, e-mail à contact@ via l'API Brevo, secret `BREVO_API_KEY`).
   Rien n'est stocké. `.assetsignore` liste les fichiers à ne pas publier (y ajouter tout nouveau fichier interne).
 - `mentions-legales.html` et `confidentialite.html` : pages légales (sommaire latéral, sections numérotées).
   Les informations manquantes sont balisées `<mark class="todo">[À compléter : …]</mark>` (surlignées en jaune).
+- `robots.txt` et `sitemap.xml` : adresses propres sans `.html` (Cloudflare redirige `/page.html` vers `/page`), comme les `<link rel="canonical">`.
+  **Toute nouvelle page doit être ajoutée au sitemap** (et `lastmod` mis à jour lors d'un changement notable).
 - `fonts/` : polices auto-hébergées (woff2, sous-ensemble latin) déclarées en `@font-face` en tête du CSS
   de chaque page. **Ne pas réintroduire Google Fonts** ni aucun service tiers (CDN, statistiques, cookies)
   sans mettre à jour `confidentialite.html`, qui affirme que le site ne dépose aucun cookie et que le seul tiers
-  est Cloudflare (hébergeur, et Turnstile chargé uniquement sur `rendez-vous.html`), Brevo relayant les e-mails du formulaire côté serveur.
+  est Cloudflare (hébergeur, et Turnstile chargé uniquement sur `contact.html`), Brevo relayant les e-mails du formulaire côté serveur.
+- `logos/` : pistes de monogramme LG (SVG laiton et vert + `planche.html` de comparaison), non publié
+  (listé dans `.assetsignore`). Aucune piste choisie pour l'instant ; le site utilise toujours le carré `.brand-mark`.
 - Pas de build, pas de dépendances, pas de tests. Aperçu local : ouvrir le fichier dans un navigateur ;
   pour tester le formulaire : `.dev.vars` + `npx wrangler dev` (voir `DEPLOIEMENT.md`).
 
@@ -87,9 +92,9 @@ Ce fichier guide Claude Code sur ce dépôt. C'est une ébauche : à enrichir au
   **Aucune mise en ligne tant qu'il en reste.** Reporter aussi les mentions réglementaires dans le footer (bloc commenté).
 - Téléphone (bloc commenté dans Contact).
 - Dates à vérifier : fin de période AXA Wealth Europe (timeline) et publications marquées « année à vérifier ».
-- Sitemap, `robots.txt`, image de partage `og:image` au format 1200×630.
+- Image de partage `og:image` au format 1200×630.
 - Avant la mise en ligne du formulaire (voir `DEPLOIEMENT.md`) : remplacer la clé Turnstile de test
-  (`data-sitekey` de `rendez-vous.html`), définir les secrets `TURNSTILE_SECRET` et `BREVO_API_KEY`,
+  (`data-sitekey` de `contact.html`), définir les secrets `TURNSTILE_SECRET` et `BREVO_API_KEY`,
   et configurer Brevo (domaine authentifié dans la zone DNS OVH, clé API). La messagerie contact@ reste chez OVH.
 
 ## Pistes d'évolution (non décidées)

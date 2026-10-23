@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Prendre rendez-vous | LG Advisory</title>
+  <title>Contact | LG Advisory</title>
   <meta name="description" content="Demander un premier échange avec Laurent Gayet, LG Advisory : conseil patrimonial et fiscal indépendant, en présentiel ou en visioconférence.">
   <meta name="theme-color" content="#1F3A32">
-  <link rel="canonical" href="https://lg-advisory.eu/rendez-vous.html">
+  <link rel="canonical" href="https://lg-advisory.eu/contact">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231F3A32'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23C9A66B' text-anchor='middle'%3ELG%3C/text%3E%3C/svg%3E">
   <link rel="preload" href="fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/libre-caslon-display.woff2" as="font" type="font/woff2" crossorigin>
@@ -61,6 +61,7 @@
       --sans: "Figtree", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 
       --wrap: 74rem;
+      --wrap-wide: 86rem;
       --gutter: clamp(1.25rem, 5vw, 3rem);
       --section: clamp(4.5rem, 10vw, 8rem);
       --shadow: 0 1px 2px rgba(15, 31, 26, .04), 0 18px 45px -18px rgba(15, 31, 26, .22);
@@ -447,6 +448,8 @@
 
 
     /* ---------- Prise de rendez-vous ---------- */
+    /* Cette page est plus large que les autres : le formulaire et la colonne latérale respirent */
+    .wrap-wide { max-width: var(--wrap-wide); }
     .rdv { padding: clamp(3.5rem, 7vw, 5.5rem) 0 var(--section); }
     .rdv-grid {
       display: grid;
@@ -727,7 +730,7 @@
   </svg>
 
   <header class="site-header" id="haut">
-    <div class="wrap header-inner">
+    <div class="wrap wrap-wide header-inner">
       <a class="brand" href="index.html" aria-label="LG Advisory, accueil">
         <span class="brand-mark" aria-hidden="true">LG</span>
         <span class="brand-text">
@@ -742,7 +745,7 @@
           <li><a href="index.html#demarche">Démarche</a></li>
           <li><a href="index.html#parcours">Parcours</a></li>
           <li><a href="publications.html">Publications</a></li>
-          <li><a class="nav-cta" href="rendez-vous.html" aria-current="page">Prendre rendez-vous</a></li>
+          <li><a class="nav-cta" href="contact.html" aria-current="page">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -752,8 +755,8 @@
   <main id="contenu">
     <section class="page-head on-deep">
       <svg class="guilloche" viewBox="-320 -320 640 640" aria-hidden="true"><use href="#rosace" /></svg>
-      <div class="wrap">
-        <nav class="crumb" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a> <span aria-hidden="true">/</span> <span>Prendre rendez-vous</span></nav>
+      <div class="wrap wrap-wide">
+        <nav class="crumb" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a> <span aria-hidden="true">/</span> <span>Contact</span></nav>
         <p class="eyebrow">Rendez-vous</p>
         <h1>Un premier <em>échange.</em></h1>
         <p class="page-lead">
@@ -765,7 +768,7 @@
     </section>
 
     <div class="rdv" id="formulaire">
-      <div class="wrap rdv-grid">
+      <div class="wrap wrap-wide rdv-grid">
         <div class="form-card reveal">
           <div id="form-panel">
             <h2>Votre demande</h2>
@@ -928,7 +931,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
+    <div class="wrap wrap-wide">
       <div class="footer-top">
         <div class="footer-brand">
           <a class="brand" href="index.html" aria-label="LG Advisory, accueil">
@@ -953,7 +956,7 @@
           <h2>Contact</h2>
           <ul>
             <li><a href="mailto:contact@lg-advisory.eu">contact@lg-advisory.eu</a></li>
-            <li><a href="rendez-vous.html">Prendre rendez-vous</a></li>
+            <li><a href="contact.html">Formulaire de contact</a></li>
             <li><a href="mentions-legales.html">Mentions légales</a></li>
             <li><a href="confidentialite.html">Confidentialité</a></li>
           </ul>

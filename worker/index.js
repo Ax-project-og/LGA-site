@@ -37,7 +37,7 @@ async function traiterRendezVous(request, env) {
   const repondre = (ok, erreur, status = ok ? 200 : 400) =>
     json
       ? Response.json(ok ? { ok: true } : { ok: false, error: erreur }, { status })
-      : Response.redirect(new URL(ok ? "/rendez-vous?envoye=1#formulaire" : "/rendez-vous?erreur=1#formulaire", request.url), 303);
+      : Response.redirect(new URL(ok ? "/contact?envoye=1#formulaire" : "/contact?erreur=1#formulaire", request.url), 303);
 
   let form;
   try {
