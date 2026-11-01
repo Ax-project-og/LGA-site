@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Publications | LG Advisory – Laurent Gayet</title>
-  <meta name="description" content="Tribunes, entretiens et interventions de Laurent Gayet sur l'assurance-vie, la fiscalité, la transmission et la gestion de patrimoine.">
+  <title>Publications et archives | LG Advisory – Laurent Gayet</title>
+  <meta name="description" content="Articles, tribunes, entretiens et interventions de Laurent Gayet sur l'assurance-vie, la fiscalité, la transmission et la gestion de patrimoine. Articles de revue retranscrits en intégralité et consultables en fac-similé.">
   <meta name="theme-color" content="#1F3A32">
   <meta property="og:title" content="Publications de Laurent Gayet | LG Advisory">
   <meta property="og:description" content="Tribunes, entretiens et interventions dans la presse patrimoniale.">
@@ -121,6 +121,7 @@
     h1 em, h2 em, blockquote em {
       font-family: var(--serif-italic);
       font-style: italic;
+      font-size: .8em; /* Caslon Text a une hauteur d'x ~25 % plus grande que Caslon Display */
       letter-spacing: -0.02em;
     }
     h2 {
@@ -411,8 +412,7 @@
     }
     .js .reveal.is-in { opacity: 1; transform: none; }
 
-
-    /* ---------- Page Publications ---------- */
+    /* ---------- Page Publications (version 2 : archives) ---------- */
     .nav a[aria-current="page"] { color: var(--on-deep); }
     .nav a[aria-current="page"]::after { transform: scaleX(1); }
 
@@ -420,7 +420,7 @@
       position: relative;
       background: var(--deep);
       color: var(--on-deep);
-      padding: clamp(3rem, 7vw, 5rem) 0 clamp(8rem, 12vw, 9.5rem);
+      padding: clamp(3rem, 7vw, 5rem) 0 clamp(10rem, 14vw, 12rem);
       overflow: hidden;
       isolation: isolate;
     }
@@ -456,116 +456,289 @@
     .page-lead {
       font-size: 1.1rem;
       color: var(--on-deep-soft);
-      max-width: 30rem;
+      max-width: 32rem;
     }
-    .page-head-grid, .filter-bar { animation: rise .9s var(--ease) both; }
-    .filter-bar { animation-delay: .15s; }
+    .page-head-grid, .toolbar { animation: rise .9s var(--ease) both; }
+    .toolbar { animation-delay: .15s; }
     @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
     @media (max-width: 800px) {
       .page-head-grid { grid-template-columns: 1fr; }
     }
 
-    /* Barre de filtres (chevauche l'en-tête) */
-    .filter-wrap {
+    /* Barre de recherche et filtres (chevauche l'en-tête) */
+    .toolbar-wrap {
       position: relative;
       z-index: 2;
-      margin-top: clamp(-5.5rem, -8vw, -4.5rem);
+      margin-top: clamp(-7.5rem, -10vw, -6rem);
     }
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.25rem 2rem;
+    .toolbar {
+      display: grid;
+      gap: 1.25rem;
       background: var(--card);
       border-top: 3px solid var(--brass);
       box-shadow: var(--shadow);
       padding: clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2.25rem);
     }
-    .filter-summary {
-      display: flex;
-      align-items: baseline;
-      gap: .9rem;
-    }
-    .filter-summary strong {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: 2.6rem;
-      line-height: 1;
-      color: var(--deep);
-    }
-    .filter-summary span {
-      font-size: .925rem;
-      line-height: 1.4;
-      color: var(--ink-soft);
-      max-width: 15rem;
-    }
-    .filters {
+    .toolbar-row {
       display: flex;
       flex-wrap: wrap;
-      gap: .6rem;
+      align-items: center;
+      gap: 1rem 1.25rem;
     }
-    .filters button {
+    .search {
+      position: relative;
+      flex: 1 1 20rem;
+    }
+    .search svg {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      width: 1.1rem;
+      height: 1.1rem;
+      transform: translateY(-50%);
+      color: var(--brass-strong);
+      pointer-events: none;
+    }
+    .search input {
+      width: 100%;
+      font: 400 1.05rem var(--sans);
+      color: var(--ink);
+      background: var(--ivory);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: .85rem 1rem .85rem 2.8rem;
+      transition: border-color .2s, background-color .2s;
+    }
+    .search input::placeholder { color: #8A958F; }
+    .search input:focus { outline: none; border-color: var(--brass); background: var(--card); }
+    .selects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+    .selects label {
+      display: grid;
+      gap: .2rem;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .selects select {
       font: 500 .925rem var(--sans);
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink);
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: .5rem 2rem .5rem .75rem;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%238C6C38' stroke-width='1.5'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right .6rem center;
+      background-size: .9rem;
+      cursor: pointer;
+    }
+    .selects select:hover { border-color: var(--deep); }
+    .themes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .themes button {
+      font: 500 .9rem var(--sans);
       color: var(--ink-soft);
       background: transparent;
       border: 1px solid var(--rule);
       border-radius: 999px;
-      padding: .55rem 1.05rem;
+      padding: .45rem .95rem;
       cursor: pointer;
       transition: border-color .2s, color .2s, background-color .2s;
     }
-    .filters button:hover { border-color: var(--deep); color: var(--ink); }
-    .filters button[aria-pressed="true"] {
+    .themes button:hover { border-color: var(--deep); color: var(--ink); }
+    .themes button[aria-pressed="true"] {
       background: var(--deep);
       border-color: var(--deep);
       color: var(--on-deep);
     }
-    .filters .count {
+    .result {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .4rem 1rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--rule);
+      font-size: .925rem;
+      color: var(--ink-soft);
+    }
+    .result strong {
+      font-family: var(--serif);
       font-weight: 400;
-      opacity: .65;
-      margin-left: .3rem;
+      font-size: 1.9rem;
+      line-height: 1;
+      color: var(--deep);
+    }
+    #reset {
+      margin-left: auto;
+      font: 500 .875rem var(--sans);
+      color: var(--brass-strong);
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
-    /* Liste par année */
-    .pubs { padding: clamp(3.5rem, 7vw, 5rem) 0 var(--section); }
-    .year-group {
-      display: grid;
-      grid-template-columns: 10rem 1fr;
-      gap: 1rem 2.5rem;
-      padding-top: 2.5rem;
-      margin-top: 2.5rem;
-      border-top: 1px solid var(--rule);
+    /* Bascule liste / cartes */
+    .view {
+      align-self: center;
+      display: inline-flex;
+      margin-left: auto;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 2px;
+      background: var(--ivory);
     }
-    .year-group:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
-    .year-group[hidden] { display: none; }
-    .year {
-      font-size: clamp(2.6rem, 4vw, 3.2rem);
-      line-height: 1;
-      color: var(--brass);
-      align-self: start;
+    #reset:not([hidden]) + .view { margin-left: 1.25rem; }
+    @media (max-width: 640px) { #reset:not([hidden]) + .view { margin-left: auto; } }
+    .view button {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font: 500 .85rem var(--sans);
+      color: var(--ink-soft);
+      background: none;
+      border: 0;
+      border-radius: 1px;
+      padding: .35rem .75rem;
+      cursor: pointer;
+      transition: background-color .2s, color .2s;
+    }
+    .view button:hover { color: var(--deep); }
+    .view button[aria-pressed="true"] { background: var(--deep); color: var(--on-deep); }
+    .view svg { width: .9rem; height: .9rem; fill: none; stroke: currentColor; stroke-width: 1.4; }
+
+    /* Liste : frise des années + publications.
+       Fond sable pour la zone de liste ; chaque année est une carte blanche. */
+    .archive {
+      background: var(--sand);
+      padding: clamp(3rem, 6vw, 4.5rem) 0 var(--section);
+    }
+    .archive-grid {
+      display: grid;
+      grid-template-columns: 9.5rem 1fr;
+      gap: clamp(2rem, 4vw, 3rem);
+      align-items: start;
+    }
+    .years {
       position: sticky;
-      top: calc(6.5rem + env(safe-area-inset-top, 0px));
+      top: calc(6.25rem + env(safe-area-inset-top, 0px));
+      max-height: calc(100vh - 8rem);
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+    .years h2 {
+      font-family: var(--sans);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--brass-strong);
+      margin-bottom: .9rem;
+    }
+    .years ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: .1rem;
+      border-left: 1px solid var(--rule);
+    }
+    .years a {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      align-items: center;
+      gap: .6rem;
+      padding: .3rem 0 .3rem .9rem;
+      margin-left: -1px;
+      border-left: 2px solid transparent;
+      text-decoration: none;
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      transition: color .2s, border-color .2s;
+    }
+    .years a:hover { color: var(--ink); }
+    .years a.current { color: var(--deep); border-left-color: var(--brass); }
+    .years .bar {
+      height: 4px;
+      border-radius: 2px;
+      background: var(--rule);
+      position: relative;
+      overflow: hidden;
+    }
+    .years .bar i {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: var(--w);
+      background: var(--brass);
+      opacity: .55;
+    }
+    .years a.current .bar i { opacity: 1; }
+
+    .year-group + .year-group { margin-top: clamp(2.5rem, 5vw, 3.25rem); }
+    .year-group[hidden], .pub[hidden] { display: none; }
+    .year-group { scroll-margin-top: 6.5rem; }
+    .year-head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .year {
+      font-size: clamp(2rem, 3.2vw, 2.5rem);
+      line-height: 1;
+      color: var(--deep);
+    }
+    .year-head::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--brass);
+      opacity: .5;
+    }
+    .year-count {
+      order: 2;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--brass-strong);
     }
     .pub-list {
       list-style: none;
       margin: 0;
       padding: 0;
-      display: grid;
-      gap: 1.1rem;
-    }
-    .pub[hidden] { display: none; }
-    .pub a {
-      position: relative;
-      display: block;
-      padding: clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2.25rem);
       background: var(--card);
       border: 1px solid var(--rule);
+      box-shadow: 0 1px 2px rgba(15, 31, 26, .04), 0 10px 30px -18px rgba(15, 31, 26, .18);
+    }
+    .pub + .pub { border-top: 1px solid var(--rule); }
+    .pub > a {
+      position: relative;
+      display: grid;
+      grid-template-columns: 5.5rem 1fr auto;
+      gap: 1.6rem;
+      align-items: center;
+      padding: 1.4rem 1.6rem 1.4rem 1.4rem;
       text-decoration: none;
       color: var(--ink);
-      transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s;
+      transition: background-color .3s var(--ease);
     }
-    .pub a::before {
+    .pub > a::before {
       content: "";
       position: absolute;
       left: -1px;
@@ -575,60 +748,241 @@
       background: var(--brass);
       transform: scaleY(0);
       transform-origin: top;
-      transition: transform .45s var(--ease);
+      transition: transform .4s var(--ease);
     }
-    .pub a:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-      border-color: transparent;
+    .pub > a:hover { background: #FBFAF6; }
+    .pub > a:hover::before { transform: scaleY(1); }
+
+    /* Vignette : fac-similé pour les archives, pictogramme sinon */
+    .pub-thumb {
+      display: grid;
+      place-items: center;
+      width: 5.5rem;
+      height: 4.1rem;
+      color: var(--brass-strong);
     }
-    .pub a:hover::before { transform: scaleY(1); }
+    .pub-thumb svg {
+      width: 3rem;
+      height: 3rem;
+      padding: .75rem;
+      border-radius: 50%;
+      background: var(--ivory);
+      border: 1px solid var(--rule);
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .pub-thumb img {
+      width: 5.5rem;
+      height: 4.1rem;
+      object-fit: cover;
+      object-position: left top;
+      border: 1px solid var(--rule);
+      box-shadow: 0 8px 16px -10px rgba(15, 31, 26, .5);
+      transition: transform .35s var(--ease);
+    }
+    .pub > a:hover .pub-thumb img { transform: scale(1.05); }
+
     .pub-meta {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: .5rem 1rem;
-      font-size: .875rem;
+      gap: .3rem .75rem;
+      font-size: .85rem;
       color: var(--ink-soft);
-      margin-bottom: .75rem;
+      margin-bottom: .45rem;
     }
     .pub-type {
-      font-size: .75rem;
-      font-weight: 600;
+      font-size: .66rem;
+      font-weight: 700;
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--brass-strong);
-      border: 1px solid rgba(176, 141, 87, .45);
-      border-radius: 999px;
-      padding: .2rem .7rem;
+      background: rgba(176, 141, 87, .13);
+      padding: .22rem .5rem;
+      border-radius: 2px;
+      margin-right: .15rem;
     }
-    .pub-source { font-weight: 500; }
+    .pub-source { font-weight: 600; color: var(--deep); }
     .pub h3 {
-      font-size: clamp(1.3rem, 2vw, 1.5rem);
-      line-height: 1.3;
-      margin-bottom: .5rem;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: clamp(1.02rem, 1.3vw, 1.12rem);
+      line-height: 1.4;
+      letter-spacing: -.005em;
+      color: var(--deep);
       max-width: 46rem;
       transition: color .2s;
     }
-    .pub a:hover h3 { color: var(--brass-strong); }
-    .pub p {
-      color: var(--ink-soft);
+    .pub > a:hover h3 { color: var(--brass-strong); }
+    .pub-summary {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-top: .35rem;
       max-width: 46rem;
+      font-size: .925rem;
+      line-height: 1.55;
+      color: var(--ink-soft);
     }
-    .read-more {
+    /* Accès : bouton plein pour les archives du site, lien discret vers les sites externes */
+    .pub-avail {
+      display: grid;
+      justify-items: end;
+      gap: .45rem;
+      font-size: .8rem;
+      font-weight: 500;
+      white-space: nowrap;
+      color: var(--ink-soft);
+    }
+    .pub-avail span {
       display: inline-flex;
       align-items: center;
-      gap: .45rem;
-      margin-top: 1rem;
-      font-size: .9rem;
-      font-weight: 500;
-      color: var(--ink);
+      gap: .4rem;
     }
-    .read-more svg { width: .85rem; height: .85rem; transition: transform .25s var(--ease); }
-    .pub a:hover .read-more svg { transform: translate(2px, -2px); }
-    @media (max-width: 800px) {
-      .year-group { grid-template-columns: 1fr; gap: 1.25rem; }
-      .year { position: static; }
+    .pub-avail svg {
+      width: .85rem;
+      height: .85rem;
+      fill: none;
+      stroke: var(--brass-strong);
+      stroke-width: 1.5;
+    }
+    .pub-avail > span:only-child {
+      font-weight: 600;
+      color: var(--deep);
+      border: 1px solid var(--rule);
+      padding: .4rem .75rem;
+      border-radius: 2px;
+      transition: border-color .2s;
+    }
+    .pub > a:hover .pub-avail > span:only-child { border-color: var(--deep); }
+    .pub-avail .archive-badge {
+      font-weight: 600;
+      color: var(--on-deep);
+      background: var(--deep);
+      padding: .4rem .75rem;
+      border-radius: 2px;
+    }
+    .pub-avail .archive-badge svg { stroke: var(--brass-light); }
+    .empty {
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--ink-soft);
+    }
+    .empty strong {
+      display: block;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 1.5rem;
+      color: var(--ink);
+      margin-bottom: .4rem;
+    }
+    mark.hit { background: rgba(212, 184, 134, .45); color: inherit; padding: 0 .05em; }
+
+    /* Affichage en cartes (#list[data-view="grille"]) : même balisage, une carte par publication */
+    #list[data-view="grille"] .pub-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr));
+      gap: 1.5rem;
+      background: none;
+      border: 0;
+      box-shadow: none;
+    }
+    #list[data-view="grille"] .pub + .pub { border-top: 0; }
+    #list[data-view="grille"] .pub > a {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      height: 100%;
+      padding: 0;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .3s;
+    }
+    #list[data-view="grille"] .pub > a::before { display: none; }
+    #list[data-view="grille"] .pub > a:hover { background: var(--card); transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--brass); }
+    #list[data-view="grille"] .pub-thumb {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      align-self: stretch;
+      background: var(--deep);
+      border-bottom: 1px solid var(--rule);
+    }
+    #list[data-view="grille"] .pub-thumb img {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      box-shadow: none;
+      transition: transform .6s var(--ease);
+    }
+    #list[data-view="grille"] .pub > a:hover .pub-thumb img { transform: scale(1.04); }
+    #list[data-view="grille"] .pub-thumb svg {
+      width: 3.6rem;
+      height: 3.6rem;
+      padding: .95rem;
+      background: none;
+      border-color: var(--rule-deep);
+      color: var(--brass-light);
+    }
+    #list[data-view="grille"] .pub-body { flex: 1; padding: 1.2rem 1.3rem .5rem; }
+    #list[data-view="grille"] .pub-summary { -webkit-line-clamp: 3; }
+    #list[data-view="grille"] .pub-avail {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: .5rem;
+      margin: .8rem 1.3rem 0;
+      padding: .85rem 0 1.1rem;
+      border-top: 1px solid var(--rule);
+    }
+    #list[data-view="grille"] .pub-avail > span:only-child { margin-left: auto; }
+
+    @media (max-width: 900px) {
+      .archive-grid { grid-template-columns: 1fr; }
+      .years {
+        position: sticky;
+        top: calc(4.75rem + env(safe-area-inset-top, 0px));
+        z-index: 5;
+        max-height: none;
+        overflow-x: auto;
+        overflow-y: hidden;
+        margin: 0 calc(var(--gutter) * -1);
+        padding: .6rem var(--gutter);
+        background: color-mix(in srgb, var(--sand) 94%, transparent);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--rule);
+      }
+      .years h2 { display: none; }
+      .years ol { display: flex; gap: .4rem; border-left: 0; }
+      .years a {
+        display: block;
+        margin: 0;
+        padding: .3rem .8rem;
+        border: 1px solid var(--rule);
+        border-radius: 999px;
+        font-size: .95rem;
+        white-space: nowrap;
+      }
+      .years a.current { background: var(--deep); border-color: var(--deep); color: var(--on-deep); }
+      .years .bar { display: none; }
+    }
+    @media (max-width: 640px) {
+      .pub > a { grid-template-columns: 3.75rem 1fr; gap: 1rem; padding: 1.2rem 1rem; }
+      .pub-thumb { width: 3.75rem; height: 3rem; align-self: start; }
+      .pub-thumb svg { width: 2.6rem; height: 2.6rem; padding: .6rem; }
+      .pub-thumb img { width: 3.75rem; height: 2.9rem; }
+      .pub-avail { grid-column: 2; justify-items: start; display: flex; flex-wrap: wrap; gap: .4rem .6rem; }
+      .selects { width: 100%; }
+      .selects label { flex: 1 1 8rem; }
+      .selects select { width: 100%; }
     }
 
     /* Bandeau presse */
@@ -668,7 +1022,7 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
-      .page-head-grid, .filter-bar { animation: none; }
+      .page-head-grid, .toolbar { animation: none; }
       *, *::before, *::after { transition-duration: 0s !important; }
     }
   </style>
@@ -681,6 +1035,10 @@
   <!-- Rosace guillochée réutilisée comme décor (style billet de banque) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
+      <!-- Pictogrammes des types de publication -->
+      <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l4-1L19 8l-3-3L5 16l-1 4zM14 7l3 3"/></symbol>
+      <symbol id="i-talk" viewBox="0 0 24 24"><path d="M4 5h16v11H10l-4 4v-4H4z"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 1 0 0-18zM10 8.5v7l5.5-3.5z"/></symbol>
       <g id="rosace" fill="none" stroke="currentColor" stroke-width=".6">
         <ellipse id="ell" cx="0" cy="0" rx="300" ry="96" />
         <use href="#ell" transform="rotate(6)" /><use href="#ell" transform="rotate(12)" /><use href="#ell" transform="rotate(18)" />
@@ -705,14 +1063,13 @@
         <span class="brand-mark" aria-hidden="true">LG</span>
         <span class="brand-text">
           <span class="brand-name">LG Advisory</span>
-          <span class="brand-tag">Conseil patrimonial</span>
+          <span class="brand-tag">Stratégie patrimoniale</span>
         </span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
       <nav class="nav" id="nav" aria-label="Navigation principale">
         <ul>
           <li><a href="index.html#expertise">Expertise</a></li>
-          <li><a href="index.html#demarche">Démarche</a></li>
           <li><a href="index.html#parcours">Parcours</a></li>
           <li><a href="publications.html" aria-current="page">Publications</a></li>
           <li><a class="nav-cta" href="contact.html">Contact</a></li>
@@ -729,214 +1086,630 @@
         <div class="page-head-grid">
           <div>
             <p class="eyebrow">Publications</p>
-            <h1>Publications <em>et interventions</em></h1>
+            <h1>Publications <em>et archives</em></h1>
           </div>
           <p class="page-lead">
-            Tribunes, entretiens et prises de parole de Laurent Gayet dans la presse patrimoniale
-            et lors des rendez-vous de la profession, sur l'assurance-vie, la fiscalité,
-            la transmission et l'évolution du conseil.
+            Articles, tribunes, entretiens et interventions de Laurent Gayet dans la presse
+            patrimoniale et fiscale. Les articles parus en revue sont retranscrits en intégralité
+            et consultables en fac-similé.
           </p>
         </div>
       </div>
     </section>
 
-    <div class="filter-wrap">
+    <div class="toolbar-wrap">
       <div class="wrap">
-        <div class="filter-bar">
-          <p class="filter-summary"><strong>18</strong> <span>publications de 2019 à 2025</span></p>
-          <div class="filters" role="group" aria-label="Filtrer par type">
-            <button type="button" data-filter="all" aria-pressed="true">Tout <span class="count">18</span></button>
-            <button type="button" data-filter="tribune" aria-pressed="false">Tribunes <span class="count">4</span></button>
-            <button type="button" data-filter="entretien" aria-pressed="false">Entretiens <span class="count">8</span></button>
-            <button type="button" data-filter="intervention" aria-pressed="false">Vidéos, podcasts et conférences <span class="count">6</span></button>
+        <form class="toolbar" role="search" onsubmit="return false">
+          <div class="toolbar-row">
+            <div class="search">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6"/><path d="m13 13 5 5"/></svg>
+              <input type="search" id="q" placeholder="Titre, revue, thème, mot-clé…" aria-label="Rechercher une publication" autocomplete="off">
+            </div>
+            <div class="selects">
+              <label>Type
+                <select id="f-type">
+                  <option value="">Tous les types</option>
+                  <option value="article">Articles de revue</option>
+                  <option value="tribune">Tribunes</option>
+                  <option value="entretien">Entretiens</option>
+                  <option value="intervention">Vidéos, podcasts et conférences</option>
+                </select>
+              </label>
+              <label>Revue
+                <select id="f-source"><option value="">Toutes les revues</option></select>
+              </label>
+              <label>Ordre
+                <select id="f-sort">
+                  <option value="desc">Plus récentes</option>
+                  <option value="asc">Plus anciennes</option>
+                </select>
+              </label>
+            </div>
           </div>
-        </div>
+          <div class="themes" role="group" aria-label="Filtrer par thème">
+            <button type="button" data-theme="" aria-pressed="true">Tous les thèmes</button>
+            <button type="button" data-theme="assurance-vie" aria-pressed="false">Assurance-vie</button>
+            <button type="button" data-theme="fiscalite" aria-pressed="false">Fiscalité</button>
+            <button type="button" data-theme="transmission" aria-pressed="false">Transmission</button>
+            <button type="button" data-theme="international" aria-pressed="false">International et Luxembourg</button>
+            <button type="button" data-theme="gestion" aria-pressed="false">Gestion de patrimoine</button>
+          </div>
+          <p class="result" aria-live="polite">
+            <strong id="n">33</strong> <span id="result-label">publications de 2006 à 2025</span>
+            <button type="button" id="reset" hidden>Réinitialiser les filtres</button>
+            <span class="view" role="group" aria-label="Affichage">
+              <button type="button" data-view="liste" aria-pressed="true" title="Affichage en liste">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5h12M2 8h12M2 12.5h12"/></svg> Liste
+              </button>
+              <button type="button" data-view="grille" aria-pressed="false" title="Affichage en cartes">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg> Cartes
+              </button>
+            </span>
+          </p>
+        </form>
       </div>
     </div>
 
-    <section class="pubs" aria-live="polite">
-      <div class="wrap">
-        <div class="year-group reveal">
-          <h2 class="year">2025</h2>
-          <ul class="pub-list">
-            <li class="pub" data-type="tribune">
-              <a href="https://www.h24finance.com/news/axa-wealth-europe-le-contrat-d-assurance-vie-luxembourgeois-toujours-en-haut-de-l-affiche.html" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Tribune</span> <span class="pub-source">H24Finance</span></span>
-                <h3>Le contrat d&#x27;assurance-vie luxembourgeois, toujours en haut de l&#x27;affiche</h3>
-                <p>Cosigné avec Noémie Cabo. Une fiche pédagogique sur la nature juridique du contrat, sa distribution en libre prestation de services et ses atouts concrets pour le client.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-            <li class="pub" data-type="entretien">
-              <a href="https://www.hubfinance.com/actualites/interview-avec-laurent-gayet-axa-wealth" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">HubFinance</span></span>
-                <h3>L&#x27;avenir du wealth planning, entre transmission et quête de sens</h3>
-                <p>Comment la plus grande vague de transmission patrimoniale de l&#x27;histoire change les attentes des clients fortunés et des family offices.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="year-group reveal">
-          <h2 class="year">2024</h2>
-          <ul class="pub-list">
-            <li class="pub" data-type="intervention">
-              <a href="https://www.decideurs-cf.com/4change-patrimoine.html" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Vidéo, podcast ou conférence</span> <span class="pub-source">Décideurs</span></span>
-                <h3>Table ronde 4Change au Sommet du Patrimoine et de la Performance</h3>
-                <p>Un échange sur les grandes tendances de la gestion de patrimoine, aux côtés de Jérôme Samuel et d&#x27;Anne-Charlotte Thèves.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="year-group reveal">
-          <h2 class="year">2023</h2>
-          <ul class="pub-list">
-            <li class="pub" data-type="entretien">
-              <a href="https://www.decideurs-magazine.com/patrimoine-am/55408-laurent-gayet-axa-wealth-europe-les-gerants-de-fonds-monetaires-et-les-fonds-euro-boostes-des-assureurs-retrouvent-leur-attrait-dans-le-contexte-inflationniste-mais-est-ce-durable-2.html" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">Décideurs Magazine</span></span>
-                <h3>Fonds monétaires et fonds euros boostés&nbsp;: un regain d&#x27;attrait durable&nbsp;?</h3>
-                <p>Inflation, remontée brutale des taux et géopolitique&nbsp;: ce qui change pour l&#x27;épargne et pour le métier de gestionnaire de patrimoine.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-            <li class="pub" data-type="intervention">
-              <a href="https://www.patrimoine24.com/les-news/12074-rencontre-avec-laurent-gayet-et-lionel-picou-axa-wealth-europe.html" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Vidéo, podcast ou conférence</span> <span class="pub-source">Patrimoine24</span></span>
-                <h3>Rencontre avec Laurent Gayet et Lionel Picou</h3>
-                <p>Entretien vidéo aux côtés de Lionel Picou, Head of Sales d&#x27;AXA Wealth Europe.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="year-group reveal">
-          <h2 class="year">2022</h2>
-          <ul class="pub-list">
-            <li class="pub" data-type="entretien">
-              <a href="https://www.decideurs-magazine.com/droit/44015-l-gayet-axa-wealth-europe-le-luxembourg-est-toujours-au-sommet-du-patrimoine.html" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">Décideurs Magazine</span></span>
-                <h3>Le Luxembourg est toujours au sommet du patrimoine</h3>
-                <p>État du marché de l&#x27;assurance-vie, succès du contrat luxembourgeois et appel à la prudence face à la démocratisation du private equity.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-            <li class="pub" data-type="entretien">
-              <a href="https://www.gestiondefortune.com/assurance-vie/rubriques-assurance-vie/actualites/9066-l-interview-axa-wealth-europe-traverse-la-tempete-sans-encombre.html" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">Gestion de Fortune</span></span>
-                <h3>AXA Wealth Europe traverse la tempête sans encombre</h3>
-                <p>Un point sur des marchés chahutés et sur les classes d&#x27;actifs privilégiées par les investisseurs en 2022.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-            <li class="pub" data-type="tribune">
-              <a href="https://axa-wealtheurope.lu/fr/blog/axa-wealth-europe-inspir-medef-modele-hybride" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Tribune</span> <span class="pub-source">Inspir, magazine du MEDEF Paris</span></span>
-                <h3>Un modèle hybride qui carbure</h3>
-                <p>Hors-série consacré au Luxembourg&nbsp;: comment allier l&#x27;agilité d&#x27;une start-up et la solidité d&#x27;un grand groupe au service d&#x27;une clientèle haut de gamme.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-            <li class="pub" data-type="intervention">
-              <a href="https://www.patrimoine24.com/les-news/9310-podcast-avec-laurent-gayet-2.html" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Vidéo, podcast ou conférence</span> <span class="pub-source">Patrimoine24</span></span>
-                <h3>Podcast avec Laurent Gayet</h3>
-                <p>Entretien audio avec le Deputy CEO d&#x27;AXA Wealth Europe.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-            <li class="pub" data-type="entretien">
-              <a href="https://axa-wealtheurope.lu/fr/blog/axa-wealth-europe-interview-manager-mars-2022" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">AXA Wealth Europe</span></span>
-                <h3>Dans les coulisses d&#x27;AXA Wealth Europe&nbsp;: l&#x27;interview du manager</h3>
-                <p>Un parcours raconté avec humour, des brigades du fisc à la direction générale adjointe d&#x27;AXA Wealth Europe.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="year-group reveal">
-          <h2 class="year">2021</h2>
-          <ul class="pub-list">
-            <li class="pub" data-type="tribune">
-              <a href="https://magazine-decideurs.com/news/l-gayet-axa-wealth-europe-et-si-darwin-revenait-quel-constat-et-quelles-evolutions" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Tribune</span> <span class="pub-source">Décideurs Magazine</span></span>
-                <h3>Et si Darwin revenait, quel constat et quelles évolutions&nbsp;?</h3>
-                <p>Allongement de la vie, digitalisation et quête de sens&nbsp;: les nouveaux paradigmes qui transforment la gestion de patrimoine.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-            <!-- année à vérifier -->
-            <li class="pub" data-type="entretien">
-              <a href="https://www.magazine-decideurs.com/news/laurent-gayet-axa-wealth-europe-desormais-l-etre-et-l-avoir-deviennent-indissociables-l-un-de-l-autre" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">Décideurs Magazine</span></span>
-                <h3>Les standards historiques de la relation client sont bouleversés</h3>
-                <p>Digital, transparence et nouvelles exigences&nbsp;: pourquoi il faut anticiper les attentes du client plutôt que simplement le suivre.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-            <li class="pub" data-type="intervention">
-              <a href="https://radio-patrimoine.fr/guest/1-182-Laurent-GAYET" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Vidéo, podcast ou conférence</span> <span class="pub-source">Radio Patrimoine</span></span>
-                <h3>La rentrée du patrimoine</h3>
-                <p>Émission enregistrée avec Lionel Picou lors des Rencontres Occur 2021.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-            <li class="pub" data-type="intervention">
-              <a href="https://www.patrimoine24.com/les-news/7284-entretien-avec-laurent-gayet-axa-wealth-europe.html" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Vidéo, podcast ou conférence</span> <span class="pub-source">Patrimoine24</span></span>
-                <h3>Entretien avec Laurent Gayet</h3>
-                <p>Entretien vidéo avec le Deputy CEO d&#x27;AXA Wealth Europe.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="year-group reveal">
-          <h2 class="year">2020</h2>
-          <ul class="pub-list">
-            <li class="pub" data-type="tribune">
-              <a href="https://axa-wealtheurope.lu/fr/blog/axa-wealth-europe-laurent-gayet-odile-serpault-le-jour-dapres" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Tribune</span> <span class="pub-source">AXA Wealth Europe</span></span>
-                <h3>Le jour d&#x27;après, c&#x27;est maintenant&nbsp;: pour l&#x27;avènement de la résilience patrimoniale</h3>
-                <p>Cosigné avec Odile Lefevre-Serpault. Ce que la crise sanitaire a changé pour les assureurs, leurs partenaires et leurs clients.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-            <li class="pub" data-type="intervention">
-              <a href="https://axa-wealtheurope.lu/fr/blog/axa-wealth-europe-interview-laurent-gayet-aca-id-2020" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Vidéo, podcast ou conférence</span> <span class="pub-source">ACA Insurance Days 2020</span></span>
-                <h3>Le marché français de l&#x27;assurance-vie</h3>
-                <p>Un état des lieux du marché français de l&#x27;assurance-vie, présenté aux journées de l&#x27;Association des compagnies d&#x27;assurances du Luxembourg.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-            <!-- année à vérifier -->
-            <li class="pub" data-type="entretien">
-              <a href="https://axa-wealtheurope.lu/fr/blog/axa-wealth-europe-grande-structure-start-up" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">AXA Wealth Europe</span></span>
-                <h3>Une grande structure peut avoir l&#x27;esprit start-up</h3>
-                <p>Proximité avec les distributeurs, circuits de décision courts et obsession du service client.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="year-group reveal">
-          <h2 class="year">2019</h2>
-          <ul class="pub-list">
-            <!-- année à vérifier -->
-            <li class="pub" data-type="entretien">
-              <a href="https://www.decideurs-magazine.com/finance/34447-laurent-gayet-axa-wealth-europe-la-force-du-contrat-luxembourgeois-est-sa-capacite-a-s-adapter-a-la-mobilite-croissante-des-clie.html" target="_blank" rel="noopener">
-                <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">Décideurs Magazine</span></span>
-                <h3>La force du contrat luxembourgeois est sa capacité à s&#x27;adapter à la mobilité des clients</h3>
-                <p>Retour sur le premier village luxembourgeois du salon Patrimonia et sur l&#x27;essor des patrimoines internationaux.</p>
-                <span class="read-more">Lire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-              </a>
-            </li>
-          </ul>
+    <section class="archive">
+      <div class="wrap archive-grid">
+        <nav class="years" aria-label="Accès par année">
+          <h2>Années</h2>
+          <ol id="years"></ol>
+        </nav>
+
+        <div id="list">
+          <!-- Une publication = un <li class="pub">.
+               data-type : article | tribune | entretien | intervention
+               data-themes : assurance-vie fiscalite transmission international gestion (plusieurs possibles)
+               data-source : nom de la revue (alimente le menu « Revue »)
+               data-keywords : mots-clés supplémentaires pour la recherche (facultatif) -->
+          <div class="year-group" id="annee-2025" data-year="2025">
+            <div class="year-head"><h2 class="year">2025</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <li class="pub" data-type="tribune" data-themes="assurance-vie international" data-source="H24Finance">
+                <a href="https://www.h24finance.com/news/axa-wealth-europe-le-contrat-d-assurance-vie-luxembourgeois-toujours-en-haut-de-l-affiche.html" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-pen" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Tribune</span> <span class="pub-source">H24Finance</span></span>
+                    <h3>Le contrat d&#x27;assurance-vie luxembourgeois, toujours en haut de l&#x27;affiche</h3>
+                    <span class="pub-summary">Cosigné avec Noémie Cabo. Une fiche pédagogique sur la nature juridique du contrat, sa distribution en libre prestation de services et ses atouts concrets pour le client.</span>
+                  </span>
+                  <span class="pub-avail"><span>Lire sur le site <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+              <li class="pub" data-type="entretien" data-themes="transmission gestion" data-source="HubFinance">
+                <a href="https://www.hubfinance.com/actualites/interview-avec-laurent-gayet-axa-wealth" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-talk" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">HubFinance</span></span>
+                    <h3>L&#x27;avenir du wealth planning, entre transmission et quête de sens</h3>
+                    <span class="pub-summary">Comment la plus grande vague de transmission patrimoniale de l&#x27;histoire change les attentes des clients fortunés et des family offices.</span>
+                  </span>
+                  <span class="pub-avail"><span>Lire sur le site <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2024" data-year="2024">
+            <div class="year-head"><h2 class="year">2024</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <li class="pub" data-type="intervention" data-themes="gestion" data-source="Décideurs">
+                <a href="https://www.decideurs-cf.com/4change-patrimoine.html" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Conférence</span> <span class="pub-source">Décideurs</span></span>
+                    <h3>Table ronde 4Change au Sommet du Patrimoine et de la Performance</h3>
+                    <span class="pub-summary">Un échange sur les grandes tendances de la gestion de patrimoine, aux côtés de Jérôme Samuel et d&#x27;Anne-Charlotte Thèves.</span>
+                  </span>
+                  <span class="pub-avail"><span>Voir <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2023" data-year="2023">
+            <div class="year-head"><h2 class="year">2023</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <li class="pub" data-type="entretien" data-themes="assurance-vie gestion" data-source="Décideurs Magazine">
+                <a href="https://www.decideurs-magazine.com/patrimoine-am/55408-laurent-gayet-axa-wealth-europe-les-gerants-de-fonds-monetaires-et-les-fonds-euro-boostes-des-assureurs-retrouvent-leur-attrait-dans-le-contexte-inflationniste-mais-est-ce-durable-2.html" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-talk" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">Décideurs Magazine</span></span>
+                    <h3>Fonds monétaires et fonds euros boostés&nbsp;: un regain d&#x27;attrait durable&nbsp;?</h3>
+                    <span class="pub-summary">Inflation, remontée brutale des taux et géopolitique&nbsp;: ce qui change pour l&#x27;épargne et pour le métier de gestionnaire de patrimoine.</span>
+                  </span>
+                  <span class="pub-avail"><span>Lire sur le site <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+              <li class="pub" data-type="intervention" data-themes="gestion international" data-source="Patrimoine24">
+                <a href="https://www.patrimoine24.com/les-news/12074-rencontre-avec-laurent-gayet-et-lionel-picou-axa-wealth-europe.html" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Vidéo</span> <span class="pub-source">Patrimoine24</span></span>
+                    <h3>Rencontre avec Laurent Gayet et Lionel Picou</h3>
+                    <span class="pub-summary">Entretien vidéo aux côtés de Lionel Picou, Head of Sales d&#x27;AXA Wealth Europe.</span>
+                  </span>
+                  <span class="pub-avail"><span>Voir <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2022" data-year="2022">
+            <div class="year-head"><h2 class="year">2022</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <li class="pub" data-type="entretien" data-themes="assurance-vie international" data-source="Décideurs Magazine">
+                <a href="https://www.decideurs-magazine.com/droit/44015-l-gayet-axa-wealth-europe-le-luxembourg-est-toujours-au-sommet-du-patrimoine.html" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-talk" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">Décideurs Magazine</span></span>
+                    <h3>Le Luxembourg est toujours au sommet du patrimoine</h3>
+                    <span class="pub-summary">État du marché de l&#x27;assurance-vie, succès du contrat luxembourgeois et appel à la prudence face à la démocratisation du private equity.</span>
+                  </span>
+                  <span class="pub-avail"><span>Lire sur le site <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+              <li class="pub" data-type="entretien" data-themes="gestion" data-source="Gestion de Fortune">
+                <a href="https://www.gestiondefortune.com/assurance-vie/rubriques-assurance-vie/actualites/9066-l-interview-axa-wealth-europe-traverse-la-tempete-sans-encombre.html" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-talk" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">Gestion de Fortune</span></span>
+                    <h3>AXA Wealth Europe traverse la tempête sans encombre</h3>
+                    <span class="pub-summary">Un point sur des marchés chahutés et sur les classes d&#x27;actifs privilégiées par les investisseurs en 2022.</span>
+                  </span>
+                  <span class="pub-avail"><span>Lire sur le site <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+              <li class="pub" data-type="tribune" data-themes="international gestion" data-source="Inspir (MEDEF Paris)">
+                <a href="https://axa-wealtheurope.lu/fr/blog/axa-wealth-europe-inspir-medef-modele-hybride" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-pen" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Tribune</span> <span class="pub-source">Inspir, magazine du MEDEF Paris</span></span>
+                    <h3>Un modèle hybride qui carbure</h3>
+                    <span class="pub-summary">Hors-série consacré au Luxembourg&nbsp;: comment allier l&#x27;agilité d&#x27;une start-up et la solidité d&#x27;un grand groupe au service d&#x27;une clientèle haut de gamme.</span>
+                  </span>
+                  <span class="pub-avail"><span>Lire sur le site <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+              <li class="pub" data-type="intervention" data-themes="gestion" data-source="Patrimoine24">
+                <a href="https://www.patrimoine24.com/les-news/9310-podcast-avec-laurent-gayet-2.html" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Podcast</span> <span class="pub-source">Patrimoine24</span></span>
+                    <h3>Podcast avec Laurent Gayet</h3>
+                    <span class="pub-summary">Entretien audio avec le Deputy CEO d&#x27;AXA Wealth Europe.</span>
+                  </span>
+                  <span class="pub-avail"><span>Écouter <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+              <li class="pub" data-type="entretien" data-themes="gestion" data-source="AXA Wealth Europe">
+                <a href="https://axa-wealtheurope.lu/fr/blog/axa-wealth-europe-interview-manager-mars-2022" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-talk" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">AXA Wealth Europe</span></span>
+                    <h3>Dans les coulisses d&#x27;AXA Wealth Europe&nbsp;: l&#x27;interview du manager</h3>
+                    <span class="pub-summary">Un parcours raconté avec humour, des brigades du fisc à la direction générale adjointe d&#x27;AXA Wealth Europe.</span>
+                  </span>
+                  <span class="pub-avail"><span>Lire sur le site <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2021" data-year="2021">
+            <div class="year-head"><h2 class="year">2021</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <li class="pub" data-type="tribune" data-themes="gestion" data-source="Décideurs Magazine">
+                <a href="https://magazine-decideurs.com/news/l-gayet-axa-wealth-europe-et-si-darwin-revenait-quel-constat-et-quelles-evolutions" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-pen" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Tribune</span> <span class="pub-source">Décideurs Magazine</span></span>
+                    <h3>Et si Darwin revenait, quel constat et quelles évolutions&nbsp;?</h3>
+                    <span class="pub-summary">Allongement de la vie, digitalisation et quête de sens&nbsp;: les nouveaux paradigmes qui transforment la gestion de patrimoine.</span>
+                  </span>
+                  <span class="pub-avail"><span>Lire sur le site <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+              <!-- année à vérifier -->
+              <li class="pub" data-type="entretien" data-themes="gestion" data-source="Décideurs Magazine">
+                <a href="https://www.magazine-decideurs.com/news/laurent-gayet-axa-wealth-europe-desormais-l-etre-et-l-avoir-deviennent-indissociables-l-un-de-l-autre" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-talk" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">Décideurs Magazine</span></span>
+                    <h3>Les standards historiques de la relation client sont bouleversés</h3>
+                    <span class="pub-summary">Digital, transparence et nouvelles exigences&nbsp;: pourquoi il faut anticiper les attentes du client plutôt que simplement le suivre.</span>
+                  </span>
+                  <span class="pub-avail"><span>Lire sur le site <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+              <li class="pub" data-type="intervention" data-themes="gestion" data-source="Radio Patrimoine">
+                <a href="https://radio-patrimoine.fr/guest/1-182-Laurent-GAYET" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Émission radio</span> <span class="pub-source">Radio Patrimoine</span></span>
+                    <h3>La rentrée du patrimoine</h3>
+                    <span class="pub-summary">Émission enregistrée avec Lionel Picou lors des Rencontres Occur 2021.</span>
+                  </span>
+                  <span class="pub-avail"><span>Écouter <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+              <li class="pub" data-type="intervention" data-themes="gestion" data-source="Patrimoine24">
+                <a href="https://www.patrimoine24.com/les-news/7284-entretien-avec-laurent-gayet-axa-wealth-europe.html" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Vidéo</span> <span class="pub-source">Patrimoine24</span></span>
+                    <h3>Entretien avec Laurent Gayet</h3>
+                    <span class="pub-summary">Entretien vidéo avec le Deputy CEO d&#x27;AXA Wealth Europe.</span>
+                  </span>
+                  <span class="pub-avail"><span>Voir <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2020" data-year="2020">
+            <div class="year-head"><h2 class="year">2020</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <!-- archive:2020-actes-pratiques-assurance-vie-viatique -->
+              <li class="pub" data-type="article" data-themes="assurance-vie fiscalite gestion" data-source="Actes pratiques et stratégie patrimoniale" data-keywords="fonds euros unités de compte taux bas FFA collecte 2019 prélèvements sociaux flat tax DAC 6 directive 2018/822 ordonnance 2019-1068 économie réelle fonds verts">
+                <a href="articles/2020-actes-pratiques-assurance-vie-viatique.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2020-actes-pratiques-assurance-vie-viatique-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Repère</span> <span class="pub-source">Actes pratiques et stratégie patrimoniale</span> <span>n°&nbsp;1, janvier 2020</span></span>
+                    <h3>L'assurance-vie, nouveau viatique de l'économie réelle et des enjeux sociétaux&nbsp;: un pari à hauts risques&nbsp;?</h3>
+                    <span class="pub-summary">Taux bas, fonds euros, unités de compte vertes, DAC 6&nbsp;: pourquoi l'assurance-vie résiste, et à quel prix, dans la nouvelle équation patrimoniale.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+              <li class="pub" data-type="tribune" data-themes="assurance-vie gestion" data-source="AXA Wealth Europe">
+                <a href="https://axa-wealtheurope.lu/fr/blog/axa-wealth-europe-laurent-gayet-odile-serpault-le-jour-dapres" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-pen" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Tribune</span> <span class="pub-source">AXA Wealth Europe</span></span>
+                    <h3>Le jour d&#x27;après, c&#x27;est maintenant&nbsp;: pour l&#x27;avènement de la résilience patrimoniale</h3>
+                    <span class="pub-summary">Cosigné avec Odile Lefevre-Serpault. Ce que la crise sanitaire a changé pour les assureurs, leurs partenaires et leurs clients.</span>
+                  </span>
+                  <span class="pub-avail"><span>Lire sur le site <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+              <li class="pub" data-type="intervention" data-themes="assurance-vie" data-source="ACA Insurance Days">
+                <a href="https://axa-wealtheurope.lu/fr/blog/axa-wealth-europe-interview-laurent-gayet-aca-id-2020" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-play" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Conférence</span> <span class="pub-source">ACA Insurance Days 2020</span></span>
+                    <h3>Le marché français de l&#x27;assurance-vie</h3>
+                    <span class="pub-summary">Un état des lieux du marché français de l&#x27;assurance-vie, présenté aux journées de l&#x27;Association des compagnies d&#x27;assurances du Luxembourg.</span>
+                  </span>
+                  <span class="pub-avail"><span>Voir <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+              <!-- année à vérifier -->
+              <li class="pub" data-type="entretien" data-themes="gestion" data-source="AXA Wealth Europe">
+                <a href="https://axa-wealtheurope.lu/fr/blog/axa-wealth-europe-grande-structure-start-up" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-talk" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">AXA Wealth Europe</span></span>
+                    <h3>Une grande structure peut avoir l&#x27;esprit start-up</h3>
+                    <span class="pub-summary">Proximité avec les distributeurs, circuits de décision courts et obsession du service client.</span>
+                  </span>
+                  <span class="pub-avail"><span>Lire sur le site <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2019" data-year="2019">
+            <div class="year-head"><h2 class="year">2019</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <!-- archive:2019-actes-pratiques-jurisprudences-patrimoniales -->
+              <li class="pub" data-type="article" data-themes="fiscalite transmission" data-source="Actes pratiques et stratégie patrimoniale" data-keywords="jurisprudence 2019 usufruit personne morale article 669 CGI article 619 Code civil donation indirecte abandon d'usufruit holding animatrice ISF article 885 O bis dette déductible Cour de cassation LexisNexis">
+                <a href="articles/2019-actes-pratiques-jurisprudences-patrimoniales.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2019-actes-pratiques-jurisprudences-patrimoniales-1-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Le point sur</span> <span class="pub-source">Actes pratiques et stratégie patrimoniale</span> <span>n°&nbsp;3, juillet-août-septembre 2019, p.&nbsp;41-44</span></span>
+                    <h3>Jurisprudences patrimoniales&nbsp;: les personnes morales se voient déjà en haut de l'affiche</h3>
+                    <span class="pub-summary">Cession d'usufruit, abandon d'usufruit, sous-évaluation, holding animatrice, dette ISF&nbsp;: cinq arrêts de 2018-2019 où les personnes morales rejoignent les personnes physiques.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé (3&nbsp;p.)</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+              <!-- année à vérifier -->
+              <li class="pub" data-type="entretien" data-themes="assurance-vie international" data-source="Décideurs Magazine">
+                <a href="https://www.decideurs-magazine.com/finance/34447-laurent-gayet-axa-wealth-europe-la-force-du-contrat-luxembourgeois-est-sa-capacite-a-s-adapter-a-la-mobilite-croissante-des-clie.html" target="_blank" rel="noopener">
+                  <span class="pub-thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-talk" /></svg></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Entretien</span> <span class="pub-source">Décideurs Magazine</span></span>
+                    <h3>La force du contrat luxembourgeois est sa capacité à s&#x27;adapter à la mobilité des clients</h3>
+                    <span class="pub-summary">Retour sur le premier village luxembourgeois du salon Patrimonia et sur l&#x27;essor des patrimoines internationaux.</span>
+                  </span>
+                  <span class="pub-avail"><span>Lire sur le site <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></span></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2017" data-year="2017">
+            <div class="year-head"><h2 class="year">2017</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <!-- archive:2017-consentement-a-l-impot -->
+              <li class="pub" data-type="article" data-themes="fiscalite" data-source="Revue à préciser" data-keywords="consentement à l'impôt justice fiscale prélèvements obligatoires Benjamin Constant Tocqueville Montesquieu Adam Smith Laffer élection présidentielle 2017 bonheur fiscal intérieur brut">
+                <a href="articles/2017-consentement-a-l-impot.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2017-consentement-a-l-impot-1-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Billet d'humeur</span> <span class="pub-source">Revue à préciser</span> <span>février 2017</span></span>
+                    <h3>Le nouvel enjeu du consentement à l'impôt</h3>
+                    <span class="pub-summary">À l'approche de la présidentielle, plaidoyer pour un indicateur du «&nbsp;bonheur fiscal&nbsp;»&nbsp;: un impôt lisible, non rétroactif et pédagogique, condition du consentement.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé (2&nbsp;p.)</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2016" data-year="2016">
+            <div class="year-head"><h2 class="year">2016</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <!-- archive:2016-luxembourg-mozart-des-contrats -->
+              <li class="pub" data-type="article" data-themes="assurance-vie international" data-source="Revue à préciser" data-keywords="contrat luxembourgeois assurance-vie Luxembourg circulaire 15/3 FID FIC FAS fonds internes dédiés triangle de sécurité portabilité impatriés diversification géographique">
+                <a href="articles/2016-luxembourg-mozart-des-contrats.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2016-luxembourg-mozart-des-contrats-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">L'avis d'experts</span> <span class="pub-source">Revue à préciser</span> <span>vers 2016</span></span>
+                    <h3>Luxembourg&nbsp;: le Mozart des contrats dans le chant des possibles…</h3>
+                    <span class="pub-summary">Innovation, sécurité, sur-mesure&nbsp;: ce qui fait la partition du contrat d'assurance-vie luxembourgeois, et la vigilance qu'elle impose à l'assureur.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2015" data-year="2015">
+            <div class="year-head"><h2 class="year">2015</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <!-- archive:2015-nouvelles-fiscales-bonheur-fiscal-interieur-brut -->
+              <li class="pub" data-type="article" data-themes="fiscalite gestion" data-source="Les Nouvelles Fiscales" data-keywords="consentement à l'impôt bonheur fiscal inflation normative simplification non-rétroactivité charte Sapin holding animatrice TGI Paris 11 décembre 2014 ISF retraites PERP Madelin Conseil des prélèvements obligatoires">
+                <a href="articles/2015-nouvelles-fiscales-bonheur-fiscal-interieur-brut.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2015-nouvelles-fiscales-bonheur-fiscal-interieur-brut-1-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Événement</span> <span class="pub-source">Les Nouvelles Fiscales</span> <span>2015</span></span>
+                    <h3>Pour un bonheur fiscal intérieur brut…</h3>
+                    <span class="pub-summary">Crise du consentement, inflation normative, rétroactivité, holding animatrice&nbsp;: plaidoyer pour mesurer enfin la satisfaction fiscale des contribuables.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé (2&nbsp;p.)</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2014" data-year="2014">
+            <div class="year-head"><h2 class="year">2014</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <!-- archive:2014-nouvelles-fiscales-investissement-forestier -->
+              <li class="pub" data-type="article" data-themes="fiscalite transmission gestion" data-source="Les Nouvelles Fiscales" data-keywords="forêt groupements fonciers forestiers GFF ISF TEPA DEFI article 793 CGI réduction d'impôt plus-values immobilières diversification">
+                <a href="articles/2014-nouvelles-fiscales-investissement-forestier.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2014-nouvelles-fiscales-investissement-forestier-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Billet d'humeur</span> <span class="pub-source">Les Nouvelles Fiscales</span> <span>2014</span></span>
+                    <h3>Investissement forestier&nbsp;: une niche en bois dur</h3>
+                    <span class="pub-summary">Placement robuste, contracyclique et fiscalement adouci&nbsp;: ce que l'investissement forestier offre à l'impôt sur le revenu, à l'ISF et en transmission.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2013" data-year="2013">
+            <div class="year-head"><h2 class="year">2013</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <!-- archive:2013-les-echos-loi-fiscale-assiegee -->
+              <li class="pub" data-type="tribune" data-themes="fiscalite assurance-vie" data-source="Les Echos Business" data-keywords="sécurité juridique Parlement holding animatrice plus-values rétroactivité confiance fiscale Eckert">
+                <a href="articles/2013-les-echos-loi-fiscale-assiegee.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2013-les-echos-loi-fiscale-assiegee-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Tribune</span> <span class="pub-source">Les Echos Business</span> <span>6 novembre 2013</span></span>
+                    <h3>La loi fiscale assiégée</h3>
+                    <span class="pub-summary">Version parue dans Les Echos du billet «&nbsp;La loi fiscale victime de la poliorcétique&nbsp;»&nbsp;: quand la loi ne décide plus des impôts, seule la loi peut restaurer la confiance fiscale.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+              <!-- archive:2013-nouvelles-fiscales-loi-fiscale-poliorcetique -->
+              <li class="pub" data-type="article" data-themes="fiscalite assurance-vie" data-source="Les Nouvelles Fiscales" data-keywords="Vauban sécurité juridique hiérarchie normative holding animatrice plus-values PLFSS 2014 rétroactivité amendements Eckert">
+                <a href="articles/2013-nouvelles-fiscales-loi-fiscale-poliorcetique.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2013-nouvelles-fiscales-loi-fiscale-poliorcetique-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Billet d'humeur</span> <span class="pub-source">Les Nouvelles Fiscales</span> <span>2013</span></span>
+                    <h3>La loi fiscale victime de la poliorcétique</h3>
+                    <span class="pub-summary">Assises, annonces, instructions anticipatrices, amendements tardifs&nbsp;: la loi fiscale, assiégée, devient suiveuse à défaut d'être créatrice de la norme.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2012" data-year="2012">
+            <div class="year-head"><h2 class="year">2012</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <!-- archive:2012-nouvelles-fiscales-tepa-passee-a-trepas -->
+              <li class="pub" data-type="article" data-themes="fiscalite transmission assurance-vie" data-source="Les Nouvelles Fiscales" data-keywords="loi TEPA bouclier fiscal abrogé triple A exit tax contribution exceptionnelle hauts revenus taxation à 75 % CSG CRDS assurance-vie donations successions loi de finances rectificative 2012">
+                <a href="articles/2012-nouvelles-fiscales-tepa-passee-a-trepas.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2012-nouvelles-fiscales-tepa-passee-a-trepas-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Billet d'humeur</span> <span class="pub-source">Les Nouvelles Fiscales</span> <span>2012, p.&nbsp;3</span></span>
+                    <h3>TEPA passée à… trépas</h3>
+                    <span class="pub-summary">Sept lois de finances en un an, bouclier abrogé, exit tax rétablie, perte du triple A&nbsp;: l'enterrement de la loi TEPA en un «&nbsp;annus horribilis&nbsp;» fiscal.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2011" data-year="2011">
+            <div class="year-head"><h2 class="year">2011</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <!-- archive:2011-nouvelles-fiscales-tango-fiscal -->
+              <li class="pub" data-type="article" data-themes="fiscalite assurance-vie" data-source="Les Nouvelles Fiscales" data-keywords="réforme fiscalité du patrimoine 2011 ISF exit tax œuvres d'art fair announce assurance-vie plus-values latentes Taleb cygne noir stabilité fiscale loi de finances rectificative 2011">
+                <a href="articles/2011-nouvelles-fiscales-tango-fiscal.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2011-nouvelles-fiscales-tango-fiscal-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Billet d'humeur</span> <span class="pub-source">Les Nouvelles Fiscales</span> <span>2011</span></span>
+                    <h3>Réforme de la fiscalité du patrimoine&nbsp;: un vrai tango fiscal…</h3>
+                    <span class="pub-summary">ISF, exit tax, œuvres d'art, assurance-vie&nbsp;: la réforme de la fiscalité du patrimoine de 2011 vue comme une danse d'improvisation sans partenaire.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2008" data-year="2008">
+            <div class="year-head"><h2 class="year">2008</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <!-- archive:2008-nouvelles-fiscales-rapport-attila -->
+              <li class="pub" data-type="article" data-themes="assurance-vie fiscalite" data-source="Les Nouvelles Fiscales" data-keywords="rapport Attali Commission pour la libération de la croissance française assurance-vie plus-values exonération 15 ans PERP PERE contrats antérieurs à 1991 bouclier fiscal bonus de fidélité Kundera">
+                <a href="articles/2008-nouvelles-fiscales-rapport-attila.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2008-nouvelles-fiscales-rapport-attila-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Billet d'humeur</span> <span class="pub-source">Les Nouvelles Fiscales</span> <span>2008, p.&nbsp;3</span></span>
+                    <h3>Attali&nbsp;: le rapport Attila pour les assureurs&nbsp;?</h3>
+                    <span class="pub-summary">Exonération repoussée à 15 ans, contrat alternatif, fin des contrats antérieurs à 1991&nbsp;: ce que le rapport Attali réservait à l'assurance-vie.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+              <!-- archive:2008-nouvelles-fiscales-assurance-vie-pas-morte -->
+              <li class="pub" data-type="article" data-themes="assurance-vie transmission fiscalite" data-source="Les Nouvelles Fiscales" data-keywords="assurance-vie loi TEPA concubin PACS article 990 I article 757 B clause bénéficiaire démembrée quasi-usufruit bouclier fiscal contrats antérieurs à 1991 primes manifestement exagérées crépusculaire Cour de cassation 2004 FFSA">
+                <a href="articles/2008-nouvelles-fiscales-assurance-vie-pas-morte.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2008-nouvelles-fiscales-assurance-vie-pas-morte-1-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Étude express</span> <span class="pub-source">Les Nouvelles Fiscales</span> <span>n°&nbsp;993, 1<sup>er</sup>&nbsp;janvier 2008, p.&nbsp;20-25</span></span>
+                    <h3>Non, l'assurance-vie n'est pas morte…</h3>
+                    <span class="pub-summary">Concubins, pacsés, grands-parents, anciens expatriés&nbsp;: une famille démontre, chiffres à l'appui, que l'assurance-vie reste l'outil clé après la loi TEPA.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé (3&nbsp;p.)</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+              <!-- archive:2008-nouvelles-fiscales-imposition-gains-latents -->
+              <li class="pub" data-type="article" data-themes="fiscalite assurance-vie" data-source="Les Nouvelles Fiscales" data-keywords="gains latents plus-values latentes exit tax article 167 bis CGI Lasteyrie du Saillant CJCE CSG CRDS bouclier fiscal stock-options contribution patronale centre de gestion agréé juste valeur">
+                <a href="articles/2008-nouvelles-fiscales-imposition-gains-latents.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2008-nouvelles-fiscales-imposition-gains-latents-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Billet d'humeur</span> <span class="pub-source">Les Nouvelles Fiscales</span> <span>2008</span></span>
+                    <h3>L'imposition des gains latents ou lorsque l'État s'enrichit sans cause…</h3>
+                    <span class="pub-summary">Exit tax, CSG sur les contrats monosupports, bouclier fiscal, stock-options&nbsp;: la fiscalité française bascule de l'encaissé vers le gain virtuel.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2007" data-year="2007">
+            <div class="year-head"><h2 class="year">2007</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <!-- archive:2007-nouvelles-fiscales-halte-aux-delateurs -->
+              <li class="pub" data-type="article" data-themes="fiscalite" data-source="Les Nouvelles Fiscales" data-keywords="bouclier fiscal autoliquidation impôt minimum impôt plancher exilés fiscaux ISF loi TEPA dénonciation fiscale lettres monitoires Michel Charasse">
+                <a href="articles/2007-nouvelles-fiscales-halte-aux-delateurs.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2007-nouvelles-fiscales-halte-aux-delateurs-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Billet d'humeur</span> <span class="pub-source">Les Nouvelles Fiscales</span> <span>automne 2007</span></span>
+                    <h3>Halte aux délateurs&nbsp;! Place aux rapporteurs…</h3>
+                    <span class="pub-summary">Autoliquidation du bouclier fiscal, impôt minimum, retour des exilés fiscaux&nbsp;: la trilogie de rentrée des rapports parlementaires après la loi TEPA.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+            </ul>
+          </div>
+
+          <div class="year-group" id="annee-2006" data-year="2006">
+            <div class="year-head"><h2 class="year">2006</h2> <span class="year-count"></span></div>
+            <ul class="pub-list">
+              <!-- archive:2006-nouvelles-fiscales-reforme-rampante-isf -->
+              <li class="pub" data-type="article" data-themes="fiscalite transmission" data-source="Les Nouvelles Fiscales" data-keywords="ISF impôt sur la fortune bouclier fiscal plafonnement déclaration 2725 holding animatrice expatriation loi de finances 2006">
+                <a href="articles/2006-nouvelles-fiscales-reforme-rampante-isf.html">
+                  <span class="pub-thumb" aria-hidden="true"><img src="articles/scans/2006-nouvelles-fiscales-reforme-rampante-isf-vignette.jpg" alt="" width="72" height="51" loading="lazy"></span>
+                  <span class="pub-body">
+                    <span class="pub-meta"><span class="pub-type">Événement</span> <span class="pub-source">Les Nouvelles Fiscales</span> <span>juin 2006</span></span>
+                    <h3>Une réforme rampante pour les infortunés de l'ISF</h3>
+                    <span class="pub-summary">Bouclier fiscal, plafonnement, holding animatrice&nbsp;: l'ISF réformé «&nbsp;à moitié&nbsp;» par la loi de finances pour 2006, à quinze jours de la date fatidique.</span>
+                  </span>
+                  <span class="pub-avail">
+                    <span class="archive-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></svg> Texte intégral</span>
+                    <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></svg> Fac-similé</span>
+                  </span>
+                </a>
+              </li>
+              <!-- /archive -->
+            </ul>
+          </div>
+
+          <div class="empty" id="empty" hidden>
+            <strong>Aucune publication ne correspond</strong>
+            Essayez un autre mot-clé ou réinitialisez les filtres.
+          </div>
         </div>
       </div>
     </section>
@@ -965,10 +1738,10 @@
             <span class="brand-mark" aria-hidden="true">LG</span>
             <span class="brand-text">
               <span class="brand-name">LG Advisory</span>
-              <span class="brand-tag">Conseil patrimonial</span>
+              <span class="brand-tag">Stratégie patrimoniale</span>
             </span>
           </a>
-          <p>Conseil patrimonial et fiscal indépendant, fondé par Laurent Gayet.</p>
+          <p>Stratégie patrimoniale et fiscale indépendante, fondée par Laurent Gayet.</p>
         </div>
         <nav aria-label="Pied de page">
           <h2>Navigation</h2>
@@ -1047,21 +1820,198 @@
       reveals.forEach(el => el.classList.add("is-in"));
     }
 
-    // Filtres par type de publication
-    const buttons = document.querySelectorAll(".filters button");
-    buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const f = btn.dataset.filter;
-        buttons.forEach(b => b.setAttribute("aria-pressed", b === btn));
-        document.querySelectorAll(".pub").forEach(p => {
-          p.hidden = !(f === "all" || p.dataset.type === f);
-        });
-        document.querySelectorAll(".year-group").forEach(g => {
-          g.hidden = !g.querySelector(".pub:not([hidden])");
-          if (!g.hidden) g.classList.add("is-in");
-        });
-      });
+    // Recherche, filtres et frise des années
+    const list = document.getElementById("list");
+    const groups = [...list.querySelectorAll(".year-group")];
+    const pubs = [...list.querySelectorAll(".pub")];
+    const q = document.getElementById("q");
+    const fType = document.getElementById("f-type");
+    const fSource = document.getElementById("f-source");
+    const fSort = document.getElementById("f-sort");
+    const themeButtons = [...document.querySelectorAll(".themes button")];
+    const yearsNav = document.getElementById("years");
+    const resetBtn = document.getElementById("reset");
+    let theme = "";
+
+    // Texte sans accents ni majuscules, pour une recherche tolérante
+    const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+    pubs.forEach(p => {
+      const year = p.closest(".year-group").dataset.year;
+      p.dataset.search = norm([p.textContent, p.dataset.keywords || "", p.dataset.themes || "", year].join(" "));
+      p.querySelectorAll("h3, .pub-summary").forEach(el => { el.dataset.raw = el.innerHTML; });
     });
+
+    // Menu des revues construit à partir de la liste
+    [...new Set(pubs.map(p => p.dataset.source))]
+      .sort((a, b) => a.localeCompare(b, "fr"))
+      .forEach(s => fSource.add(new Option(s, s)));
+
+    // Surlignage des mots recherchés (titre et résumé uniquement)
+    function highlight(el, terms) {
+      el.innerHTML = el.dataset.raw;
+      if (!terms.length) return;
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(node => {
+        const text = node.nodeValue;
+        const n = norm(text);
+        const ranges = [];
+        terms.forEach(t => {
+          let i = n.indexOf(t);
+          while (i !== -1) { ranges.push([i, i + t.length]); i = n.indexOf(t, i + t.length); }
+        });
+        if (!ranges.length) return;
+        ranges.sort((a, b) => a[0] - b[0]);
+        const frag = document.createDocumentFragment();
+        let pos = 0;
+        ranges.forEach(([a, b]) => {
+          if (a < pos) return;
+          frag.append(text.slice(pos, a));
+          const m = document.createElement("mark");
+          m.className = "hit";
+          m.textContent = text.slice(a, b);
+          frag.append(m);
+          pos = b;
+        });
+        frag.append(text.slice(pos));
+        node.replaceWith(frag);
+      });
+    }
+
+    function apply() {
+      const terms = norm(q.value).split(/\s+/).filter(t => t.length > 1);
+      let shown = 0;
+      const years = [];
+      pubs.forEach(p => {
+        const ok = (!fType.value || p.dataset.type === fType.value)
+          && (!fSource.value || p.dataset.source === fSource.value)
+          && (!theme || p.dataset.themes.split(" ").includes(theme))
+          && terms.every(t => p.dataset.search.includes(t));
+        p.hidden = !ok;
+        if (ok) shown++;
+        p.querySelectorAll("h3, .pub-summary").forEach(el => highlight(el, ok ? terms : []));
+      });
+      groups.forEach(g => {
+        const n = g.querySelectorAll(".pub:not([hidden])").length;
+        g.hidden = n === 0;
+        g.querySelector(".year-count").textContent = n + (n > 1 ? " publications" : " publication");
+        if (n) years.push({ year: g.dataset.year, n });
+      });
+      document.getElementById("empty").hidden = shown > 0;
+      document.getElementById("n").textContent = shown;
+      const ys = years.map(y => +y.year);
+      document.getElementById("result-label").textContent = !shown ? "publication"
+        : (shown > 1 ? "publications" : "publication")
+          + (ys.length > 1 ? " de " + Math.min(...ys) + " à " + Math.max(...ys) : " en " + ys[0]);
+      resetBtn.hidden = !(q.value || fType.value || fSource.value || theme);
+      buildYears(years);
+      syncUrl();
+    }
+
+    // Frise : une ligne par année, barre proportionnelle au nombre de publications
+    function buildYears(years) {
+      const max = Math.max(1, ...years.map(y => y.n));
+      yearsNav.innerHTML = "";
+      years.forEach(({ year, n }) => {
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="#annee-${year}">${year}<span class="bar"><i style="--w:${n / max * 100}%"></i></span></a>`;
+        yearsNav.append(li);
+      });
+      markCurrentYear();
+    }
+
+    // Année en cours de lecture mise en évidence dans la frise
+    function markCurrentYear() {
+      const visible = groups.filter(g => !g.hidden);
+      let current = visible[0];
+      visible.forEach(g => { if (g.getBoundingClientRect().top < 200) current = g; });
+      yearsNav.querySelectorAll("a").forEach(a => {
+        const on = current && a.getAttribute("href") === "#" + current.id;
+        a.classList.toggle("current", on);
+        if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+      });
+      const active = yearsNav.querySelector(".current");
+      const strip = yearsNav.parentElement;
+      if (active && strip.scrollWidth > strip.clientWidth) {
+        strip.scrollTo({ left: active.offsetLeft - strip.clientWidth / 2 + active.offsetWidth / 2, behavior: "smooth" });
+      }
+    }
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => { markCurrentYear(); ticking = false; });
+    }, { passive: true });
+
+    // Ordre chronologique ou antichronologique
+    function sort() {
+      const asc = fSort.value === "asc";
+      const ordered = [...groups].sort((a, b) => asc ? a.dataset.year - b.dataset.year : b.dataset.year - a.dataset.year);
+      ordered.forEach(g => {
+        list.insertBefore(g, document.getElementById("empty"));
+        const ul = g.querySelector(".pub-list");
+        const items = [...ul.children].filter(el => el.matches(".pub"));
+        if (ul.dataset.order !== fSort.value) {
+          items.reverse().forEach(li => ul.append(li));
+          ul.dataset.order = fSort.value;
+        }
+      });
+      groups.sort((a, b) => asc ? a.dataset.year - b.dataset.year : b.dataset.year - a.dataset.year);
+    }
+    list.querySelectorAll(".pub-list").forEach(ul => { ul.dataset.order = "desc"; });
+
+    // Filtres conservés dans l'adresse (lien partageable, retour depuis un article)
+    function syncUrl() {
+      const params = new URLSearchParams();
+      if (q.value) params.set("q", q.value);
+      if (theme) params.set("theme", theme);
+      if (fType.value) params.set("type", fType.value);
+      if (fSource.value) params.set("revue", fSource.value);
+      if (fSort.value === "asc") params.set("ordre", "asc");
+      if (list.dataset.view === "grille") params.set("vue", "grille");
+      const s = params.toString();
+      history.replaceState(null, "", s ? "?" + s + location.hash : location.pathname + location.hash);
+    }
+    function setTheme(value) {
+      theme = value;
+      themeButtons.forEach(b => b.setAttribute("aria-pressed", b.dataset.theme === value));
+    }
+    const params = new URLSearchParams(location.search);
+    q.value = params.get("q") || "";
+    fType.value = params.get("type") || "";
+    fSource.value = params.get("revue") || "";
+    fSort.value = params.get("ordre") === "asc" ? "asc" : "desc";
+    setTheme(themeButtons.some(b => b.dataset.theme === params.get("theme")) ? params.get("theme") : "");
+
+    // Affichage liste / cartes : adresse (?vue=grille), sinon dernier choix du visiteur
+    const viewButtons = [...document.querySelectorAll(".view button")];
+    function setView(value, save) {
+      list.dataset.view = value;
+      viewButtons.forEach(b => b.setAttribute("aria-pressed", b.dataset.view === value));
+      if (save) {
+        try { localStorage.setItem("publications-vue", value); } catch (e) {}
+        syncUrl();
+      }
+    }
+    let savedView = null;
+    try { savedView = localStorage.getItem("publications-vue"); } catch (e) {}
+    setView(params.get("vue") === "grille" || (!params.has("vue") && savedView === "grille") ? "grille" : "liste", false);
+    viewButtons.forEach(b => b.addEventListener("click", () => setView(b.dataset.view, true)));
+
+    let debounce;
+    q.addEventListener("input", () => { clearTimeout(debounce); debounce = setTimeout(apply, 120); });
+    [fType, fSource].forEach(s => s.addEventListener("change", apply));
+    fSort.addEventListener("change", () => { sort(); apply(); });
+    themeButtons.forEach(b => b.addEventListener("click", () => { setTheme(b.dataset.theme); apply(); }));
+    resetBtn.addEventListener("click", () => {
+      q.value = ""; fType.value = ""; fSource.value = "";
+      setTheme("");
+      apply();
+      q.focus();
+    });
+    sort();
+    apply();
   </script>
 </body>
 </html>

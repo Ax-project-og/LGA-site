@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://lg-advisory.eu/publications</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://lg-advisory.eu/contact</loc>
@@ -20,4 +20,66 @@
     <loc>https://lg-advisory.eu/confidentialite</loc>
     <lastmod>2026-10-23</lastmod>
   </url>
+  <!-- articles -->
+  <url>
+    <loc>https://lg-advisory.eu/articles/2006-nouvelles-fiscales-reforme-rampante-isf</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://lg-advisory.eu/articles/2007-nouvelles-fiscales-halte-aux-delateurs</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://lg-advisory.eu/articles/2008-nouvelles-fiscales-imposition-gains-latents</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://lg-advisory.eu/articles/2008-nouvelles-fiscales-assurance-vie-pas-morte</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://lg-advisory.eu/articles/2008-nouvelles-fiscales-rapport-attila</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://lg-advisory.eu/articles/2011-nouvelles-fiscales-tango-fiscal</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://lg-advisory.eu/articles/2012-nouvelles-fiscales-tepa-passee-a-trepas</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://lg-advisory.eu/articles/2013-nouvelles-fiscales-loi-fiscale-poliorcetique</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://lg-advisory.eu/articles/2013-les-echos-loi-fiscale-assiegee</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://lg-advisory.eu/articles/2014-nouvelles-fiscales-investissement-forestier</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://lg-advisory.eu/articles/2015-nouvelles-fiscales-bonheur-fiscal-interieur-brut</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://lg-advisory.eu/articles/2016-luxembourg-mozart-des-contrats</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://lg-advisory.eu/articles/2017-consentement-a-l-impot</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://lg-advisory.eu/articles/2019-actes-pratiques-jurisprudences-patrimoniales</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://lg-advisory.eu/articles/2020-actes-pratiques-assurance-vie-viatique</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <!-- /articles -->
 </urlset>

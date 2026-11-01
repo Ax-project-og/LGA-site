@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Test : encadrés des publications | LG Advisory</title>
+  <meta name="robots" content="noindex">
+  <!-- Page de travail (non publiée, listée dans .assetsignore) : 5 pistes pour les encadrés de la page Publications -->
+  <style>
+    @font-face { font-family: "Libre Caslon Display"; src: url("fonts/libre-caslon-display.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Libre Caslon Text"; src: url("fonts/libre-caslon-text-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+    @font-face { font-family: "Figtree"; src: url("fonts/figtree.woff2") format("woff2"); font-weight: 300 900; font-style: normal; font-display: swap; }
+
+    :root {
+      --deep: #1F3A32;
+      --deeper: #152A23;
+      --deepest: #0F1F1A;
+      --ivory: #F7F5EF;
+      --sand: #EDE8DD;
+      --card: #FFFFFF;
+      --ink: #1F3A32;
+      --ink-soft: #5B6B63;
+      --brass: #B08D57;
+      --brass-strong: #8C6C38;
+      --brass-light: #D4B886;
+      --rule: #DFD8CA;
+      --on-deep: #F1EEE6;
+      --on-deep-soft: #B5C2BA;
+      --rule-deep: rgba(212, 184, 134, .22);
+      --serif: "Libre Caslon Display", "Baskerville", "Georgia", serif;
+      --serif-italic: "Libre Caslon Text", "Baskerville", "Georgia", serif;
+      --sans: "Figtree", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --wrap: 74rem;
+      --gutter: clamp(1.25rem, 5vw, 3rem);
+      --shadow: 0 1px 2px rgba(15, 31, 26, .04), 0 18px 45px -18px rgba(15, 31, 26, .22);
+      --ease: cubic-bezier(.22, .61, .36, 1);
+      color-scheme: light;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--ivory);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; }
+    p { margin: 0; }
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+    svg.i { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+    /* ---------- Page de test ---------- */
+    .test-head { background: var(--deep); color: var(--on-deep); padding: 2.5rem 0 2rem; }
+    .test-head h1 { font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.1; }
+    .test-head p { margin-top: .6rem; color: var(--on-deep-soft); max-width: 46rem; }
+    .test-nav { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.4rem; }
+    .test-nav a { border: 1px solid var(--rule-deep); color: var(--on-deep); padding: .35rem .85rem; border-radius: 999px; font-size: .9rem; }
+    .test-nav a:hover { border-color: var(--brass-light); color: var(--brass-light); }
+    .variant { padding: 3.5rem 0 4rem; scroll-margin-top: 0; }
+    .variant:nth-of-type(even) { background: var(--sand); }
+    .variant-label { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1rem; margin-bottom: .4rem; }
+    .variant-label b {
+      font-family: var(--serif); font-weight: 400; font-size: 2.6rem; line-height: 1; color: var(--brass);
+    }
+    .variant-label h2 { font-size: 1.7rem; line-height: 1.2; }
+    .variant-desc { color: var(--ink-soft); max-width: 46rem; margin-bottom: 2rem; font-size: .975rem; }
+    .demo-year { font-family: var(--serif); font-size: 2rem; line-height: 1; color: var(--deep); margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; }
+    .demo-year::after { content: ""; flex: 1; height: 1px; background: var(--brass); opacity: .5; }
+
+    /* ===== 1. Référence : la version actuelle ===== */
+    .v1 { list-style: none; margin: 0; padding: 0; background: var(--card); border: 1px solid var(--rule); box-shadow: 0 1px 2px rgba(15,31,26,.04), 0 10px 30px -18px rgba(15,31,26,.18); }
+    .v1 li + li { border-top: 1px solid var(--rule); }
+    .v1 a { display: grid; grid-template-columns: 5.5rem 1fr auto; gap: 1.6rem; align-items: center; padding: 1.4rem 1.6rem 1.4rem 1.4rem; transition: background-color .3s; }
+    .v1 a:hover { background: #FBFAF6; }
+    .v1 .thumb { width: 5.5rem; height: 4.1rem; display: grid; place-items: center; color: var(--brass-strong); }
+    .v1 .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: left top; border: 1px solid var(--rule); box-shadow: 0 8px 16px -10px rgba(15,31,26,.5); }
+    .v1 .thumb .ico { width: 3rem; height: 3rem; border-radius: 50%; background: var(--ivory); border: 1px solid var(--rule); display: grid; place-items: center; }
+    .v1 .meta { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .75rem; font-size: .85rem; color: var(--ink-soft); margin-bottom: .45rem; }
+    .v1 .type { font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--brass-strong); background: rgba(176,141,87,.13); padding: .22rem .5rem; border-radius: 2px; }
+    .v1 .src { font-weight: 600; color: var(--deep); }
+    .v1 h3 { font-family: var(--sans); font-weight: 600; font-size: 1.1rem; line-height: 1.4; color: var(--deep); }
+    .v1 .sum { margin-top: .35rem; font-size: .925rem; line-height: 1.55; color: var(--ink-soft); max-width: 46rem; }
+    .v1 .acts { display: grid; justify-items: end; gap: .45rem; font-size: .8rem; font-weight: 600; white-space: nowrap; }
+    .v1 .acts span { display: inline-flex; align-items: center; gap: .4rem; }
+    .v1 .acts .full { background: var(--deep); color: var(--on-deep); padding: .4rem .75rem; border-radius: 2px; }
+    .v1 .acts .ext { border: 1px solid var(--rule); color: var(--deep); padding: .4rem .75rem; border-radius: 2px; }
+    .v1 .acts .fax { color: var(--ink-soft); font-weight: 500; }
+
+    /* ===== 2. Éditorial : grande vignette, titre en Caslon, sans encadré ===== */
+    .v2 { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--deep); }
+    .v2 li { border-bottom: 1px solid var(--rule); }
+    .v2 a { display: grid; grid-template-columns: 9rem 1fr; gap: 2.25rem; padding: 2rem 0; align-items: start; }
+    .v2 .thumb { width: 9rem; aspect-ratio: 3 / 4; background: var(--card); border: 1px solid var(--rule); box-shadow: 0 16px 30px -18px rgba(15,31,26,.55); overflow: hidden; transition: transform .45s var(--ease); }
+    .v2 .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: left top; }
+    .v2 .thumb.ext { display: grid; place-content: center; justify-items: center; gap: .6rem; background: var(--deep); color: var(--brass-light); text-align: center; padding: 1rem; }
+    .v2 .thumb.ext .i { width: 1.6rem; height: 1.6rem; }
+    .v2 .thumb.ext span { font-family: var(--serif); font-size: 1.05rem; line-height: 1.2; color: var(--on-deep); }
+    .v2 a:hover .thumb { transform: translateY(-4px) rotate(-1deg); }
+    .v2 .kicker { font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--brass-strong); }
+    .v2 .kicker i { font-family: var(--serif-italic); font-size: 1.05rem; letter-spacing: 0; text-transform: none; font-weight: 400; color: var(--ink-soft); margin-left: .5rem; }
+    .v2 h3 { margin-top: .6rem; font-size: clamp(1.5rem, 2.4vw, 1.9rem); line-height: 1.15; color: var(--deep); max-width: 34ch; transition: color .2s; }
+    .v2 a:hover h3 { color: var(--brass-strong); }
+    .v2 .sum { margin-top: .8rem; color: var(--ink-soft); max-width: 42rem; line-height: 1.65; }
+    .v2 .foot { margin-top: 1.1rem; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.4rem; font-size: .875rem; color: var(--ink-soft); }
+    .v2 .foot .go { display: inline-flex; align-items: center; gap: .45rem; font-weight: 600; color: var(--deep); border-bottom: 1px solid var(--brass); padding-bottom: .1rem; }
+    .v2 .foot .go .i { transition: transform .3s var(--ease); }
+    .v2 a:hover .foot .go .i { transform: translateX(4px); }
+
+    /* ===== 3. Cartes en grille ===== */
+    .v3 { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr)); gap: 1.5rem; }
+    .v3 a { display: flex; flex-direction: column; height: 100%; background: var(--card); border: 1px solid var(--rule); transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .3s; }
+    .v3 a:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--brass); }
+    .v3 .cover { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--sand); border-bottom: 1px solid var(--rule); }
+    .v3 .cover img { width: 100%; height: 100%; object-fit: cover; object-position: left top; transition: transform .6s var(--ease); }
+    .v3 a:hover .cover img { transform: scale(1.04); }
+    .v3 .cover.ext { display: grid; place-content: center; justify-items: center; gap: .5rem; background: var(--deep); color: var(--brass-light); }
+    .v3 .cover.ext .i { width: 1.8rem; height: 1.8rem; }
+    .v3 .cover.ext span { font-family: var(--serif); font-size: 1.4rem; color: var(--on-deep); }
+    .v3 .badge { position: absolute; left: .9rem; top: .9rem; font-size: .66rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; background: var(--deep); color: var(--brass-light); padding: .3rem .6rem; }
+    .v3 .body { padding: 1.3rem 1.4rem 1.2rem; display: flex; flex-direction: column; gap: .5rem; flex: 1; }
+    .v3 .meta { font-size: .8rem; color: var(--ink-soft); }
+    .v3 .meta b { font-weight: 600; color: var(--brass-strong); }
+    .v3 h3 { font-family: var(--sans); font-weight: 600; font-size: 1.08rem; line-height: 1.4; color: var(--deep); }
+    .v3 .sum { font-size: .9rem; line-height: 1.55; color: var(--ink-soft); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .v3 .foot { margin-top: auto; padding-top: .9rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; font-size: .82rem; font-weight: 600; color: var(--deep); }
+    .v3 .foot small { font-size: .8rem; font-weight: 500; color: var(--ink-soft); }
+
+    /* ===== 4. Index chronologique : une ligne de tableau par publication ===== */
+    .v4 { background: var(--card); border: 1px solid var(--rule); }
+    .v4-head, .v4 a { display: grid; grid-template-columns: 7rem 13rem 1fr 9.5rem; gap: 1.5rem; padding: .9rem 1.5rem; align-items: start; }
+    .v4-head { font-size: .66rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--brass-strong); background: var(--ivory); border-bottom: 1px solid var(--deep); }
+    .v4 ul { list-style: none; margin: 0; padding: 0; }
+    .v4 li + li { border-top: 1px solid var(--rule); }
+    .v4 a { padding-top: 1.2rem; padding-bottom: 1.2rem; transition: background-color .25s; }
+    .v4 a:hover { background: #FBFAF6; }
+    .v4 .date { font-family: var(--serif); font-size: 1.5rem; line-height: 1; color: var(--deep); }
+    .v4 .date small { display: block; margin-top: .35rem; font-family: var(--sans); font-size: .78rem; line-height: 1.35; color: var(--ink-soft); }
+    .v4 .src { font-family: var(--serif-italic); font-style: italic; font-size: 1.02rem; line-height: 1.35; color: var(--deep); }
+    .v4 .src small { display: block; margin-top: .3rem; font-family: var(--sans); font-style: normal; font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--brass-strong); }
+    .v4 h3 { font-family: var(--sans); font-weight: 600; font-size: 1.04rem; line-height: 1.4; color: var(--deep); transition: color .2s; }
+    .v4 a:hover h3 { color: var(--brass-strong); }
+    .v4 .sum { margin-top: .3rem; font-size: .9rem; line-height: 1.55; color: var(--ink-soft); }
+    .v4 .acts { display: grid; gap: .35rem; justify-items: start; font-size: .8rem; font-weight: 600; color: var(--deep); }
+    .v4 .acts span { display: inline-flex; align-items: center; gap: .4rem; }
+    .v4 .acts .fax { font-weight: 500; color: var(--ink-soft); }
+    .v4 .acts .i { color: var(--brass-strong); }
+
+    /* ===== 5. Fiche sombre : cartes vert profond ===== */
+    .v5 { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+    .v5 a { position: relative; display: grid; grid-template-columns: 6.5rem 1fr auto; gap: 1.75rem; align-items: center; padding: 1.6rem 1.75rem; background: var(--deep); color: var(--on-deep); overflow: hidden; isolation: isolate; transition: background-color .3s; }
+    .v5 a::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--brass); }
+    .v5 a:hover { background: var(--deeper); }
+    .v5 .thumb { width: 6.5rem; aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid var(--brass); padding: 3px; background: var(--deeper); }
+    .v5 .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: left top; }
+    .v5 .thumb.ext { display: grid; place-items: center; color: var(--brass-light); }
+    .v5 .thumb.ext .i { width: 1.6rem; height: 1.6rem; }
+    .v5 .meta { display: flex; flex-wrap: wrap; gap: .3rem 1rem; align-items: baseline; font-size: .85rem; color: var(--on-deep-soft); }
+    .v5 .type { font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--brass-light); }
+    .v5 .src { font-family: var(--serif-italic); font-style: italic; font-size: 1rem; color: var(--on-deep); }
+    .v5 h3 { margin-top: .45rem; font-size: 1.5rem; line-height: 1.2; color: var(--on-deep); transition: color .2s; }
+    .v5 a:hover h3 { color: var(--brass-light); }
+    .v5 .sum { margin-top: .5rem; font-size: .925rem; line-height: 1.55; color: var(--on-deep-soft); max-width: 44rem; }
+    .v5 .go { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; border: 1px solid var(--rule-deep); color: var(--brass-light); transition: background-color .3s, color .3s, border-color .3s; }
+    .v5 a:hover .go { background: var(--brass-light); color: var(--deep); border-color: var(--brass-light); }
+
+    /* ===== 6. Carte à bandeau : colonne de référence à gauche, deux actions ===== */
+    .v6 { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+    .v6 li { display: grid; grid-template-columns: 12.5rem 1fr; background: var(--card); border: 1px solid var(--rule); border-top: 3px solid var(--brass); transition: box-shadow .4s var(--ease); }
+    .v6 li:hover { box-shadow: var(--shadow); }
+    .v6 .side { background: var(--ivory); border-right: 1px solid var(--rule); padding: 1.4rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: .5rem; }
+    .v6 .side .year { font-family: var(--serif); font-size: 2.4rem; line-height: 1; color: var(--deep); }
+    .v6 .side .type { font-size: .66rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--brass-strong); }
+    .v6 .side .src { font-family: var(--serif-italic); font-style: italic; font-size: .98rem; line-height: 1.35; color: var(--deep); }
+    .v6 .side small { font-size: .78rem; line-height: 1.4; color: var(--ink-soft); }
+    .v6 .side img { margin-top: auto; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: left top; border: 1px solid var(--rule); }
+    .v6 .main { padding: 1.5rem 1.75rem; display: flex; flex-direction: column; gap: .6rem; }
+    .v6 h3 { font-size: 1.65rem; line-height: 1.18; color: var(--deep); }
+    .v6 h3 a:hover { color: var(--brass-strong); }
+    .v6 .sum { color: var(--ink-soft); font-size: .975rem; line-height: 1.6; max-width: 44rem; }
+    .v6 .acts { margin-top: auto; padding-top: .9rem; display: flex; flex-wrap: wrap; gap: .6rem; }
+    .v6 .btn { display: inline-flex; align-items: center; gap: .5rem; font-size: .875rem; font-weight: 600; padding: .6rem 1rem; border: 1px solid var(--deep); color: var(--deep); transition: background-color .25s, color .25s; }
+    .v6 .btn:hover { background: var(--deep); color: var(--on-deep); }
+    .v6 .btn.full { background: var(--deep); color: var(--on-deep); }
+    .v6 .btn.full:hover { background: var(--brass-strong); border-color: var(--brass-strong); }
+
+    @media (max-width: 760px) {
+      .v1 a { grid-template-columns: 3.75rem 1fr; gap: 1rem; padding: 1.2rem 1rem; }
+      .v1 .thumb { width: 3.75rem; height: 2.9rem; align-self: start; }
+      .v1 .acts { grid-column: 2; justify-items: start; display: flex; flex-wrap: wrap; gap: .4rem .6rem; }
+      .v2 a { grid-template-columns: 5.5rem 1fr; gap: 1.1rem; padding: 1.5rem 0; }
+      .v2 .thumb { width: 5.5rem; }
+      .v2 h3 { font-size: 1.35rem; }
+      .v4-head { display: none; }
+      .v4 a { grid-template-columns: 1fr; gap: .5rem; padding: 1.2rem 1.1rem; }
+      .v4 .date { font-size: 1.2rem; }
+      .v4 .date small, .v4 .src small { display: inline; margin-left: .5rem; }
+      .v4 .acts { display: flex; flex-wrap: wrap; gap: .3rem 1rem; }
+      .v5 a { grid-template-columns: 4.5rem 1fr; gap: 1.1rem; padding: 1.3rem 1.2rem; align-items: start; }
+      .v5 .thumb { width: 4.5rem; }
+      .v5 h3 { font-size: 1.25rem; }
+      .v5 .go { display: none; }
+      .v6 li { grid-template-columns: 1fr; }
+      .v6 .side { border-right: 0; border-bottom: 1px solid var(--rule); flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: .3rem .9rem; padding: 1rem 1.2rem; }
+      .v6 .side .year { font-size: 1.7rem; }
+      .v6 .side img { display: none; }
+      .v6 .main { padding: 1.2rem; }
+      .v6 h3 { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 16 16"><path d="M4 2h6l3 3v9H4zM6 8h5M6 11h5"/></symbol>
+    <symbol id="i-img" viewBox="0 0 16 16"><path d="M2 3h12v10H2zM2 11l4-4 3 3 2-2 3 3"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l4-1L19 8l-3-3L5 16l-1 4zM14 7l3 3"/></symbol>
+  </svg>
+
+  <header class="test-head">
+    <div class="wrap">
+      <h1>Encadrés des publications : 6 pistes</h1>
+      <p>La n° 1 est la version actuelle, pour comparer. Les pistes 2 à 6 sont des propositions. Chaque piste montre les mêmes
+        trois publications : deux articles archivés (texte intégral + fac-similé) et une tribune publiée sur un site externe.
+        Page de travail, non publiée.</p>
+      <nav class="test-nav" aria-label="Pistes">
+        <a href="#v1">1 · Actuelle</a>
+        <a href="#v2">2 · Éditorial</a>
+        <a href="#v3">3 · Cartes en grille</a>
+        <a href="#v4">4 · Index chronologique</a>
+        <a href="#v5">5 · Fiche sombre</a>
+        <a href="#v6">6 · Carte à bandeau</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="pistes"></main>
+
+  <script>
+    // Trois publications réelles de la liste, reprises telles quelles
+    const PUBS = [
+      {
+        href: "articles/2019-actes-pratiques-jurisprudences-patrimoniales.html",
+        type: "Le point sur", source: "Actes pratiques et stratégie patrimoniale",
+        issue: "n° 3, juillet-août-septembre 2019, p. 41-44", year: "2019",
+        title: "Jurisprudences patrimoniales : les personnes morales se voient déjà en haut de l'affiche",
+        summary: "Cession d'usufruit, abandon d'usufruit, sous-évaluation, holding animatrice, dette ISF : cinq arrêts de 2018-2019 où les personnes morales rejoignent les personnes physiques.",
+        thumb: "articles/scans/2019-actes-pratiques-jurisprudences-patrimoniales-1-vignette.jpg", pages: 3,
+      },
+      {
+        href: "articles/2015-nouvelles-fiscales-bonheur-fiscal-interieur-brut.html",
+        type: "Événement", source: "Les Nouvelles Fiscales", issue: "2015", year: "2015",
+        title: "Pour un bonheur fiscal intérieur brut…",
+        summary: "Crise du consentement, inflation normative, rétroactivité, holding animatrice : plaidoyer pour mesurer enfin la satisfaction fiscale des contribuables.",
+        thumb: "articles/scans/2015-nouvelles-fiscales-bonheur-fiscal-interieur-brut-1-vignette.jpg", pages: 2,
+      },
+      {
+        href: "https://www.h24finance.com/news/axa-wealth-europe-le-contrat-d-assurance-vie-luxembourgeois-toujours-en-haut-de-l-affiche.html",
+        type: "Tribune", source: "H24Finance", issue: "2025", year: "2025",
+        title: "Le contrat d'assurance-vie luxembourgeois, toujours en haut de l'affiche",
+        summary: "Cosigné avec Noémie Cabo. Une fiche pédagogique sur la nature juridique du contrat, sa distribution en libre prestation de services et ses atouts concrets pour le client.",
+        external: true,
+      },
+    ];
+
+    const nb = s => s.replace(/ ([:;?!»])/g, " $1").replace(/« /g, "« ");
+    const icon = (id, cls = "i") => `<svg class="${cls}" viewBox="0 0 ${id === "i-pen" ? 24 : 16} ${id === "i-pen" ? 24 : 16}" aria-hidden="true"><use href="#${id}"/></svg>`;
+    const link = p => `href="${p.href}"${p.external ? ' target="_blank" rel="noopener"' : ""}`;
+    const fax = p => `Fac-similé${p.pages > 1 ? ` (${p.pages} p.)` : ""}`;
+
+    const VARIANTS = [
+      {
+        name: "Actuelle", desc: "La version en ligne aujourd'hui : une carte blanche par année, une ligne par publication, petite vignette à gauche, accès à droite.",
+        render: ps => `<p class="demo-year">2019 – 2025</p><ul class="v1">${ps.map(p => `<li><a ${link(p)}>
+          <span class="thumb">${p.external ? `<span class="ico">${icon("i-pen")}</span>` : `<img src="${p.thumb}" alt="">`}</span>
+          <span><span class="meta"><span class="type">${p.type}</span><span class="src">${p.source}</span>${p.external ? "" : `<span>${p.issue}</span>`}</span>
+          <h3>${nb(p.title)}</h3><p class="sum">${nb(p.summary)}</p></span>
+          <span class="acts">${p.external ? `<span class="ext">Lire sur le site ${icon("i-ext")}</span>` : `<span class="full">${icon("i-doc")} Texte intégral</span><span class="fax">${icon("i-img")} ${fax(p)}</span>`}</span>
+        </a></li>`).join("")}</ul>`,
+      },
+      {
+        name: "Éditorial", desc: "Esprit revue de presse : pas d'encadré, grande vignette portrait du fac-similé, titre en Caslon de grande taille, lien « Lire l'article » souligné de laiton. Le plus « haut de gamme », mais prend plus de place verticalement.",
+        render: ps => `<ul class="v2">${ps.map(p => `<li><a ${link(p)}>
+          ${p.external ? `<span class="thumb ext">${icon("i-pen")}<span>${p.source}</span></span>` : `<span class="thumb"><img src="${p.thumb}" alt=""></span>`}
+          <span><p class="kicker">${p.type}<i>${p.source}${p.external ? "" : `, ${p.issue}`}</i></p>
+          <h3>${nb(p.title)}</h3><p class="sum">${nb(p.summary)}</p>
+          <p class="foot">${p.external ? `<span class="go">Lire sur ${p.source} ${icon("i-ext")}</span>` : `<span class="go">Lire l'article ${icon("i-arrow")}</span><span>${fax(p)}</span>`}</p></span>
+        </a></li>`).join("")}</ul>`,
+      },
+      {
+        name: "Cartes en grille", desc: "Trois cartes par ligne, avec l'extrait du fac-similé en image de couverture. Très visuel et moderne ; moins adapté à une lecture chronologique de plusieurs dizaines d'entrées.",
+        render: ps => `<ul class="v3">${ps.map(p => `<li><a ${link(p)}>
+          ${p.external ? `<span class="cover ext">${icon("i-pen")}<span>${p.source}</span><span class="badge">${p.type}</span></span>` : `<span class="cover"><img src="${p.thumb}" alt=""><span class="badge">${p.type}</span></span>`}
+          <span class="body"><span class="meta"><b>${p.source}</b> · ${p.issue}</span>
+          <h3>${nb(p.title)}</h3><p class="sum">${nb(p.summary)}</p>
+          <span class="foot">${p.external ? `<span>Lire sur le site</span>${icon("i-ext")}` : `<span>Lire l'article</span><small>${fax(p)}</small>`}</span></span>
+        </a></li>`).join("")}</ul>`,
+      },
+      {
+        name: "Index chronologique", desc: "Présentation en tableau, à la manière d'une bibliographie : date, revue, titre et accès alignés en colonnes. Le plus lisible et le plus compact pour une longue liste ; le plus sobre visuellement (pas de vignette).",
+        render: ps => `<div class="v4"><div class="v4-head"><span>Date</span><span>Revue</span><span>Publication</span><span>Accès</span></div><ul>${ps.map(p => `<li><a ${link(p)}>
+          <span class="date">${p.year}${p.issue !== p.year ? `<small>${p.issue}</small>` : ""}</span>
+          <span class="src">${p.source}<small>${p.type}</small></span>
+          <span><h3>${nb(p.title)}</h3><p class="sum">${nb(p.summary)}</p></span>
+          <span class="acts">${p.external ? `<span>Lire sur le site ${icon("i-ext")}</span>` : `<span>${icon("i-doc")} Texte intégral</span><span class="fax">${icon("i-img")} ${fax(p)}</span>`}</span>
+        </a></li>`).join("")}</ul></div>`,
+      },
+      {
+        name: "Fiche sombre", desc: "Chaque publication est une carte vert profond, filet laiton à gauche, titre en Caslon clair. Contraste fort, très « finance premium », cohérent avec l'en-tête du site ; peut devenir lourd sur une très longue liste.",
+        render: ps => `<ul class="v5">${ps.map(p => `<li><a ${link(p)}>
+          ${p.external ? `<span class="thumb ext">${icon("i-pen")}</span>` : `<span class="thumb"><img src="${p.thumb}" alt=""></span>`}
+          <span><span class="meta"><span class="type">${p.type}</span><span class="src">${p.source}</span>${p.external ? "" : `<span>${p.issue}</span>`}</span>
+          <h3>${nb(p.title)}</h3><p class="sum">${nb(p.summary)}</p></span>
+          <span class="go">${icon(p.external ? "i-ext" : "i-arrow")}</span>
+        </a></li>`).join("")}</ul>`,
+      },
+      {
+        name: "Carte à bandeau", desc: "Une carte par publication avec une colonne de référence à gauche (année en grand, type, revue, numéro, vignette) et deux vrais boutons d'action : « Lire l'article » et « Voir le fac-similé ». Hiérarchie très claire, un peu plus « fiche documentaire ».",
+        render: ps => `<ul class="v6">${ps.map(p => `<li>
+          <div class="side"><span class="year">${p.year}</span><span class="type">${p.type}</span><span class="src">${p.source}</span>${p.issue !== p.year ? `<small>${p.issue}</small>` : ""}${p.external ? "" : `<img src="${p.thumb}" alt="">`}</div>
+          <div class="main"><h3><a ${link(p)}>${nb(p.title)}</a></h3><p class="sum">${nb(p.summary)}</p>
+          <div class="acts">${p.external ? `<a class="btn" ${link(p)}>Lire sur ${p.source} ${icon("i-ext")}</a>` : `<a class="btn full" href="${p.href}">${icon("i-doc")} Lire l'article</a><a class="btn" href="${p.href}">${icon("i-img")} ${fax(p).replace("Fac-similé", "Voir le fac-similé")}</a>`}</div></div>
+        </li>`).join("")}</ul>`,
+      },
+    ];
+
+    document.getElementById("pistes").innerHTML = VARIANTS.map((v, i) => `
+      <section class="variant" id="v${i + 1}">
+        <div class="wrap">
+          <div class="variant-label"><b>${i + 1}</b><h2>${v.name}</h2></div>
+          <p class="variant-desc">${v.desc}</p>
+          ${v.render(PUBS)}
+        </div>
+      </section>`).join("");
+  </script>
+</body>
+</html>

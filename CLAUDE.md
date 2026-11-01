@@ -16,8 +16,31 @@ Ce fichier guide Claude Code sur ce dépôt. C'est une ébauche : à enrichir au
 ## État actuel
 - `index.html` : page d'accueil one-page (hero avec portrait, chiffres clés, bandeau presse, Expertise,
   Démarche, Parcours, bandeau citation, 3 dernières publications, Contact, footer).
-- `publications.html` : liste complète des publications par année, avec filtres par type (tribune / entretien / intervention).
-  Même design que l'index : en-tête vert, barre de filtres qui chevauche, cartes par année, bandeau presse.
+- Menu de l'en-tête : Expertise, Parcours, Publications, Contact (« Démarche » retiré du menu le 31/10/2026, conservé dans le footer
+  et comme section de l'accueil).
+- `publications.html` (ex-`publications2.html`, devenue officielle le 31/10/2026 ; l'ancienne version a été supprimée) :
+  publications et archives, pour plusieurs dizaines d'articles. Liste compacte par année, recherche (sans accents, surlignage), filtres
+  thème / type / revue, tri, frise des années (bande horizontale sur mobile), filtres conservés dans l'URL (`?theme=…`).
+  Chaque `<li class="pub">` porte `data-type` (article|tribune|entretien|intervention), `data-themes`, `data-source`, `data-keywords`.
+- `articles/` : une page par article de revue archivé (texte retranscrit + fac-similé dans une visionneuse avec zoom
+  et plusieurs pages), JSON-LD `Article`. **Pages générées, ne pas les modifier à la main** :
+  source = `articles/_sources/<slug>.html` (commentaire JSON de métadonnées : titre, revue, date, thèmes, scans,
+  `verify` pour ce qui reste à vérifier, puis le texte en HTML), gabarit = `articles/_outils/modele.html`,
+  génération = `node articles/_outils/construire.mjs` (régénère les pages et les entrées `<!-- archive:… -->` de `publications.html`, et le bloc `<!-- articles -->` de `sitemap.xml`).
+  `"masque": true` dans les métadonnées met un article de côté (ni page ni entrée) : c'est le cas de « Paquet fiscal » (2007),
+  signé par C. Bellivier et C. Gomez, en attente de la réponse de Laurent Gayet.
+  Mise en page des articles (`mainEssai` dans le générateur, styles `.essai` du gabarit) : bande verte réduite au fil d’Ariane,
+  en-tête d’article (rubrique, titre, fonction, fiche auteur/revue/date/numéro/lecture) juste au-dessus du texte, fac-similé
+  aligné sur le titre, avertissement en fin de texte, cartes « Article précédent / suivant ». `"essai": false` dans une source
+  rétablit l’ancienne mise en page (en-tête vert).
+  Bouton « Liste / Cartes » (barre de résultats) : `#list[data-view="grille"]` affiche les mêmes `<li class="pub">` en cartes
+  (piste 3 de `test.html`) ; choix conservé dans l’adresse (`?vue=grille`) et dans le navigateur (`localStorage`).
+  Mise en forme de la liste : zone sable, une carte blanche par année, frise des années simple (filet vertical, version d'origine), titres en Figtree 600
+  (Caslon Display est illisible en petit corps), bouton vert « Texte intégral » pour les archives, lien encadré pour les sites externes.
+  Scans web dans `articles/scans/` (`<slug-du-pdf>[-p<n>].jpg`, portrait 2000 px / double page 3200 px, qualité 78, + `-vignette.jpg` 640 px).
+- `LG article scan/` : PDF scannés d'origine (non publiés), renommés `AAAA-revue-sujet[-n].pdf` ; `_correspondance.tsv` garde les noms d'origine.
+  Ajouter un article : scanner, renommer, exporter les JPEG, écrire la source, lancer le script.
+- `test.html` : page de travail (non publiée, dans `.assetsignore`) comparant 6 pistes d'encadrés pour la liste des publications.
 - `portrait.jpg` : photo de Laurent Gayet (carrée, 1149 px), utilisée dans le hero et la signature du Parcours.
 - `contact.html` (ex-`rendez-vous.html`) : page « Contact » (bouton du menu ; les boutons de l'accueil gardent « Prendre rendez-vous ») (en-tête vert, formulaire de demande dans une carte blanche,
   colonne « Comment se déroule le premier échange » + carte coordonnées). Page plus large que les autres :
@@ -36,6 +59,7 @@ Ce fichier guide Claude Code sur ce dépôt. C'est une ébauche : à enrichir au
   est Cloudflare (hébergeur, et Turnstile chargé uniquement sur `contact.html`), Brevo relayant les e-mails du formulaire côté serveur.
 - `logos/` : pistes de monogramme LG (SVG laiton et vert + `planche.html` de comparaison), non publié
   (listé dans `.assetsignore`). Aucune piste choisie pour l'instant ; le site utilise toujours le carré `.brand-mark`.
+- `motifs/planche.html` : 9 pistes de motif de fond pour le hero (alternatives à la rosace), non publié (listé dans `.assetsignore`). Aucune décision.
 - Pas de build, pas de dépendances, pas de tests. Aperçu local : ouvrir le fichier dans un navigateur ;
   pour tester le formulaire : `.dev.vars` + `npx wrangler dev` (voir `DEPLOIEMENT.md`).
 
@@ -71,13 +95,11 @@ Ce fichier guide Claude Code sur ce dépôt. C'est une ébauche : à enrichir au
 - Liens externes : `target="_blank" rel="noopener"`.
 
 ## Ajouter une publication
-1. Dans `publications.html`, ajouter un `<li class="pub" data-type="tribune|entretien|intervention">`
-   (copier une carte existante, lien « Lire » compris) dans le bon `.year-group` (créer le groupe si l'année
-   est nouvelle, ordre décroissant, avec la classe `reveal`).
-2. Mettre à jour les compteurs des boutons de filtre (`.count`) et le résumé `.filter-summary`
-   (nombre total et plage d'années), ainsi que le chiffre « 18 » des chiffres clés de `index.html`.
-3. Si elle fait partie des 3 plus récentes, mettre à jour la liste `.articles` de `index.html`
-   (et le « près de vingt » de l'intro si besoin).
+- **Article de revue archivé** (texte + fac-similé) : voir `articles/` ci-dessus ; le script met à jour la liste, le compteur et le sitemap.
+- **Publication externe** (tribune, entretien, vidéo…) : dans `publications.html`, copier un `<li class="pub">` sans commentaire
+  `archive` dans le bon `.year-group` (créer le groupe si l'année est nouvelle, ordre décroissant), puis relancer le script pour le compteur.
+- Puis mettre à jour le chiffre des chiffres clés de `index.html` (33 au 31/10/2026) et l'intro « Plus de trente… », et la liste
+  `.articles` de l'accueil si la publication fait partie des 3 plus récentes.
 
 ## Règles de contenu
 - Site d'un professionnel du conseil financier : **ne jamais inventer** de faits (dates, postes,
@@ -85,6 +107,8 @@ Ce fichier guide Claude Code sur ce dépôt. C'est une ébauche : à enrichir au
 - Pas de promesse de rendement ni de formulation pouvant passer pour un conseil personnalisé ;
   conserver l'avertissement du footer.
 - Rédaction en français soigné, typographie française (espaces avant `: ; ? !`, guillemets « »).
+- Positionnement : « stratégie patrimoniale » / « consultant en stratégie patrimoniale », et non « conseil patrimonial »
+  dans les accroches (titre, sur-titre, `brand-tag`, footer, balises meta). Les pages légales et avertissements gardent leur vocabulaire réglementaire.
 
 ## À faire / éléments en attente
 - Compléter tous les `[À compléter]` des pages légales (`grep -n "class=\"todo\"" *.html`) : forme juridique,

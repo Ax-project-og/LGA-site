@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Motifs de fond | LG Advisory</title>
+  <meta name="robots" content="noindex">
+  <style>
+    @font-face { font-family: "Libre Caslon Display"; src: url("../fonts/libre-caslon-display.woff2") format("woff2"); font-display: swap; }
+    @font-face { font-family: "Libre Caslon Text"; font-style: italic; src: url("../fonts/libre-caslon-text-italic.woff2") format("woff2"); font-display: swap; }
+    @font-face { font-family: "Figtree"; src: url("../fonts/figtree.woff2") format("woff2"); font-weight: 300 900; font-display: swap; }
+
+    :root {
+      --deep: #1F3A32;
+      --deeper: #152A23;
+      --deepest: #0F1F1A;
+      --ivory: #F7F5EF;
+      --sand: #EDE8DD;
+      --ink: #1A2420;
+      --muted: #5B6661;
+      --brass: #B08D57;
+      --brass-light: #D4B886;
+      --rule: #DFD8CA;
+      --on-deep: #F1EEE6;
+      --on-deep-soft: #B5C2BA;
+      --serif: "Libre Caslon Display", "Baskerville", "Georgia", serif;
+      --serif-italic: "Libre Caslon Text", "Baskerville", "Georgia", serif;
+      --sans: "Figtree", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color-scheme: light;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--ivory); color: var(--ink); font-family: var(--sans); line-height: 1.6; }
+    .wrap { max-width: 78rem; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2.5rem); }
+
+    .intro { padding: 3rem 0 1.5rem; }
+    .intro h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4vw, 2.8rem); margin: 0 0 .75rem; }
+    .intro p { color: var(--muted); max-width: 46rem; margin: 0; }
+
+    .piste { padding: 2rem 0 1rem; }
+    .piste-head { display: flex; gap: 1rem; align-items: baseline; flex-wrap: wrap; margin-bottom: .9rem; }
+    .num { font-family: var(--serif); font-size: 1.6rem; color: var(--brass); }
+    .piste-head h2 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; margin: 0; }
+    .piste-head p { flex-basis: 100%; margin: 0; color: var(--muted); font-size: .95rem; max-width: 52rem; }
+
+    /* Maquette réduite du hero de l'accueil */
+    .hero {
+      position: relative;
+      background: var(--deep);
+      color: var(--on-deep);
+      overflow: hidden;
+      isolation: isolate;
+      padding: clamp(2.5rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3.5rem);
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -30% -15% auto auto;
+      width: 48rem;
+      height: 48rem;
+      background: radial-gradient(closest-side, rgba(212, 184, 134, .13), transparent 70%);
+      z-index: -2;
+    }
+    .motif { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; color: var(--brass-light); }
+    .eyebrow { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--brass-light); margin: 0 0 1rem; display: flex; align-items: center; gap: .8rem; }
+    .eyebrow::before { content: ""; width: 2rem; height: 1px; background: currentColor; }
+    .hero h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.08; margin: 0 0 1.2rem; max-width: 16ch; }
+    .hero h3 em { font-family: var(--serif-italic); font-style: italic; font-size: .8em; letter-spacing: -0.02em; color: var(--brass-light); }
+    .hero .lead { color: var(--on-deep-soft); max-width: 30rem; margin: 0; font-size: 1rem; }
+    .portrait { position: relative; justify-self: end; width: 100%; max-width: 19rem; margin: 0; }
+    .portrait::before { content: ""; position: absolute; inset: 1.1rem -1.1rem -1.1rem 1.1rem; border: 1px solid var(--brass-light); opacity: .6; }
+    .portrait div { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--deeper); box-shadow: 0 30px 60px -25px rgba(0, 0, 0, .55); }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
+
+    .avis { margin: .9rem 0 0; font-size: .9rem; color: var(--muted); }
+    .avis strong { color: var(--ink); font-weight: 600; }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; }
+      .portrait { justify-self: start; max-width: 14rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap intro">
+    <h1>Motifs de fond pour le hero</h1>
+    <p>Neuf pistes pour remplacer la rosace actuelle derrière le portrait, présentées dans une maquette réduite du haut de l'accueil.
+      Couleur et intensité identiques à l'actuel (laiton clair, très discret) : seule la forme change.
+      La page d'accueil n'a pas été modifiée.</p>
+  </header>
+
+  <main class="wrap" id="pistes"></main>
+
+  <script>
+    const NS = "http://www.w3.org/2000/svg";
+    const W = 1200, H = 640;          // repère commun des motifs
+    const CX = 930, CY = 330;         // centre approximatif du portrait
+
+    const f = n => n.toFixed(1);
+    const path = (pts, close) => "M" + pts.map(p => f(p[0]) + " " + f(p[1])).join("L") + (close ? "Z" : "");
+
+    // Chaque motif renvoie le contenu SVG (dans le repère W × H) et son opacité.
+    const motifs = [
+      {
+        nom: "Rosace guillochée (actuelle)",
+        texte: "La référence : ellipses tournantes inspirées de la gravure guillochée des montres et des titres financiers.",
+        avis: "Repère pour comparer.",
+        opacite: .14,
+        svg() {
+          let s = `<g transform="translate(${CX + 190} ${CY}) scale(1.6)" stroke="currentColor" stroke-width=".4" fill="none">`;
+          for (let a = 0; a < 180; a += 6) s += `<ellipse rx="300" ry="96" transform="rotate(${a})"/>`;
+          return s + `<circle r="300"/><circle r="312"/><circle r="96"/></g>`;
+        }
+      },
+      {
+        nom: "Guilloché ondulé",
+        texte: "Des lignes ondulées parallèles, comme le fond de sécurité d'un billet de banque ou d'un certificat d'action. Elles se resserrent en vague derrière le portrait.",
+        avis: "<strong>Mon préféré :</strong> le registre « finance » est le même que la rosace, mais en plus calme et plus contemporain.",
+        opacite: .2,
+        svg() {
+          let s = `<g stroke="currentColor" stroke-width=".7" fill="none">`;
+          for (let i = 0; i < 46; i++) {
+            const pts = [];
+            for (let x = 0; x <= W; x += 8) {
+              const env = Math.exp(-((x - CX) ** 2) / (2 * 260 ** 2));
+              const y = 40 + i * 13 + (10 + 34 * env) * Math.sin(x / 70 + i * .22);
+              pts.push([x, y]);
+            }
+            s += `<path d="${path(pts)}"/>`;
+          }
+          return s + "</g>";
+        }
+      },
+      {
+        nom: "Courbes de niveau",
+        texte: "Des lignes de relief, comme sur une carte topographique : une idée de terrain, de patrimoine foncier, de vue d'ensemble.",
+        avis: "Élégant et original, un peu moins « finance » que les autres.",
+        opacite: .2,
+        svg() {
+          let s = `<g stroke="currentColor" stroke-width=".8" fill="none">`;
+          for (let k = 1; k <= 22; k++) {
+            const R = k * 26, pts = [];
+            const ox = CX + 60 - k * 4, oy = CY - 20 + k * 3;
+            for (let t = 0; t <= Math.PI * 2 + .01; t += Math.PI / 90) {
+              const r = R * (1 + .09 * Math.sin(3 * t + k * .35) + .05 * Math.sin(5 * t - k * .2) + .03 * Math.cos(2 * t + k * .6));
+              pts.push([ox + r * Math.cos(t), oy + r * .82 * Math.sin(t)]);
+            }
+            s += `<path d="${path(pts, true)}"/>`;
+          }
+          return s + "</g>";
+        }
+      },
+      {
+        nom: "Ondes concentriques",
+        texte: "De simples cercles fins qui s'élargissent depuis le portrait, de plus en plus espacés. Une version épurée de l'actuel.",
+        avis: "Très sobre, il met la photo en valeur sans rien raconter de plus.",
+        opacite: .22,
+        svg() {
+          let s = `<g stroke="currentColor" stroke-width=".8" fill="none">`;
+          for (let k = 0; k < 18; k++) s += `<circle cx="${CX}" cy="${CY}" r="${f(140 + k * 22 + k * k * 2.2)}"/>`;
+          return s + "</g>";
+        }
+      },
+      {
+        nom: "Treillis losangé",
+        texte: "Un croisillon très fin, comme un papier de valeur ou une reliure, qui s'efface en s'éloignant du portrait.",
+        avis: "Classique et rassurant, mais plus « papeterie » que les autres.",
+        opacite: .22,
+        svg() {
+          return `<defs>
+              <pattern id="treillis" width="36" height="36" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <path d="M0 0H36M0 0V36" stroke="currentColor" stroke-width=".7" fill="none"/>
+              </pattern>
+              <radialGradient id="fondu"><stop offset="0" stop-color="#fff"/><stop offset=".45" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+              <mask id="m-treillis"><circle cx="${CX}" cy="${CY}" r="560" fill="url(#fondu)"/></mask>
+            </defs>
+            <rect width="${W}" height="${H}" fill="url(#treillis)" mask="url(#m-treillis)"/>`;
+        }
+      },
+      {
+        nom: "Rayons",
+        texte: "Des rayons fins qui partent de derrière le portrait, en alternant longs et courts, comme un cadran de montre « soleillé ».",
+        avis: "Lumineux et chaleureux. Il faut le garder très pâle pour qu'il ne fasse pas « affiche ».",
+        opacite: .16,
+        svg() {
+          let s = `<g stroke="currentColor" stroke-width=".7" fill="none">`;
+          for (let i = 0; i < 144; i++) {
+            const a = i * Math.PI * 2 / 144, r1 = 210, r2 = i % 2 ? 560 : 760;
+            s += `<line x1="${f(CX + r1 * Math.cos(a))}" y1="${f(CY + r1 * Math.sin(a))}" x2="${f(CX + r2 * Math.cos(a))}" y2="${f(CY + r2 * Math.sin(a))}"/>`;
+          }
+          return s + `<circle cx="${CX}" cy="${CY}" r="200"/><circle cx="${CX}" cy="${CY}" r="206"/></g>`;
+        }
+      },
+      {
+        nom: "Rosace spirographe",
+        texte: "Une autre famille de guilloché : une seule ligne continue qui tourne en boucles, comme la gravure d'un cadran ou d'un passeport.",
+        avis: "Plus fin et plus « précieux » que la rosace actuelle, dans le même esprit.",
+        opacite: .2,
+        svg() {
+          const R = 40, r = 11, d = 10, k = 7, pts = [];
+          for (let t = 0; t <= Math.PI * 2 * r + .01; t += .02) {
+            pts.push([CX + 80 + k * ((R - r) * Math.cos(t) + d * Math.cos((R - r) / r * t)),
+                      CY + k * ((R - r) * Math.sin(t) - d * Math.sin((R - r) / r * t))]);
+          }
+          return `<g stroke="currentColor" stroke-width=".6" fill="none"><path d="${path(pts, true)}"/>
+            <circle cx="${CX + 80}" cy="${CY}" r="${(R - r + d) * k + 12}"/><circle cx="${CX + 80}" cy="${CY}" r="${(R - r - d) * k - 10}"/></g>`;
+        }
+      },
+      {
+        nom: "Monogramme en filigrane",
+        texte: "Les lettres « LG » en très grand, en simple contour, comme un filigrane dans du papier. Le motif devient la signature du cabinet.",
+        avis: "Fort pour l'identité, mais à décider après le choix du logo, pour rester cohérent.",
+        opacite: .16,
+        svg() {
+          return `<text x="${CX - 20}" y="${CY + 165}" text-anchor="middle" font-family="Libre Caslon Display, Georgia, serif"
+            font-size="470" fill="none" stroke="currentColor" stroke-width="1.2" letter-spacing="-12">LG</text>`;
+        }
+      },
+      {
+        nom: "Aucun motif, grain léger",
+        texte: "Pas de dessin : le halo actuel et un grain très léger, comme un papier vélin, pour que le vert ne soit pas plat.",
+        avis: "Le plus sobre et le plus « haut de gamme silencieux » ; le portrait devient le seul point d'attention.",
+        opacite: .5,
+        svg() {
+          return `<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/>
+              <feColorMatrix values="0 0 0 0 .83  0 0 0 0 .72  0 0 0 0 .53  0 0 0 .18 0"/></filter>
+            <rect width="${W}" height="${H}" filter="url(#grain)"/>`;
+        }
+      }
+    ];
+
+    const main = document.getElementById("pistes");
+    motifs.forEach((m, i) => {
+      const n = String(i + 1).padStart(2, "0");
+      const sec = document.createElement("section");
+      sec.className = "piste";
+      sec.innerHTML = `
+        <div class="piste-head"><span class="num">${n}</span><h2>${m.nom}</h2><p>${m.texte}</p></div>
+        <div class="hero">
+          <svg class="motif" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="opacity:${m.opacite}">${m.svg()}</svg>
+          <div>
+            <p class="eyebrow">Stratégie patrimoniale et fiscale indépendante</p>
+            <h3>La rigueur du fiscaliste, la vision du <em>consultant en stratégie patrimoniale.</em></h3>
+            <p class="lead">Laurent Gayet met près de quarante ans d'expérience au service de vos décisions patrimoniales.</p>
+          </div>
+          <figure class="portrait"><div><img src="../portrait.jpg" alt="Portrait de Laurent Gayet"></div></figure>
+        </div>
+        <p class="avis">${m.avis}</p>`;
+      main.appendChild(sec);
+    });
+  </script>
+</body>
+</html>

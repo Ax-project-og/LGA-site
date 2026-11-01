@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pour un bonheur fiscal intérieur brut… | Laurent Gayet, Les Nouvelles Fiscales (2015)</title>
+  <meta name="description" content="Crise du consentement, inflation normative, rétroactivité, holding animatrice : plaidoyer pour mesurer enfin la satisfaction fiscale des contribuables.">
+  <meta name="theme-color" content="#1F3A32">
+  <meta property="og:title" content="Pour un bonheur fiscal intérieur brut…">
+  <meta property="og:description" content="Crise du consentement, inflation normative, rétroactivité, holding animatrice : plaidoyer pour mesurer enfin la satisfaction fiscale des contribuables.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://lg-advisory.eu/articles/scans/2015-nouvelles-fiscales-bonheur-fiscal-interieur-brut-1-vignette.jpg">
+  <link rel="canonical" href="https://lg-advisory.eu/articles/2015-nouvelles-fiscales-bonheur-fiscal-interieur-brut">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Pour un bonheur fiscal intérieur brut…",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Laurent Gayet"
+      }
+    ],
+    "datePublished": "2015-03",
+    "inLanguage": "fr",
+    "image": "https://lg-advisory.eu/articles/scans/2015-nouvelles-fiscales-bonheur-fiscal-interieur-brut-1.jpg",
+    "about": [
+      "Fiscalité",
+      "Gestion de patrimoine"
+    ],
+    "keywords": "consentement à l'impôt bonheur fiscal inflation normative simplification non-rétroactivité charte Sapin holding animatrice TGI Paris 11 décembre 2014 ISF retraites PERP Madelin Conseil des prélèvements obligatoires",
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "Les Nouvelles Fiscales"
+    }
+  }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231F3A32'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23C9A66B' text-anchor='middle'%3ELG%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="../fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/libre-caslon-display.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    /* ---------- Polices (hébergées sur le site : aucun appel à Google) ---------- */
+    @font-face {
+      font-family: "Libre Caslon Display";
+      src: url("../fonts/libre-caslon-display.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Libre Caslon Text";
+      src: url("../fonts/libre-caslon-text-italic.woff2") format("woff2");
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Figtree";
+      src: url("../fonts/figtree.woff2") format("woff2");
+      font-weight: 300 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ---------- Tokens ---------- */
+    /* Identité fixe : sections vert profond et sections ivoire alternées, accents laiton.
+       Pas de bascule automatique en mode sombre : l'alternance fait partie du design. */
+    :root {
+      --deep: #1F3A32;
+      --deeper: #152A23;
+      --deepest: #0F1F1A;
+      --ivory: #F7F5EF;
+      --sand: #EDE8DD;
+      --card: #FFFFFF;
+      --ink: #1F3A32;
+      --ink-soft: #5B6B63;
+      --brass: #B08D57;
+      --brass-strong: #8C6C38;
+      --brass-light: #D4B886;
+      --rule: #DFD8CA;
+      --on-deep: #F1EEE6;
+      --on-deep-soft: #B5C2BA;
+      --rule-deep: rgba(212, 184, 134, .22);
+
+      --serif: "Libre Caslon Display", "Baskerville", "Georgia", serif;
+      --serif-italic: "Libre Caslon Text", "Baskerville", "Georgia", serif;
+      --sans: "Figtree", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+      --wrap: 74rem;
+      --gutter: clamp(1.25rem, 5vw, 3rem);
+      --section: clamp(4.5rem, 10vw, 8rem);
+      --shadow: 0 1px 2px rgba(15, 31, 26, .04), 0 18px 45px -18px rgba(15, 31, 26, .22);
+      --ease: cubic-bezier(.22, .61, .36, 1);
+      color-scheme: light;
+    }
+
+    /* ---------- Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(5rem + env(safe-area-inset-top, 0px));
+    }
+    body {
+      margin: 0;
+      background: var(--ivory);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    :focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+    .wrap {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 1rem;
+      background: var(--brass-light);
+      color: var(--deepest);
+      padding: .5rem 1rem;
+      z-index: 100;
+    }
+    .skip:focus { left: 1rem; }
+
+    h1, h2, h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    h1 em, h2 em, blockquote em {
+      font-family: var(--serif-italic);
+      font-style: italic;
+      font-size: .8em; /* Caslon Text a une hauteur d'x ~25 % plus grande que Caslon Display */
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: clamp(2rem, 3.8vw, 2.85rem);
+      line-height: 1.12;
+    }
+    h3 {
+      font-size: 1.45rem;
+      line-height: 1.25;
+    }
+    p { margin: 0; }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--brass-strong);
+      margin-bottom: 1.25rem;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 2.5rem;
+      height: 1px;
+      background: currentColor;
+    }
+    .on-deep .eyebrow { color: var(--brass-light); }
+
+    /* ---------- Buttons & links ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      padding: .95rem 1.6rem;
+      border-radius: 2px;
+      border: 1px solid transparent;
+      transition: background-color .25s, color .25s, border-color .25s, transform .25s var(--ease);
+    }
+    .btn svg { width: 1rem; height: 1rem; transition: transform .25s var(--ease); }
+    .btn:hover svg { transform: translateX(3px); }
+    .btn-brass {
+      background: var(--brass-light);
+      border-color: var(--brass-light);
+      color: var(--deepest);
+    }
+    .btn-brass:hover { background: var(--on-deep); border-color: var(--on-deep); }
+    .btn-ghost {
+      color: var(--on-deep);
+      border-color: rgba(241, 238, 230, .35);
+    }
+    .btn-ghost:hover { border-color: var(--brass-light); color: var(--brass-light); }
+    .btn-dark {
+      background: var(--deep);
+      border-color: var(--deep);
+      color: var(--on-deep);
+    }
+    .btn-dark:hover { background: var(--brass-strong); border-color: var(--brass-strong); }
+
+    /* ---------- Motif guilloché (décor) ---------- */
+    .guilloche {
+      position: absolute;
+      pointer-events: none;
+      color: var(--brass-light);
+      opacity: .14;
+    }
+    .guilloche ellipse { fill: none; stroke: currentColor; stroke-width: .6; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--deep);
+      color: var(--on-deep);
+      padding-top: env(safe-area-inset-top, 0px);
+      transition: box-shadow .3s, background-color .3s;
+    }
+    .site-header.scrolled {
+      background: color-mix(in srgb, var(--deeper) 94%, transparent);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 1px 0 var(--rule-deep), 0 10px 30px -15px rgba(0, 0, 0, .5);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.75rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      text-decoration: none;
+      color: var(--on-deep);
+    }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 2.6rem;
+      height: 2.6rem;
+      border: 1px solid var(--brass-light);
+      color: var(--brass-light);
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      line-height: 1;
+      letter-spacing: -.5px;
+      padding-top: .15rem;
+    }
+    .brand-text { display: grid; line-height: 1.15; }
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      letter-spacing: .01em;
+    }
+    .brand-tag {
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--on-deep-soft);
+    }
+    .nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 2.1rem;
+    }
+    .nav a {
+      position: relative;
+      text-decoration: none;
+      font-size: .95rem;
+      color: var(--on-deep-soft);
+      transition: color .2s;
+    }
+    .nav a:not(.nav-cta)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -.35rem;
+      height: 1px;
+      background: var(--brass-light);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s var(--ease);
+    }
+    .nav a:hover { color: var(--on-deep); }
+    .nav a:hover::after { transform: scaleX(1); }
+    .nav .nav-cta {
+      color: var(--deepest);
+      background: var(--brass-light);
+      font-weight: 500;
+      padding: .6rem 1.15rem;
+      border-radius: 2px;
+      transition: background-color .2s;
+    }
+    .nav .nav-cta:hover { background: var(--on-deep); color: var(--deepest); }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--rule-deep);
+      border-radius: 2px;
+      color: var(--on-deep);
+      font: 500 .95rem var(--sans);
+      padding: .5rem .9rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .menu-toggle { display: block; }
+      .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--deeper);
+        border-top: 1px solid var(--rule-deep);
+        box-shadow: 0 20px 30px -15px rgba(0, 0, 0, .5);
+        display: none;
+      }
+      .nav.open { display: block; }
+      .nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: .5rem var(--gutter) 1.5rem;
+      }
+      .nav li a {
+        display: block;
+        padding: .95rem 0;
+        border-bottom: 1px solid var(--rule-deep);
+        font-size: 1.05rem;
+      }
+      .nav a:not(.nav-cta)::after { display: none; }
+      .nav li:last-child a {
+        margin-top: 1.25rem;
+        text-align: center;
+        border-bottom: 0;
+      }
+    }
+    @media (max-width: 420px) {
+      .brand-tag { display: none; }
+    }
+
+    /* ---------- Sections ---------- */
+    .section { padding: var(--section) 0; }
+    .section-sand { background: var(--sand); }
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 5rem;
+      align-items: end;
+      margin-bottom: clamp(2.75rem, 5vw, 4.25rem);
+    }
+    .section-head p {
+      color: var(--ink-soft);
+      max-width: 32rem;
+      font-size: 1.075rem;
+    }
+    @media (max-width: 800px) {
+      .section-head { grid-template-columns: 1fr; }
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--deepest);
+      color: var(--on-deep-soft);
+      font-size: .925rem;
+      padding: clamp(3.5rem, 6vw, 4.5rem) 0 2.25rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 2.5rem;
+      padding-bottom: 2.75rem;
+      border-bottom: 1px solid var(--rule-deep);
+    }
+    .footer-brand p { margin-top: 1.25rem; max-width: 22rem; }
+    .site-footer h2 {
+      font-family: var(--sans);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--brass-light);
+      margin-bottom: 1.1rem;
+    }
+    .site-footer ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: .55rem;
+    }
+    .site-footer a { text-decoration: none; transition: color .2s; }
+    .site-footer a:hover { color: var(--on-deep); }
+    .footer-legal {
+      padding-top: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem 3rem;
+      font-size: .825rem;
+      color: #8A9A91;
+    }
+    .footer-legal p:last-child { max-width: 46rem; }
+    @media (max-width: 800px) {
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    /* ---------- Apparition au défilement ---------- */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease);
+      transition-delay: var(--d, 0s);
+    }
+    .js .reveal.is-in { opacity: 1; transform: none; }
+
+
+    /* ---------- Page article (archive de presse) ---------- */
+    .nav a[aria-current="page"] { color: var(--on-deep); }
+    .nav a[aria-current="page"]::after { transform: scaleX(1); }
+    mark.todo {
+      background: #FBEFD5;
+      color: #7A5418;
+      padding: .05rem .35rem;
+      border-radius: 2px;
+      font-size: .925em;
+    }
+
+    .page-head {
+      position: relative;
+      background: var(--deep);
+      color: var(--on-deep);
+      padding: clamp(3rem, 7vw, 5rem) 0 clamp(3rem, 6vw, 4.5rem);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .page-head .guilloche {
+      width: 60rem;
+      right: -18rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: -1;
+    }
+    .crumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      font-size: .9rem;
+      color: var(--on-deep-soft);
+      margin-bottom: 2.25rem;
+    }
+    .crumb a { text-decoration: none; transition: color .2s; }
+    .crumb a:hover { color: var(--brass-light); }
+    .crumb span[aria-hidden] { color: var(--brass-light); }
+    .page-head h1 {
+      font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+      line-height: 1.1;
+      max-width: 22ch;
+    }
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .5rem 1.5rem;
+      margin-top: 1.75rem;
+      font-size: .95rem;
+      color: var(--on-deep-soft);
+    }
+    .article-meta strong { font-weight: 500; color: var(--on-deep); }
+    .article-meta span + span::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--brass-light);
+      margin-right: 1.5rem;
+      vertical-align: middle;
+    }
+    .page-head .wrap > * { animation: rise .9s var(--ease) both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+
+    /* Corps : texte à gauche, fac-similé et référence à droite */
+    .article-section { padding: clamp(3rem, 6vw, 4.5rem) 0 var(--section); }
+    .article-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 20rem;
+      gap: clamp(2.5rem, 6vw, 5.5rem);
+      align-items: start;
+    }
+    .notice {
+      display: flex;
+      gap: .9rem;
+      align-items: flex-start;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.5rem;
+      background: var(--sand);
+      border-left: 3px solid var(--brass);
+      font-size: .925rem;
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+    .notice svg { flex: none; width: 1.1rem; height: 1.1rem; margin-top: .15rem; stroke: var(--brass-strong); fill: none; stroke-width: 1.5; }
+    .article-body {
+      max-width: 41rem;
+      font-size: 1.1rem;
+      line-height: 1.78;
+    }
+    .article-body > * + * { margin-top: 1.15em; }
+    .article-body h2 {
+      font-size: clamp(1.5rem, 2.4vw, 1.85rem);
+      line-height: 1.25;
+      margin-top: 2.2em;
+    }
+    .article-body ul { padding: 0; list-style: none; }
+    .article-body li {
+      position: relative;
+      padding-left: 1.6rem;
+    }
+    .article-body li + li { margin-top: .8em; }
+    .article-body li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .85em;
+      width: .8rem;
+      height: 1px;
+      background: var(--brass);
+    }
+    .article-body strong { font-weight: 600; color: var(--deep); }
+    .article-body sup a { color: var(--brass-strong); text-decoration: none; font-weight: 600; padding: 0 .1em; }
+    .article-body .comment {
+      position: relative;
+      margin: 2.5rem 0;
+      padding: 1.9rem 1.75rem 1.6rem;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      box-shadow: var(--shadow);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .comment-label {
+      position: absolute;
+      top: 0;
+      left: 1.75rem;
+      transform: translateY(-50%);
+      background: var(--deep);
+      color: var(--brass-light);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      padding: .3rem .75rem;
+    }
+    .comment p + p { margin-top: .9em; }
+    .footnotes {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--rule);
+      font-size: .875rem;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+    .footnotes ol { margin: 0; padding-left: 1.4rem; }
+    .footnotes li::marker { color: var(--brass-strong); }
+
+    /* Colonne latérale */
+    .article-aside {
+      position: sticky;
+      top: calc(6.25rem + env(safe-area-inset-top, 0px));
+      display: grid;
+      gap: 1.5rem;
+    }
+    .aside-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--brass-strong);
+      margin-bottom: .9rem;
+    }
+    .facsimile {
+      margin: 0;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 1.5rem;
+    }
+    .facsimile-open {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: none;
+      cursor: zoom-in;
+      position: relative;
+    }
+    .facsimile-open img {
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--rule);
+      box-shadow: 0 14px 28px -14px rgba(15, 31, 26, .45);
+      transform: rotate(-1.2deg);
+      transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+    }
+    .facsimile-open:hover img { transform: rotate(0) scale(1.02); box-shadow: 0 20px 40px -18px rgba(15, 31, 26, .55); }
+    .facsimile-open .zoom-hint {
+      position: absolute;
+      right: .6rem;
+      bottom: .6rem;
+      display: grid;
+      place-items: center;
+      width: 2.3rem;
+      height: 2.3rem;
+      border-radius: 50%;
+      background: var(--deep);
+      color: var(--brass-light);
+      opacity: .92;
+    }
+    .zoom-hint svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .facsimile figcaption {
+      margin-top: 1rem;
+      font-size: .85rem;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+    .facsimile .btn { width: 100%; justify-content: center; margin-top: 1.1rem; padding: .8rem 1rem; font-size: .925rem; }
+    .ref {
+      border-top: 1px solid var(--rule);
+      padding-top: 1.5rem;
+    }
+    .ref cite {
+      display: block;
+      font-style: normal;
+      font-size: .9rem;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+    .ref cite i { font-style: italic; }
+    .copy {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      margin-top: .8rem;
+      font: 500 .875rem var(--sans);
+      color: var(--brass-strong);
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+    .copy svg { width: .95rem; height: .95rem; fill: none; stroke: currentColor; stroke-width: 1.5; }
+    .copy:hover { color: var(--deep); }
+    .tags { display: flex; flex-wrap: wrap; gap: .45rem; }
+    .tags a {
+      font-size: .85rem;
+      text-decoration: none;
+      color: var(--ink-soft);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: .3rem .8rem;
+      transition: border-color .2s, color .2s;
+    }
+    .tags a:hover { border-color: var(--deep); color: var(--ink); }
+
+    .article-foot {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--deep);
+      max-width: 41rem;
+    }
+    .article-foot a {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .article-foot a:hover { color: var(--brass-strong); }
+    .article-foot svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 1.5; }
+    .article-siblings { margin-top: 1.25rem; padding-top: 0; border-top: 0; font-size: .95rem; }
+    .article-siblings a { max-width: 48%; }
+    .article-siblings a[rel="next"] { margin-left: auto; text-align: right; }
+
+    @media (max-width: 960px) {
+      /* Fac-similé avant le texte, référence et thèmes après */
+      .article-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .article-aside { display: contents; }
+      .facsimile { order: -1; display: grid; grid-template-columns: 9rem 1fr; gap: 0 1.25rem; align-items: center; }
+      .facsimile .aside-label { grid-column: 1 / -1; }
+      .facsimile-open { grid-row: span 2; }
+      .facsimile figcaption { margin-top: 0; align-self: end; }
+      .facsimile .btn { align-self: start; width: auto; margin-top: .75rem; }
+    }
+    @media (max-width: 600px) {
+      .facsimile { grid-template-columns: 7rem 1fr; padding: 1.1rem; }
+      .facsimile .btn { padding: .65rem .9rem; font-size: .85rem; }
+    }
+
+    /* ---------- Variante en essai (.essai) : en-tête d'article au-dessus du texte ---------- */
+    .page-band {
+      background: var(--deep);
+      color: var(--on-deep);
+      padding: 1.1rem 0;
+      border-bottom: 3px solid var(--brass);
+    }
+    .essai .crumb { margin-bottom: 0; }
+    .essai .article-section { padding-top: clamp(2.75rem, 5vw, 4rem); }
+    .article-head {
+      max-width: 44rem;
+      margin-bottom: 2.75rem;
+      animation: rise .9s var(--ease) both;
+    }
+    .kicker {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .5rem 1rem;
+    }
+    .kicker span {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--brass-light);
+      background: var(--deep);
+      padding: .35rem .7rem;
+    }
+    .kicker i {
+      font-family: var(--serif-italic);
+      font-size: 1.1rem;
+      color: var(--brass-strong);
+    }
+    .article-head h1 {
+      margin-top: 1.25rem;
+      font-size: clamp(2.4rem, 4.8vw, 3.6rem);
+      line-height: 1.06;
+      letter-spacing: -.01em;
+      color: var(--deep);
+      text-wrap: balance;
+    }
+    .article-head h1::after {
+      content: "";
+      display: block;
+      width: 4rem;
+      height: 2px;
+      margin-top: 1.6rem;
+      background: var(--brass);
+    }
+    .essai .byline {
+      margin-top: 1.4rem;
+      font-family: var(--serif-italic);
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+    .facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2.5rem;
+      margin: 1.75rem 0 0;
+      padding: 1.1rem 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .facts dt {
+      font-size: .66rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--brass-strong);
+      margin-bottom: .25rem;
+    }
+    .facts dd { margin: 0; font-size: .95rem; font-weight: 500; color: var(--deep); }
+    .facts dd i { font-family: var(--serif-italic); font-size: 1.05rem; font-weight: 400; }
+    .essai .notice { margin: 3rem 0 0; max-width: 41rem; }
+    /* Grille : en-tête et texte à gauche, colonne latérale sur toute la hauteur à droite ;
+       sur mobile : en-tête, fac-similé, texte, puis référence et thèmes */
+    .essai .article-grid { row-gap: 0; }
+    .essai .article-head { grid-column: 1; grid-row: 1; }
+    .essai .article-main { grid-column: 1; grid-row: 2; }
+    .essai .article-aside { grid-column: 2; grid-row: 1 / span 2; }
+    @media (max-width: 960px) {
+      .essai .article-head, .essai .article-main, .essai .article-aside { grid-column: auto; grid-row: auto; }
+      .essai .article-head { order: -2; margin-bottom: 0; }
+      .essai .article-grid { row-gap: 2.5rem; }
+    }
+
+    /* Précédent / suivant : deux cartes cliquables */
+    .siblings {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 3rem;
+      max-width: 41rem;
+    }
+    .sibling {
+      display: grid;
+      align-content: start;
+      gap: .5rem;
+      padding: 1.3rem 1.4rem 1.4rem;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      text-decoration: none;
+      color: var(--ink);
+      transition: border-color .25s, box-shadow .35s var(--ease), transform .35s var(--ease);
+    }
+    .sibling[rel="next"] { grid-column: 2; text-align: right; }
+    .sibling:hover { border-color: var(--brass); box-shadow: var(--shadow); transform: translateY(-2px); }
+    .sibling-label {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--brass-strong);
+    }
+    .sibling[rel="next"] .sibling-label { justify-content: flex-end; }
+    .sibling-label svg { width: .95rem; height: .95rem; fill: none; stroke: currentColor; stroke-width: 1.5; transition: transform .3s var(--ease); }
+    .sibling[rel="prev"]:hover svg { transform: translateX(-3px); }
+    .sibling[rel="next"]:hover svg { transform: translateX(3px); }
+    .sibling-title {
+      font-weight: 600;
+      font-size: 1.02rem;
+      line-height: 1.4;
+      color: var(--deep);
+      transition: color .2s;
+    }
+    .sibling:hover .sibling-title { color: var(--brass-strong); }
+    .sibling-meta { font-size: .85rem; color: var(--ink-soft); }
+    .sibling-meta i { font-family: var(--serif-italic); }
+    .back {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      max-width: 41rem;
+      margin-top: 1rem;
+      padding: .9rem 1.2rem;
+      border: 1px solid var(--deep);
+      font-weight: 500;
+      font-size: .95rem;
+      text-decoration: none;
+      color: var(--deep);
+      transition: background-color .25s, color .25s;
+    }
+    .back svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 1.5; }
+    .back:hover { background: var(--deep); color: var(--on-deep); }
+    @media (max-width: 600px) {
+      .siblings { grid-template-columns: 1fr; }
+      .sibling[rel="next"] { grid-column: auto; }
+      .facts { gap: .9rem 1.75rem; }
+    }
+
+    /* Visionneuse du fac-similé */
+    .viewer {
+      width: 100vw;
+      height: 100vh;
+      max-width: none;
+      max-height: none;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: rgba(15, 31, 26, .97);
+      color: var(--on-deep);
+    }
+    .viewer::backdrop { background: rgba(15, 31, 26, .6); }
+    .viewer[open] { display: grid; grid-template-rows: auto 1fr; }
+    .viewer-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: calc(.75rem + env(safe-area-inset-top, 0px)) var(--gutter) .75rem;
+      border-bottom: 1px solid var(--rule-deep);
+    }
+    .viewer-title {
+      flex: 1;
+      min-width: 0;
+      font-size: .9rem;
+      color: var(--on-deep-soft);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .viewer-title strong { font-weight: 500; color: var(--on-deep); }
+    .viewer-tools { display: flex; align-items: center; gap: .4rem; }
+    .viewer-tools button {
+      display: grid;
+      place-items: center;
+      min-width: 2.5rem;
+      height: 2.5rem;
+      padding: 0 .6rem;
+      font: 500 .85rem var(--sans);
+      color: var(--on-deep);
+      background: transparent;
+      border: 1px solid var(--rule-deep);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .viewer-tools button:hover { border-color: var(--brass-light); color: var(--brass-light); }
+    .viewer-tools button:disabled { opacity: .35; cursor: default; }
+    .viewer-tools button[hidden] { display: none; }
+    .viewer-tools svg { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .viewer-tools .sep { width: 1px; height: 1.5rem; background: var(--rule-deep); margin: 0 .3rem; }
+    .viewer-page { font-size: .85rem; color: var(--on-deep-soft); min-width: 3.5rem; text-align: center; }
+    .viewer-stage {
+      overflow: auto;
+      cursor: grab;
+      display: grid;
+      place-items: center;
+      padding: 1.5rem;
+      overscroll-behavior: contain;
+    }
+    .viewer-stage.dragging { cursor: grabbing; }
+    .viewer-stage.zoomed { place-items: start; }
+    .viewer-stage img {
+      max-width: none;
+      box-shadow: 0 30px 60px -25px rgba(0, 0, 0, .7);
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    @media (max-width: 640px) {
+      .viewer-title { display: none; }
+      .viewer-bar { justify-content: space-between; }
+      .viewer-tools .sep, .viewer-tools [data-act="fit"] { display: none; }
+    }
+
+
+    /* Éléments de transcription */
+    .article-body .chapo {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      line-height: 1.55;
+      color: var(--deep);
+    }
+    .article-body h3 {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--brass-strong);
+      margin-top: 2em;
+    }
+    .article-body .pull {
+      margin: 2.25rem 0;
+      padding: .25rem 0 .25rem 1.5rem;
+      border-left: 2px solid var(--brass);
+      font-family: var(--serif-italic);
+      font-style: italic;
+      font-size: 1.3rem;
+      line-height: 1.5;
+      color: var(--deep);
+    }
+    .article-body .pull cite {
+      display: block;
+      margin-top: .5rem;
+      font: 500 .85rem var(--sans);
+      font-style: normal;
+      color: var(--ink-soft);
+    }
+    .article-body .rule {
+      padding: 1rem 1.25rem;
+      background: var(--sand);
+      border-left: 3px solid var(--deep);
+      font-weight: 600;
+      color: var(--deep);
+    }
+    .article-body .repere,
+    .footnotes .sources {
+      font-size: .85rem;
+      color: var(--ink-soft);
+    }
+    .footnotes .sources { margin-top: .9rem; }
+    .article-body .example {
+      padding: 1.25rem 1.4rem;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      font-size: .95rem;
+    }
+    .example-title { font-weight: 600; color: var(--deep); margin-bottom: .8rem; }
+    .example table { width: 100%; border-collapse: collapse; }
+    .example th, .example td {
+      text-align: left;
+      vertical-align: top;
+      padding: .45rem .75rem .45rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .example thead th { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--brass-strong); }
+    .example tbody th { color: var(--deep); }
+    .example-note { margin-top: .7rem; font-size: .82rem; color: var(--ink-soft); }
+    .byline { margin-top: .9rem; font-size: .95rem; color: var(--on-deep-soft); max-width: 46rem; }
+    .related {
+      margin-top: 2.5rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--rule);
+      font-size: .95rem;
+    }
+    .related a { color: var(--brass-strong); font-weight: 500; }
+    @media (max-width: 600px) {
+      .example th, .example td { display: block; padding-right: 0; }
+      .example thead { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      .page-head .wrap > *, .article-head { animation: none; }
+      *, *::before, *::after { transition-duration: 0s !important; }
+    }
+  </style>
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <!-- Rosace guillochée réutilisée comme décor (style billet de banque) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <g id="rosace" fill="none" stroke="currentColor" stroke-width=".6">
+        <ellipse id="ell" cx="0" cy="0" rx="300" ry="96" />
+        <use href="#ell" transform="rotate(6)" /><use href="#ell" transform="rotate(12)" /><use href="#ell" transform="rotate(18)" />
+        <use href="#ell" transform="rotate(24)" /><use href="#ell" transform="rotate(30)" /><use href="#ell" transform="rotate(36)" />
+        <use href="#ell" transform="rotate(42)" /><use href="#ell" transform="rotate(48)" /><use href="#ell" transform="rotate(54)" />
+        <use href="#ell" transform="rotate(60)" /><use href="#ell" transform="rotate(66)" /><use href="#ell" transform="rotate(72)" />
+        <use href="#ell" transform="rotate(78)" /><use href="#ell" transform="rotate(84)" /><use href="#ell" transform="rotate(90)" />
+        <use href="#ell" transform="rotate(96)" /><use href="#ell" transform="rotate(102)" /><use href="#ell" transform="rotate(108)" />
+        <use href="#ell" transform="rotate(114)" /><use href="#ell" transform="rotate(120)" /><use href="#ell" transform="rotate(126)" />
+        <use href="#ell" transform="rotate(132)" /><use href="#ell" transform="rotate(138)" /><use href="#ell" transform="rotate(144)" />
+        <use href="#ell" transform="rotate(150)" /><use href="#ell" transform="rotate(156)" /><use href="#ell" transform="rotate(162)" />
+        <use href="#ell" transform="rotate(168)" /><use href="#ell" transform="rotate(174)" />
+        <ellipse cx="0" cy="0" rx="300" ry="300" /><ellipse cx="0" cy="0" rx="312" ry="312" />
+        <ellipse cx="0" cy="0" rx="96" ry="96" />
+      </g>
+    </defs>
+  </svg>
+
+  <header class="site-header" id="haut">
+    <div class="wrap header-inner">
+      <a class="brand" href="../index.html" aria-label="LG Advisory, accueil">
+        <span class="brand-mark" aria-hidden="true">LG</span>
+        <span class="brand-text">
+          <span class="brand-name">LG Advisory</span>
+          <span class="brand-tag">Stratégie patrimoniale</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html#expertise">Expertise</a></li>
+          <li><a href="../index.html#parcours">Parcours</a></li>
+          <li><a href="../publications.html" aria-current="page">Publications</a></li>
+          <li><a class="nav-cta" href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu" class="essai">
+    <article>
+      <div class="page-band on-deep">
+        <div class="wrap">
+          <nav class="crumb" aria-label="Fil d'Ariane">
+            <a href="../index.html">Accueil</a> <span aria-hidden="true">/</span>
+            <a href="../publications.html">Publications</a> <span aria-hidden="true">/</span>
+            <a href="../publications.html#annee-2015">2015</a>
+          </nav>
+          <!-- à vérifier : Numéro, date exacte et pages à vérifier (postérieur à février 2015, d'après les sources citées). -->
+        </div>
+      </div>
+
+      <section class="article-section">
+        <div class="wrap article-grid">
+          <header class="article-head">
+            <p class="kicker"><span>Événement</span> <i>Les Nouvelles Fiscales</i></p>
+            <h1>Pour un bonheur fiscal intérieur brut…</h1>
+            <p class="byline">Laurent Gayet, membre du Cercle des fiscalistes, directeur clientèle privée, AXA</p>
+            <dl class="facts">
+              <div><dt>Auteur</dt><dd>Laurent Gayet</dd></div>
+                <div><dt>Paru dans</dt><dd><i>Les Nouvelles Fiscales</i></dd></div>
+                <div><dt>Date</dt><dd><time datetime="2015-03">2015</time></dd></div>
+                <div><dt>Lecture</dt><dd>12&nbsp;min</dd></div>
+            </dl>
+          </header>
+
+          <div class="article-main">
+            <div class="article-body">
+              <p class="chapo">Certes, nous ne manquons pas d'acronymes dans le domaine financier et nul besoin de compléter une liste dominée par le plus célèbre d'entre eux, le PIB (produit intérieur brut), si ce n'est que nécessité fait loi tant les mouvements de résistance à l'impôt illustrent une crise du consentement.</p>
+              
+              <p>N'est-il pas venu le temps de réfléchir à un nouvel indice mesurant le passage du haut-le-cœur fiscal à haut les cœurs pour payer un impôt légitime avec un consentement assumé&nbsp;? Il est urgent de créer un indicateur qui mesurerait la satisfaction fiscale de contribuables dont respectivement les syndromes pathologiques de Météo et de Pénélope ont atteint les plus optimistes d'entre eux.</p>
+              
+              <p>Le premier, c'est le <strong>syndrome du ressenti</strong>&nbsp;: celui qui distingue la température réelle de l'impression qu'en a chacun à cause d'un vent glaçant et pénétrant aux effets amplificateurs. Ce syndrome appliqué à la matière fiscale fait qu'aujourd'hui le fond de l'air fiscal effraie (est frais aussi) et, nonobstant les réformes menées par les différents gouvernements, le contribuable a toujours le sentiment d'une fiscalité injuste ne rendant pas heureux celui qui l'acquitte (et qui parfois la quitte pour des cieux fiscaux moins tempétueux).</p>
+              
+              <p>Le second syndrome, c'est <strong>celui d'un État</strong> qui fait et défait sans cesse la tapisserie fiscale chère à la compagne d'Ulysse rendant illisible le message et inaudible le messager.</p>
+              
+              <p>Contribuable heureux est-il un oxymore de nature perpétuelle dans un État envahi par la marée noire des caractères d'imprimerie que représentent nos <strong>70&nbsp;codes de droit</strong> gravés sur une stèle (avis à l'amateur d'art contemporain) qui atteindraient 3&nbsp;200&nbsp;mètres de hauteur avec un Code général des impôts illustré en sus par un stroboscope législatif aveuglant…&nbsp;? Qu'a-t-on appris depuis que déjà, en 1991, dans son rapport public<sup><a href="#note-1" id="appel-1">(1)</a></sup> le Conseil d'État fustigeait la logorrhée législative symbole d'une pathologie d'incontinence diagnostiquée&nbsp;? Alors, quels critères pourraient alimenter notre nouvel indice afin qu'il soit quantifiable&nbsp;? Et ensuite, quels alicaments pour la quête du bien-être prospectif fiscal&nbsp;? Benjamin Constant renvoyait déjà sur l'État la charge de la preuve d'une justice essentielle&nbsp;: «&nbsp;<i>Que l'État se contente d'être juste&nbsp;; nous nous chargeons d'être heureux</i>&nbsp;». En effet, quand l'action de l'État est considérée comme efficace, quand les contreparties sont visibles et perçues comme justes alors le consentement à l'impôt est fluidifié et non contesté.</p>
+              
+              <p>Mais avec un taux de <strong>46&nbsp;% de prélèvements obligatoires</strong> en pourcentage du PIB parmi les plus élevés des pays de l'OCDE… le peut-on encore&nbsp;? Sûrement oui, même si le ressenti français ne peut pas ignorer ce constat de Tocqueville toujours brûlant d'actualité&nbsp;: «&nbsp;<i>Quand l'inégalité est la loi commune d'une société les plus fortes inégalités ne frappent point l'œil</i>&nbsp;»&nbsp;; mais quand tout est à peu près au niveau les moindres inégalités le blessent et le désir devient insatiable d'égalité… Quitte d'ailleurs à contester le fait que la pire des inégalités, c'est de traiter également des situations qui ne le sont pas. Égalitarisme et égalité, équité et solidarité nourrissent la réflexion fiscale en France depuis des décennies sans parvenir à convaincre les donneurs universels peu nombreux mais les plus taxés (du groupe O qui les rend… sanguins) qu'ils apportent la juste dose d'oxygène par rapport à leurs facultés contributives&nbsp;; et arriver à persuader les receveurs nombreux (A, B) et universels pour certains d'entre eux qui en bénéficient pleinement (AB) que les donneurs contribuent suffisamment pour éviter une thrombose létale du système. Comment raisonner en effet sur l'impôt sur le revenu sans évoquer son effet redistributif particulièrement important en France et qui réduit fortement les écarts sur l'échelle des inégalités de l'indice de Gini&nbsp;?</p>
+              
+              <p>Car au sommet des classements du bonheur par pays et aussi subjectives que sont les statistiques dans un domaine aussi intime se trouvent aussi bien des pays riches à fort taux d'imposition comme les pays scandinaves que des pays riches avec des taux nettement plus faibles (Suisse, Australie…). On peut y voir ici la corrélation entre l'acceptation de l'impôt et la noble cause du bon fonctionnement du pays qu'il est censé financer à travers son devoir sociétal.</p>
+              
+              <p>À cet égard une expérience menée par des neuroscientifiques britanniques a montré que les mêmes aires du cerveau étaient stimulées par une récompense et par une contribution forcée à un projet altruiste, preuve que l'impôt peut théoriquement générer une <strong>sensation agréable roborative</strong>.</p>
+              
+              <p>Il devrait être alors plus <strong>lisible, non rétroactif, pédagogique, non confiscatoire</strong> et surtout <strong>moins perçu</strong> comme autant <strong>clivant</strong> entre classes sociales, entre catégories professionnelles, entre public et privé, entre jeunes et retraités… l'histoire nous apprenant que la Révolution française a érigé le principe d'<strong>universalité de l'impôt</strong> comme essentiel au socle national. Mais, pour cela, il conviendra sûrement de rendre la démocratie encore plus participative, car l'acceptation de l'impôt est souvent proportionnelle au degré d'implication du citoyen et donc de sa compréhension des enjeux actuels et futurs.</p>
+              
+              <p>Une chimère&nbsp;? Peut-être hier, mais aujourd'hui… Les prises de conscience d'une nécessaire et vitale adaptation de notre modèle fiscal se multiplient. N'est-il pas le temps du <i>kairos</i>, le bon moment pour agir, chers parlementaires, experts, ministres, administration fiscale et s'atteler à la quête du bonheur fiscal des citoyens contribuables à la recherche d'un espoir perdu de vrai contrat fiscal sociétal qui pourrait emprunter à Victor Hugo le titre de la réflexion et surtout de la conclusion&nbsp;: «&nbsp;<i>L'homme qui rit… enfin</i>&nbsp;».</p>
+              
+              <p>Mais comment alors redonner le sourire&nbsp;?</p>
+              
+              <h2>Une dose massive de simplification/suppression avec amplificateur immédiat</h2>
+              
+              <p>Tels les prêtres d'Apollon, les juristes fiscalistes sont les seuls à même de comprendre les discours pythiques de la loi et d'en révéler les conséquences néfastes ou fastes. L'inflation normative devient <strong>antidémocratique</strong> non seulement parce que les ordonnances du pouvoir exécutif seront bientôt équivalentes en nombre aux lois, mais surtout parce que nous n'avons pas évolué depuis Montaigne&nbsp;: <i>nous avons en France plus de lois que le reste du monde</i> et le <strong>nul n'est censé comprendre la loi</strong> devient ici un adage hors d'âge au profit d'un plus moderne&nbsp;: nul n'est censé comprendre la loi à tel point d'ailleurs que même les savants juges du Conseil constitutionnel ont considéré comme inintelligibles plusieurs articles de la loi de finances pour 2015<sup><a href="#note-2" id="appel-2">(2)</a></sup> et de la loi de finances rectificative pour 2014<sup><a href="#note-3" id="appel-3">(3)</a></sup> et notamment celui concernant les conseillers fiscaux qui participeraient à l'élaboration de schémas frauduleux d'abus de droit. Au-delà de la volonté affichée de la <strong>simplification</strong>, il faut <strong>accélérer l'abrogation des lois inutiles</strong> qui affaiblissent les lois nécessaires. Moins de textes donnerait sûrement plus de sens et de responsabilisation des acteurs pour pratiquer la négociation tant souhaitée par Bercy et illustrée par les <strong>contrats de confiance</strong> passés avec les grandes entreprises dans le cadre des contrôles fiscaux <i>a priori</i>. À cet égard, et c'est sûrement un facteur positif, lors de la 16<sup>e</sup>&nbsp;conférence annuelle du panorama des redressements fiscaux, qui s'est tenue le 26&nbsp;juin 2014, le chef du service juridique de la fiscalité à la DGFiP a évoqué à nouveau l'expérience de la relation de confiance mise en place avec un groupe restreint d'entreprises et qui a vocation à s'élargir. Bonne initiative que celle qui vise à glisser du contrôle au conseil, sauf si demain seules celles qui dealent avec le fisc devaient être considérées comme de bonne foi.</p>
+              
+              <p>Le contexte de responsabilité et de fluidité réitéré par les pouvoirs politiques ne peut se décliner en carcan législatif réservé aux initiés, étouffant pour des contribuables citoyens désireux de ne plus s'enfermer comme à l'époque des portes et fenêtres pour échapper à l'impôt. Au contraire, que l'on évoque des pactes ou des contrats, il s'agit surtout de susciter et de faire vivre un esprit d'entrepreneur qui n'est pas un esprit catégoriel réservé, mais une posture libératrice de chacun face aux blocages. La fonction publique n'en est évidemment pas exclue.</p>
+              
+              <p>Or, dans le dernier rapport <i>Doing Business</i> 2014 de la Banque mondiale, la France reste mal classée avec 132&nbsp;heures de temps consacrées pour les entreprises à remplir les déclarations fiscales et s'acquitter en moyenne des 52&nbsp;impôts et prélèvements qui les touchent au cours d'une année. Cette inflation normative fait courir aux entrepreneurs un risque de non-conformité réglementaire avec une prolifération des taxes à faible rendement et touchant un public étroit. D'ailleurs, le Conseil des prélèvements obligatoires l'évoque pour préconiser leur suppression&nbsp;: 179&nbsp;taxes dont 80&nbsp;% ne font pas le bonheur du contribuable mais également du Trésor car ne répondant pas au <i>crash test</i> fiscal des critères du bon impôt (rendement, complexité, atteinte des objectifs et effets économiques). Pourquoi ne pas tirer immédiatement des conséquences de cet état de fait non contestable concernant les taxes sur la production et ne supprimer au titre de 2015 que les taxes sur les flippers et les baby-foot<sup><a href="#note-4" id="appel-4">(4)</a></sup>&nbsp;?</p>
+              
+              <p>Enfin, est-il si illusoire de ne voter que deux lois de finances dans l'année et sans rétroactivité autre que la petite rétroactivité plus communément appelée rétrospectivité&nbsp;? Certes, à l'occasion de la deuxième réunion du Comité place de Paris 2020 le 1<sup>er</sup>&nbsp;décembre 2014, Michel Sapin a rendu publique une charte qui pose le <strong>principe de non-rétroactivité en matière fiscale</strong>. Toutefois, ce n'est qu'une <strong>charte</strong> et quelle valeur juridique revêt-elle&nbsp;? C'est un pas significatif, mais c'est avant tout une <strong>lettre d'intention</strong> et la conjugaison avec les principes de confiance légitime et de sécurité juridique ne semble pas renforcée pour autant surtout que les dispositions interprétatives et de validations législatives, entorse grave aux principes de non-rétroactivité, sont toujours présentes dans cette charte.</p>
+              
+              <h2>Une nécessaire ligne directrice convergente dans les conclusions des rapports sur la fiscalité et les finances suivie de concrétude attitude</h2>
+              
+              <p>La France procrastine-t-elle trop en matière fiscale&nbsp;? Une révolution fiscale est-elle nécessaire pour asseoir un minimum de réformes&nbsp;? Ces questions iconoclastes pourraient peut-être trouver réponses si le Parlement était suffisamment éclairé par des rapports ne justifiant pas des reports et des visions antinomiques d'experts.</p>
+              
+              <p>Trois rapports et un enterrement ou comment enterrer une réforme en préconisant un rapport&nbsp;?</p>
+              
+              <p>Ainsi, Gini et son coefficient de mesure d'inégalité ne peuvent que devenir girouette à la lecture des excellents travaux et ouvrages afférents à l'impôt juste et équitable.</p>
+              
+              <p>Mais, ce qui est sûr, c'est que la capacité des Français à consommer aurait reculé de 1&nbsp;630&nbsp;€ par ménage depuis 2008 selon l'Observatoire français des conjonctures économiques (OFCE).</p>
+              
+              <p>En cause les <strong>mesures</strong> visant à réduire le <strong>déficit financier</strong> et à <strong>financer le pacte de compétitivité</strong>. Le rapport sur la fiscalité des ménages d'avril 2014 et celui de février 2015 du Conseil des prélèvements obligatoires font consensus avec le rôle de la redistribution. Le débat sur l'équité de la répartition des charges publiques, intégrant l'équité horizontale et verticale, réinstaure le débat sur la progressivité dans lequel le poids des prestations joue un rôle majeur. Comment alors générer une satisfaction généralisée des citoyens en tentant de concilier l'universalité de l'impôt sachant que concomitamment moins de la moitié des Français acquittent l'impôt sur le revenu censé le mieux caractériser la progressivité. Certes, d'autres impôts sont acquittés comme la CSG (<i>flat tax</i> à la française) ou la TVA, mais le renoncement récent au principe d'universalité des allocations familiales relevant de la politique sociale et non fiscale démontre que la notion d'impôt juste dépasse le fiscal équitable pour englober le social équitable avec un résultat sociétal contestable (même si les sages du Conseil constitutionnel ont validé les textes).</p>
+              
+              <p>Certes, le consensus n'est pas aisé puisque les réformes se font à recettes escomptées inchangées générant ainsi gagnants et perdants, mais encore faut-il sûrement mieux expliquer aux perdants pourquoi des équations du style <i>démographie essentielle pour le dynamisme d'un pays est fondamental pour l'avenir des retraites</i> ne se trouvent pas autant valorisées par une fiscalité adéquate que les espoirs qu'elles suscitent quant à la prospérité d'un pays (<i>versus</i> Allemagne). Ainsi, comment anticiper fiscalement une vision claire de l'avenir des retraites lorsque deux rapports (celui du Conseil d'orientation des retraites [COR]<sup><a href="#note-5" id="appel-5">(5)</a></sup> et celui de la Cour des comptes<sup><a href="#note-6" id="appel-6">(6)</a></sup>) se contredisent… Il nous faut plutôt une overdose de réalisme prospectif sur l'avenir des retraites et des outils fiscaux adaptés.</p>
+              
+              <p>Être heureux fiscalement aujourd'hui, c'est aussi considérer que l'impôt doit jouer un <strong>rôle anticipateur</strong> dans une société marquée par un allongement inéluctable de la durée de vie. Comment gérer la désépargne devient l'enjeu majeur des conseillers car nul n'a besoin d'être médium pour comprendre que le serpent Kaa de Mowgli formalisant parfois les comportements des Français trop procrastinateurs et trop confiants dans l'État risque de faire de nombreuses victimes à terme.</p>
+              
+              <p>Certes, les dispositifs PERP et Madelin, mais quel marché occupent-ils respectivement&nbsp;? Très faible même si en progression forte. Heureusement l'<strong>assurance-vie</strong> conforte son succès, mais n'est-il pas venu le moment de rendre fiscalement plus attractives les sorties en rente&nbsp;? Les produits tunnels n'arrivent pas à percer et il est d'ailleurs intéressant de noter que le PERP est populaire avec un ciblage de TMI élevées pour optimiser la déduction fiscale… Le prêt hypothécaire viager ne fonctionne pas non plus car les sommes prêtées par le Crédit foncier, seul acteur, sont trop faibles pour être significativement attrayantes… Il faut sans doute revoir les systèmes de rentes viagères à titre onéreux et gratuit pour que le sujet des revenus du futur soit bien pris en compte, car les donations irréversibles et encouragées pour bénéficier d'avantages fiscaux en fonction de l'âge du donateur notamment ont mis à mal de nombreux retraités victimes du syndrome du père Goriot.</p>
+              
+              <h2>Une fiscalité au service de l'économie&nbsp;: holding animatrice ou le juge et l'économie réelle (TGI Paris, 11&nbsp;déc. 2014)</h2>
+              
+              <p>Nous attendions la première décision contentieuse. Elle est arrivée par le TGI de Paris grâce à un raisonnement implacable du juge suivant une motivation identique de l'avocat<sup><a href="#note-7" id="appel-7">(7)</a></sup>.</p>
+              
+              <p>Comment à la fois encourager l'entrepreneuriat et sa réussite, donc de grandir et de percer à l'international, et soutenir une sanction aussi lourde que la remise en cause totale de l'exonération d'ISF pour les dirigeants&nbsp;?</p>
+              
+              <p>Le caractère bipolaire que confère cette ambiguïté n'a pas échappé au juge. De même, comment ne pas être dubitatif sur les modalités d'application du régime de départ en retraite avec des holdings interposées ou des jeunes PME…<sup><a href="#note-8" id="appel-8">(8)</a></sup> et les moins-values sur lesquelles s'appliquent les abattements pour durée de détention incitant à céder tout de suite ce qui est antinomique avec le souhait de l'actionnariat stable et durable. Car la fiscalité doit aussi fluidifier l'économie et si la France considère que l'ISF doit être maintenu, encore faut-il avoir une vision extensive de l'interprétation des exonérations adaptées au monde économique (par exemple les stages sur la manière de pénétrer le marché chinois avec des participations majoritaires pourraient être utiles à certains rédacteurs d'instructions fiscales…) et non des doctrines réductrices par rapport à l'esprit des lois.</p>
+              
+              <p>Remettre en cause le caractère animateur pour le tout au motif que même involontairement un groupe aurait perdu le contrôle d'une filiale est <strong>abusif</strong> car ne tenant pas compte de l'environnement économique mondialisé&nbsp;? Pourtant, début 2014, il semblait que l'Administration avait assoupli sa position si les filiales non contrôlées ou non animées ne représentaient pas plus de 50&nbsp;% de l'actif brut. On attend donc le futur BOFiP sur le sujet comme Godot mais en espérant le voir arrivé assoupli…</p>
+              
+              <p>Mais, au-delà de l'esprit, ce qui est frappant est que holding animatrice et régime des plus-values mobilières refondu à cause des pigeons entraînent pour l'une des contentieux et positions dures de l'Administration et pour l'autre un BOFiP de 186&nbsp;pages et des discussions (avocats, conseils, entreprises et FNDP)… alors que ce sont des thématiques particulièrement essentielles pour la vie économique et l'équilibre qu'il doit toujours y avoir entre le risque pris et la rémunération y afférente.</p>
+              
+              <p>Le discours semble parfois dual engendrant des incompréhensions et des tensions qui nuisent à l'atmosphère sereine permettant de mesurer le bonheur fiscal. Le discours de la méthode avec des cartes abattues d'entrée sur le tapis de jeu de lois pourrait y contribuer par la confiance qu'il instaurerait.</p>
+              
+              <div class="footnotes">
+                <ol>
+                  <li id="note-1">Conseil d'État, Rapport public 1991, Paris, La Documentation française, 1992, p.&nbsp;15. <a href="#appel-1" aria-label="Retour au texte">↩</a></li>
+                  <li id="note-2">L. fin. 2015, n°&nbsp;2014-1654, 29&nbsp;déc. 2014, JO 30&nbsp;déc. <a href="#appel-2" aria-label="Retour au texte">↩</a></li>
+                  <li id="note-3">L. fin. rect. 2014, n°&nbsp;2014-1655, 29&nbsp;déc. 2014, JO 30&nbsp;déc. <a href="#appel-3" aria-label="Retour au texte">↩</a></li>
+                  <li id="note-4">L. fin. 2015, n°&nbsp;2014-1654, 29&nbsp;déc. 2014, JO 30&nbsp;déc. <a href="#appel-4" aria-label="Retour au texte">↩</a></li>
+                  <li id="note-5">COR, Bilan annuel «&nbsp;<i>Évolutions et perspectives des retraites en France</i>&nbsp;», juin 2014. <a href="#appel-5" aria-label="Retour au texte">↩</a></li>
+                  <li id="note-6">Cour des comptes, rapport «&nbsp;<i>Garantir l'avenir des retraites complémentaires des salariés (Agirc et Arrco)</i>&nbsp;», déc. 2014. <a href="#appel-6" aria-label="Retour au texte">↩</a></li>
+                  <li id="note-7">TGI Paris, 11&nbsp;déc. 2014, n°&nbsp;13/06937. <a href="#appel-7" aria-label="Retour au texte">↩</a></li>
+                  <li id="note-8">BOFiP&nbsp;: 186&nbsp;pages. <a href="#appel-8" aria-label="Retour au texte">↩</a></li>
+                </ol>
+                <p class="sources">TGI Paris, 11&nbsp;déc. 2014, n°&nbsp;13/06937. Pour en savoir plus&nbsp;: L. fin. 2015, n°&nbsp;2014-1654, 29&nbsp;déc. 2014, JO 30&nbsp;déc.&nbsp;; L. fin. rect. 2014, n°&nbsp;2014-1655, 29&nbsp;déc. 2014, JO 30&nbsp;déc. Repère&nbsp;: Lamy fiscal 2015, §&nbsp;7879, 7946.</p>
+              </div>
+            </div>
+
+            <p class="notice">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7v4.5M8 4.6v.1"/></svg>
+              <span>Transcription de l'article paru dans <i>Les Nouvelles Fiscales</i>. Le texte reflète l'état du droit à la date
+              de publication&nbsp;; il ne constitue pas un conseil personnalisé. Les 2 pages originales sont consultables en fac-similé.</span>
+            </p>
+
+            <nav class="siblings" aria-label="Articles précédent et suivant">
+                <a class="sibling" href="2014-nouvelles-fiscales-investissement-forestier.html" rel="prev">
+                  <span class="sibling-label"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M14 8H3M7 4 3 8l4 4"/></svg> Article précédent</span>
+                  <span class="sibling-title">Investissement forestier&nbsp;: une niche en bois dur</span>
+                  <span class="sibling-meta"><i>Les Nouvelles Fiscales</i>, 2014</span>
+                </a>
+                <a class="sibling" href="2016-luxembourg-mozart-des-contrats.html" rel="next">
+                  <span class="sibling-label">Article suivant <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span>
+                  <span class="sibling-title">Luxembourg&nbsp;: le Mozart des contrats dans le chant des possibles…</span>
+                  <span class="sibling-meta">vers 2016</span>
+                </a>
+            </nav>
+            <a class="back" href="../publications.html">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12M2 8h12M2 13h8"/></svg>
+              Toutes les publications
+            </a>
+          </div>
+
+          <aside class="article-aside">
+            <figure class="facsimile">
+              <p class="aside-label">Fac-similé</p>
+              <button class="facsimile-open" type="button" data-viewer aria-label="Agrandir la page originale">
+                <img src="scans/2015-nouvelles-fiscales-bonheur-fiscal-interieur-brut-1-vignette.jpg" alt="Page originale de l'article Pour un bonheur fiscal intérieur brut…" width="640" height="453">
+                <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3.5 3.5M7 5v4M5 7h4"/></svg></span>
+              </button>
+              <figcaption><i>Les Nouvelles Fiscales</i>, 2015.</figcaption>
+              <button class="btn btn-dark" type="button" data-viewer>
+                Consulter l'original (2 pages)
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+              </button>
+            </figure>
+
+            <div class="ref">
+              <p class="aside-label">Référence</p>
+              <cite id="citation">L. Gayet, «&nbsp;Pour un bonheur fiscal intérieur brut…&nbsp;», <i>Les Nouvelles Fiscales</i>, 2015.</cite>
+              <button class="copy" type="button" id="copy">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1"/><path d="M11 5V2.5H2.5V11H5"/></svg>
+                <span>Copier la référence</span>
+              </button>
+            </div>
+
+            <div class="ref">
+              <p class="aside-label">Thèmes</p>
+              <div class="tags">
+                <a href="../publications.html?theme=fiscalite">Fiscalité</a>
+                <a href="../publications.html?theme=gestion">Gestion de patrimoine</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <!-- Visionneuse : une entrée par page scannée (src, libellé) -->
+  <dialog class="viewer" id="viewer" aria-label="Fac-similé de l'article"
+    data-pages='[{"src":"scans/2015-nouvelles-fiscales-bonheur-fiscal-interieur-brut-1.jpg","label":"Pages 1-2"},{"src":"scans/2015-nouvelles-fiscales-bonheur-fiscal-interieur-brut-2.jpg","label":"Pages 3-4"}]'>
+    <div class="viewer-bar">
+      <p class="viewer-title"><strong>Les Nouvelles Fiscales</strong>, 2015</p>
+      <div class="viewer-tools">
+        <button type="button" data-act="prev" aria-label="Page précédente"><svg viewBox="0 0 16 16"><path d="M10 3 5 8l5 5"/></svg></button>
+        <span class="viewer-page" aria-live="polite"></span>
+        <button type="button" data-act="next" aria-label="Page suivante"><svg viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button>
+        <span class="sep" aria-hidden="true"></span>
+        <button type="button" data-act="out" aria-label="Dézoomer"><svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3.5 3.5M5 7h4"/></svg></button>
+        <button type="button" data-act="fit">Ajuster</button>
+        <button type="button" data-act="in" aria-label="Zoomer"><svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3.5 3.5M7 5v4M5 7h4"/></svg></button>
+        <span class="sep" aria-hidden="true"></span>
+        <button type="button" data-act="close" aria-label="Fermer"><svg viewBox="0 0 16 16"><path d="m3.5 3.5 9 9M12.5 3.5l-9 9"/></svg></button>
+      </div>
+    </div>
+    <div class="viewer-stage">
+      <img alt="Page originale de l'article Pour un bonheur fiscal intérieur brut…" draggable="false">
+    </div>
+  </dialog>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="LG Advisory, accueil">
+            <span class="brand-mark" aria-hidden="true">LG</span>
+            <span class="brand-text">
+              <span class="brand-name">LG Advisory</span>
+              <span class="brand-tag">Stratégie patrimoniale</span>
+            </span>
+          </a>
+          <p>Stratégie patrimoniale et fiscale indépendante, fondée par Laurent Gayet.</p>
+        </div>
+        <nav aria-label="Pied de page">
+          <h2>Navigation</h2>
+          <ul>
+            <li><a href="../index.html#expertise">Expertise</a></li>
+            <li><a href="../index.html#demarche">Démarche</a></li>
+            <li><a href="../index.html#parcours">Parcours</a></li>
+            <li><a href="../publications.html">Publications</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="mailto:contact@lg-advisory.eu">contact@lg-advisory.eu</a></li>
+            <li><a href="../contact.html">Formulaire de contact</a></li>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <p>© <span id="year">2026</span> LG Advisory. Tous droits réservés.</p>
+        <!-- À compléter selon le statut réglementaire du cabinet, par exemple :
+        <p>LG Advisory, [forme juridique] au capital de [montant] €, SIREN [numéro].
+        Conseiller en investissements financiers (CIF) membre de [association agréée par l'AMF].
+        Immatriculé à l'ORIAS sous le n° [numéro] (www.orias.fr).</p>
+        -->
+        <p>
+          Les informations présentées sur ce site ont un caractère général et ne constituent
+          pas un conseil personnalisé. Tout investissement comporte des risques, notamment
+          de perte en capital.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Année du copyright
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Menu mobile
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.getElementById("nav");
+    toggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open);
+      toggle.textContent = open ? "Fermer" : "Menu";
+    });
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.textContent = "Menu";
+      });
+    });
+
+    // Ombre de l'en-tête au défilement
+    const header = document.querySelector(".site-header");
+    const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    // Apparition progressive des blocs
+    const reveals = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-in");
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: .1 });
+      reveals.forEach(el => io.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add("is-in"));
+    }
+
+    // Visionneuse du fac-similé (zoom, déplacement à la souris ou au doigt, pages multiples)
+    const viewer = document.getElementById("viewer");
+    const stage = viewer.querySelector(".viewer-stage");
+    const img = stage.querySelector("img");
+    const pageLabel = viewer.querySelector(".viewer-page");
+    const pages = JSON.parse(viewer.dataset.pages);
+    let index = 0, scale = 1, fit = 1, atFit = true;
+
+    function fitScale() {
+      const pad = 48;
+      return Math.min((stage.clientWidth - pad) / img.naturalWidth, (stage.clientHeight - pad) / img.naturalHeight, 1);
+    }
+    function setScale(s, cx = .5, cy = .5) {
+      const max = 3;
+      const prev = { x: stage.scrollLeft + stage.clientWidth * cx, y: stage.scrollTop + stage.clientHeight * cy, w: img.offsetWidth || 1 };
+      scale = Math.min(max, Math.max(fit, s));
+      atFit = Math.abs(scale - fit) < .001;
+      img.style.width = Math.round(img.naturalWidth * scale) + "px";
+      stage.classList.toggle("zoomed", !atFit);
+      const ratio = img.offsetWidth / prev.w;
+      stage.scrollLeft = prev.x * ratio - stage.clientWidth * cx;
+      stage.scrollTop = prev.y * ratio - stage.clientHeight * cy;
+      viewer.querySelector('[data-act="out"]').disabled = atFit;
+      viewer.querySelector('[data-act="in"]').disabled = scale >= max;
+      stage.style.cursor = atFit ? "zoom-in" : "";
+    }
+    function show(i) {
+      index = (i + pages.length) % pages.length;
+      img.onload = () => { fit = fitScale(); setScale(fit); };
+      img.src = pages[index].src;
+      pageLabel.textContent = pages.length > 1 ? `${index + 1} / ${pages.length}` : pages[index].label;
+      viewer.querySelectorAll('[data-act="prev"], [data-act="next"]').forEach(b => { b.hidden = pages.length < 2; });
+    }
+    document.querySelectorAll("[data-viewer]").forEach(b => b.addEventListener("click", () => {
+      viewer.showModal();
+      show(0);
+    }));
+    viewer.querySelector(".viewer-tools").addEventListener("click", e => {
+      const act = e.target.closest("button")?.dataset.act;
+      if (act === "close") viewer.close();
+      if (act === "prev") show(index - 1);
+      if (act === "next") show(index + 1);
+      if (act === "in") setScale(scale * 1.5);
+      if (act === "out") setScale(scale / 1.5);
+      if (act === "fit") setScale(fit);
+    });
+    viewer.addEventListener("keydown", e => {
+      if (e.key === "+" || e.key === "=") setScale(scale * 1.5);
+      if (e.key === "-") setScale(scale / 1.5);
+      if (e.key === "0") setScale(fit);
+      if (e.key === "ArrowLeft" && atFit) show(index - 1);
+      if (e.key === "ArrowRight" && atFit) show(index + 1);
+    });
+    window.addEventListener("resize", () => {
+      if (!viewer.open || !img.naturalWidth) return;
+      const wasFit = atFit;
+      fit = fitScale();
+      setScale(wasFit ? fit : scale);
+    });
+
+    // Clic sur l'image : zoom à l'endroit cliqué, ou retour à la vue d'ensemble
+    let drag = null, moved = false;
+    stage.addEventListener("pointerdown", e => {
+      if (e.button !== 0) return;
+      drag = { x: e.clientX, y: e.clientY, left: stage.scrollLeft, top: stage.scrollTop };
+      moved = false;
+      if (!atFit && e.pointerType === "mouse") stage.setPointerCapture(e.pointerId);
+    });
+    stage.addEventListener("pointermove", e => {
+      if (!drag || atFit || e.pointerType !== "mouse") return;
+      const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      if (Math.abs(dx) + Math.abs(dy) > 4) { moved = true; stage.classList.add("dragging"); }
+      stage.scrollLeft = drag.left - dx;
+      stage.scrollTop = drag.top - dy;
+    });
+    stage.addEventListener("pointerup", e => {
+      stage.classList.remove("dragging");
+      if (drag && !moved && e.target === img) {
+        const r = stage.getBoundingClientRect();
+        const cx = (e.clientX - r.left) / r.width, cy = (e.clientY - r.top) / r.height;
+        setScale(atFit ? Math.max(1, fit * 2) : fit, cx, cy);
+      }
+      drag = null;
+    });
+
+    // Copie de la référence bibliographique
+    const copyBtn = document.getElementById("copy");
+    copyBtn.addEventListener("click", async () => {
+      const text = document.getElementById("citation").textContent.replace(/\s+/g, " ").trim();
+      try {
+        await navigator.clipboard.writeText(text);
+        copyBtn.querySelector("span").textContent = "Référence copiée";
+        setTimeout(() => { copyBtn.querySelector("span").textContent = "Copier la référence"; }, 2200);
+      } catch {
+        getSelection().selectAllChildren(document.getElementById("citation"));
+      }
+    });
+  </script>
+</body>
+</html>

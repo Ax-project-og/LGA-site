@@ -10,3 +10,11 @@ wrangler.jsonc
 CLAUDE.md
 DEPLOIEMENT.md
 logos
+motifs
+LG article scan
+articles/_sources
+articles/_outils
+Double page éditoriale en français.png
+test.html
+# Article mis de côté ("masque": true) : scans non publiés
+articles/scans/2007-nouvelles-fiscales-paquet-fiscal-noel-aout-*
